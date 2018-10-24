@@ -1,2 +1,4 @@
-# HireME  ![Alt text](https://github.com/amitJas/HireME/tree/master/pics/logo.jpg) 
+# HireME  
+<img scr="https://github.com/amitJas/HireME/tree/master/pics/logo.jpg">
+
 Final Project

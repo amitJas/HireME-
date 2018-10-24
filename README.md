@@ -1,2 +1,2 @@
-# HireME  ![logo](https://github.com/amitJas/HireME/tree/master/pics/logo.jpg) 
+# HireME  ![logo](amitJas/HireME/tree/master/pics/logo.jpg) 
 Final Project

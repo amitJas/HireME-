@@ -1,5 +1,6 @@
 # HireME 
 ###### Final Project of Software Engineering - Azrieli College of Engineering, Jerusalem, in collaboration with Meuhedet (child development)
+**HireMe App helps the administrators of Meuhedet tracking the right cadidates to work , with the acceptance sequence of hiring workers.**
 <img src="https://github.com/amitJas/HireME/blob/master/pics/logo.jpg" width="500" height="200"/>
 
 

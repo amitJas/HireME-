@@ -12,10 +12,10 @@ Version Control System |	[git](https://git-scm.com/) & [github](https://github.c
 License	|[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/amitJas/HireME/blob/master/LICENSE)
 Recommended IDE	| **TODO**
 | Issues | [![GitHub issues](https://img.shields.io/github/issues/Oterem/moleAgnose.svg?style=flat)](https://github.com/amitJas/HireME/issues) |
-| Project Management Board| [here](https://github.com/amitJas/HireME/projects) |
+| Project Management Board| [click here](https://github.com/amitJas/HireME/projects) |
 | Documnetation | [![Inline docs](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://github.com/Oterem/moleAgnose/tree/master/Material/docs) |
-| Project diary | [![Inline diary](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://trello.com/b/uvvtmgp8/final-project-hireme-app) |
-| Meetings Diary | [![Inline diary](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://github.com/amitJas/HireME/wiki/Meetings) |
+| Project diary | [Trello](https://trello.com/b/uvvtmgp8/final-project-hireme-app) |
+| Meetings Diary | [click here] (https://github.com/amitJas/HireME/wiki/Meetings) |
 |Project report |	**TODO : Final report**
 |Project Status | Doing
 

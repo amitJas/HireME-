@@ -11,18 +11,29 @@ Category | 	Status |
 Version Control System |	[git](https://git-scm.com/) & [github](https://github.com/)
 License	|[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/amitJas/HireME/blob/master/LICENSE)
 Recommended IDE	| **TODO**
-Github Issues |	[GitHub issues](https://github.com/amitJas/HireME/issues)
-Project Management Board |	Project Board
-Project report |	Final report
-Project Status | Doing
+| Issues | [![GitHub issues](https://img.shields.io/github/issues/Oterem/moleAgnose.svg?style=flat)](https://github.com/amitJas/HireME/issues) |
+| Project Management Board| [here](https://github.com/amitJas/HireME/projects) |
+| Documnetation | [![Inline docs](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://github.com/Oterem/moleAgnose/tree/master/Material/docs) |
+| Project diary | [![Inline diary](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://trello.com/b/uvvtmgp8/final-project-hireme-app) |
+|Project report |	**TODO : Final report**
+|Project Status | Doing
 
 
-This project was bootstrapped with Create React App.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
+## Disclaimer
+This appliction is being developed as part of 4th year final project at the software engeneering department at [Azrieli College of Engineering, Jerusalem, Israel.](http://english.jce.ac.il/)
 
-## Software Design
-Architecture
-Class diagram
-State charts 
-Sequence diagram
+Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more information .
 
 
+### Project Documents
+- [Proposition Form]()
+- [Alpha Version]()
+- [Software Requirements Specification]()
+- [Software Design Specification]()
+
+### Software Design
+* [Architecture]()<br/>
+* [Class diagram]()<br/>
+* [State charts]() <br/>
+* [Sequence diagram]()

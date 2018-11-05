@@ -31,13 +31,13 @@ Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more informa
 
 
 ### Project Documents
-- [Proposition Form]()
-- [Alpha Version]()
-- [Software Requirements Specification]()
-- [Software Design Specification]()
+- [ ] [Proposition Form]()<br/>
+- [ ] [Alpha Version]()<br/>
+- [ ] [Software Requirements Specification]()<br/>
+- [ ] [Software Design Specification]()
 
 ### Software Design
-* [Architecture]()<br/>
-* [Class diagram]()<br/>
-* [State charts]() <br/>
-* [Sequence diagram]()
+- [ ] [Architecture]()<br/>
+- [ ] [Class diagram]()<br/>
+- [ ] [State charts]() <br/>
+- [ ] [Sequence diagram]()

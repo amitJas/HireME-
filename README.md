@@ -15,7 +15,7 @@ Recommended IDE	| **TODO**
 | Project Management Board| [click here](https://github.com/amitJas/HireME/projects) |
 | Documnetation | [![Inline docs](http://inch-ci.org/github/Oterem/moleAgnose.svg?branch=master)](https://github.com/Oterem/moleAgnose/tree/master/Material/docs) |
 | Project diary | [Trello](https://trello.com/b/uvvtmgp8/final-project-hireme-app) |
-| Meetings Diary | [click here] (https://github.com/amitJas/HireME/wiki/Meetings) |
+| Meetings Diary | [click here](https://github.com/amitJas/HireME/wiki/Meetings) |
 |Project report |	**TODO : Final report**
 |Project Status | Doing
 

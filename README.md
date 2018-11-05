@@ -21,7 +21,10 @@ Recommended IDE	| **TODO**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
 ## Disclaimer
-This appliction is being developed as part of 4th year final project at the software engeneering department at [Azrieli College of Engineering, Jerusalem, Israel.](http://english.jce.ac.il/)
+This appliction is being developed by Karin Marjiya and Amit Katan-Jasscort as part of 4th year final project at the software engeneering department at [Azrieli College of Engineering, Jerusalem, Israel.](http://english.jce.ac.il/)
+Academic Moderator : Roger Kahn 
+Industrial Moderator : Rothi Ravitz
+
 
 Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more information .
 

@@ -40,7 +40,7 @@ Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more informa
 - [ ] [Software Design Specification]()
 
 ### Software Design
-- [X] [Architecture](https://github.com/amitJas/HireME/wiki/ERD-Diagram)<br/>
+- [X] [Architecture](https://github.com/amitJas/HireME/wiki/ERD-Architecture-Diagram)<br/>
 - [ ] [Class diagram]()<br/>
 - [X] [State charts](https://github.com/amitJas/HireME/wiki/State-Chart-Diagram)<br/>
 - [ ] [Sequence diagram]()

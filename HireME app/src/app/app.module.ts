@@ -3,9 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+import { HomePage } from '../pages/home/home'
 import { LoginPage } from '../pages/login/login';
 
 import{ StatusBar } from '@ionic-native/status-bar';
@@ -27,10 +25,8 @@ import * as firebase from 'firebase'
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    LoginPage
+    LoginPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -40,10 +36,8 @@ import * as firebase from 'firebase'
   
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    LoginPage
+    LoginPage,
+    HomePage
   ],
   providers: [
     StatusBar,

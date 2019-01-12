@@ -14,8 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  
+  registerCredentials = { email: '', password: '' };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  public createAccount() {
+    this.navCtrl.push('RegisterPage');
   }
 
   ionViewDidLoad() {

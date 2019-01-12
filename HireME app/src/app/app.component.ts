@@ -8,7 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-
+import * as firebase from 'firebase'
 
 @Component({
   templateUrl: 'app.html'
@@ -27,6 +27,22 @@ export class MyApp {
     public splashScreen: SplashScreen
   ) {
     this.initializeApp();
+/*
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        this.rootPage = LoginPage;
+    
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+      }
+    });
+
+    8*/
+
+
 
     // set our app's pages
     this.pages = [

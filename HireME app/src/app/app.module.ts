@@ -2,16 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HttpClient } from '@angular/common/http';
 
 import { HomePage } from '../pages/home/home'
 import { LoginPage } from '../pages/login/login';
 
-import{ StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import{ StatusBar } from '@ionic-native/status-bar';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import * as firebase from 'firebase'
 import { UsersserviceProvider } from '../providers/usersservice/usersservice';
-//dgdfgdfghgfhfjmghj
+
 
   // Initialize Firebase
   export const config = {
@@ -32,7 +31,6 @@ import { UsersserviceProvider } from '../providers/usersservice/usersservice';
   ],
   imports: [
     BrowserModule,
-    HttpClient,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -43,8 +41,8 @@ import { UsersserviceProvider } from '../providers/usersservice/usersservice';
     HomePage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
+    //StatusBar,
+    //SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersserviceProvider
   ]

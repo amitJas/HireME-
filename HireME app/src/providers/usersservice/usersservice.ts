@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase'
 
@@ -9,7 +9,7 @@ export class UsersserviceProvider {
   public fireAuth: any;
   public userProfile: any;
 
-  constructor(public http: HttpClient) {
+  constructor() {
 
     this.fireAuth = firebase.auth(); //
     this.userProfile = firebase.database().ref('user');

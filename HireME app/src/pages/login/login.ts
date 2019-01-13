@@ -37,7 +37,7 @@ export class LoginPage {
     });
     loader.present();
 
-    //email and password check
+    /*email and password check, if exsite in firebace do... else do.....*/
     this.userrsService.loginUser(this.email, this.password).then(authData => {
       //successful
       loader.dismiss(); //stop the loder icon
@@ -50,7 +50,9 @@ export class LoginPage {
         duration: 3000,
         position: 'top'
       });
+      console.log('after massege')
       toast.present();
+      console.log('after lode')
     });
 
   }

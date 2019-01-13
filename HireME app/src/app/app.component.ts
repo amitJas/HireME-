@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as firebase from 'firebase'
+
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import * as firebase from 'firebase'
+import { RegisterPage } from '../pages/register/register';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,20 +30,18 @@ export class MyApp {
       if (user) {
         // User is signed in.
         this.rootPage = HomePage;
-    
-        // ...
       } else {
         // User is signed out.
-        // ...
         this.rootPage = LoginPage;
       }
     });
 
-    // set our app's pages
-    // this.pages = [
-    //   { title: 'Hello Ionic', component: HelloIonicPage },
-    //   { title: 'My First List', component: ListPage }
-    // ];
+    //set our app's pages
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'Login', component: LoginPage },
+      { title: 'Register', component: RegisterPage }
+    ];
   }
 
   initializeApp() {

@@ -19,9 +19,9 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  public createAccount() {
-    this.navCtrl.push('RegisterPage');
-  }
+  // public createAccount() {
+  //   this.navCtrl.push('RegisterPage');
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

@@ -10,7 +10,6 @@ export class UsersserviceProvider {
   public userProfile: any;
 
   constructor() {
-
     this.fireAuth = firebase.auth(); //
     this.userProfile = firebase.database().ref('user');
   }

@@ -2,8 +2,8 @@ import { UsersserviceProvider } from './../../providers/usersservice/usersservic
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController} from 'ionic-angular';
-import * as firebase from 'firebase'
-
+import * as firebase from 'firebase';
+import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,7 +18,7 @@ export class LoginPage {
   public password: string;
 
   constructor(public userrsService: UsersserviceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, 
-              public navCtrl: NavController, public navParams: NavParams) {
+              public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   // public createAccount() {
@@ -45,14 +45,13 @@ export class LoginPage {
     }, error => {
       loader.dismiss();
       //Unable to log in creat massege in pupap
-      let toast = this.toastCtrl.create({
-        message: error,
-        duration: 3000,
-        position: 'top'
+      let alert = this.alertCtrl.create({
+        title: 'לא נמצא שם משתמש זה במערכת',
+        subTitle: 'אנא בדוק כי כתבת נכון',
+        buttons: ['הבנתי'],
+        cssClass: 'alert'
       });
-      console.log('after massege')
-      toast.present();
-      console.log('after lode')
+      alert.present();
     });
 
   }
@@ -61,7 +60,7 @@ export class LoginPage {
 
   }
 
-  redirectToSignup(){
-
+  redirectToRegister(){
+    this.navCtrl.push('RegisterPage');
   }
 }

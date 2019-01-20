@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+      <ion-list>
+          <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label stacked>Password</ion-label>
+              <ion-input type="password"  [(ngModel)]="password" name="email" required="required"></ion-input>
+          </ion-item>
+          <div padding text-center>
+              <ion-button *ngIf="email && password" ion-button color="danger" round (click)="submitLogin()">LOGIN</ion-button>
+              <!--show dead button if form is not filded-->
+              <ion-button color="danger" size="full" *ngIf="!email && !password"  >LOGIN NOW</ion-button>
+             
+          </div>
+      </ion-list>
+  </div>
+
+  <div class="forgotePassword" padding text-center>
+      <ion-button  color="danger"  (click)="forgotPassword()" >forgot password</ion-button>
+  </div>
+
+  <div class="newAccount" padding text-center>
+      <ion-button  color="danger" (click)="redirectToRegister()">NEW ACCOUNT</ion-button>
+      <!-- <ion-button  color="danger" root="register" >NEW ACCOUNT</ion-button> -->
+  </div> 
+</ion-content>

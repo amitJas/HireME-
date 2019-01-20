@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { UsersserviceService } from '../usersservice.service';
-// import { HomePage } from '../home/home.page';
-
-// import * as firebase from 'firebase';
-// import { AlertController} from 'ionic-angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,40 +14,38 @@ export class LoginPage implements OnInit {
   }
   public email: string;
   public password: string;
-  constructor(private router: Router){
+  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController){}
+  //loding icon
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Hellooo',
+      duration: 2000
+    });
+    return await loading.present();
+  }
+
+  // //alert icon
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  submitLogin(){
+    
+    this.presentLoading();
+  
 
   }
- 
-  // submitLogin(){
 
-  //   //lode icon of ionic
-  //   let loader = this.loadingCtrl.create({
-  //     content: "Plaese wait..."
-  //   });
-  //   loader.present();
+  forgotPassword(){
 
-  //   /*email and password check, if exsite in firebace do... else do.....*/
-  //   this.userrsService.loginUser(this.email, this.password).then(authData => {
-  //     //successful
-  //     loader.dismiss(); //stop the loder icon
-  //     this.navCtrl.setRoot(HomePage);
-  //   }, error => {
-  //     loader.dismiss();
-  //     //Unable to log in creat massege in pupap
-  //     let alert = this.alertCtrl.create({
-  //       title: 'לא נמצא שם משתמש זה במערכת',
-  //       subTitle: 'אנא בדוק כי כתבת נכון',
-  //       buttons: ['הבנתי'],
-  //       cssClass: 'alert'
-  //     });
-  //     alert.present();
-  //   });
-
-  // }
-
-  // forgotPassword(){
-
-  // }
+  }
 
   redirectToRegister(){
    this.router.navigate(['register']);

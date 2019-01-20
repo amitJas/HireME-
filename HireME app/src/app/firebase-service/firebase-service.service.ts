@@ -13,11 +13,15 @@ export class FirebaseService {
     })
   }
 
-  setUserData() {
+  setUserData(userName:string, userEmail: string,userNum:number) {
+    console.log('in setUsersData');
+    console.log(userName,userEmail,userNum);
     this.db.collection('Users').add({
-      name: 'karin',
-      last: 'mar',
-      age: 20
+      name: userName,
+      // last: 'mar',
+      // age: 20
+      email:userEmail,
+      employeeNumber:userNum
     })
   }
 

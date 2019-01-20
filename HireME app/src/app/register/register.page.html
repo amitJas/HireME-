@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content padding dir="rtl">
-  <!-- <ion-item class="nameBox"> 
+ <ion-item class="nameBox"> 
     <ion-label color="primary" floating>שם ומשפחה</ion-label>
-    <ion-input type="number" [(ngModel)]="name" name="name" required="required" ></ion-input>
-  </ion-item>
+    <ion-input type="text" [(ngModel)]="name" name="name" required="required" ></ion-input>
+  </ion-item> 
   <ion-item class="employeeNumBox"> 
     <ion-label color="primary" floating>מספר עובד</ion-label>
     <ion-input type="number" [(ngModel)]="employeeNum" name="employeeNum" required="required" ></ion-input>
@@ -20,7 +20,7 @@
     <ion-label color="primary" floating>מייל</ion-label>
     <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
   </ion-item>
-  <ion-item class="phoneBox">
+  <!-- <ion-item class="phoneBox">
     <ion-label color="primary" floating>פלאפון</ion-label>
     <ion-input type="number" [(ngModel)]="phone" name="phone" required="required"></ion-input>
   </ion-item>
@@ -38,8 +38,9 @@
   <ion-item class="passwordBox">
     <ion-label color="password" floating>בחר סיסמה</ion-label>
     <ion-input type="password" [(ngModel)]="password" name="password" required="required"></ion-input>
-  </ion-item>
-  <ion-item>
-    <button ion-button ful *ngIf="email && password" color="danger"  (click)="SubmitLoginForm()" >שמירה</button>
   </ion-item> -->
+  <ion-item>
+    <!-- <ion-button ful *ngIf="email && password" color="danger"  (click)="SubmitLoginForm()" >שמירה</ion-button> -->
+    <ion-button  color="danger" (click)="SubmitLoginForm()">שמירה</ion-button>
+  </ion-item> 
 </ion-content>

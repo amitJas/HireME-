@@ -11,7 +11,7 @@ export class Tab1Page {
   constructor(public firebase: FirebaseService) {}
 
   ngOnInit() {
-    this.firebase.setUserData()
+    //this.firebase.setUserData()
   }
 
 }

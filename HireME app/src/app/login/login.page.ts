@@ -11,6 +11,7 @@ export class LoginPage implements OnInit {
 
   public email: string;
   public password: string;
+  
   constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
   
   ngOnInit() {

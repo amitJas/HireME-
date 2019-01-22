@@ -13,16 +13,26 @@ export class FirebaseService {
     })
   }
 
+  // setUserData(userName:string, userEmail: string,userNum:number) {
+  //   console.log('in setUsersData');
+  //   console.log(userName,userEmail,userNum);
+  //   this.db.collection('Users').add({
+  //     name: userName,
+  //     // last: 'mar',
+  //     // age: 20
+  //     email:userEmail,
+  //     employeeNumber:userNum
+  //   })
+  // }
+
   setUserData(userName:string, userEmail: string,userNum:number) {
     console.log('in setUsersData');
     console.log(userName,userEmail,userNum);
     this.db.collection('Users').add({
       name: userName,
-      // last: 'mar',
-      // age: 20
-      email:userEmail,
-      employeeNumber:userNum
-    })
+      email: userEmail,
+      employeeNumber: userNum
+    });
   }
 
 }

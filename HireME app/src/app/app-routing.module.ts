@@ -7,6 +7,9 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'new-candidate', loadChildren: './new-candidate/new-candidate.module#NewCandidatePageModule' },
+  { path: 'candidate-card', loadChildren: './candidate-card/candidate-card.module#CandidateCardPageModule' },
+  { path: 'candidate-data', loadChildren: './candidate-data/candidate-data.module#CandidateDataPageModule' },
  
 ];
 

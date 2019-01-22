@@ -27,12 +27,11 @@ export class RegisterPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'no mail like this',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK']
+      header: 'המייל הנתון אינו שייך למאוחדת',
+      subHeader: 'אנא הירשם עם מייל מאוחדת תקים',
+      message: '',
+      buttons: ['אישור'],
     });
-
     await alert.present();
   }
   

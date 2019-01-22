@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { FirebaseService } from '../firebase-service/firebase-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  
-  ngOnInit() {
-  }
   public email: string;
   public password: string;
-  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController){}
+  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
+  
+  ngOnInit() {
+    
+  }
+
   //loding icon
   async presentLoading() {
     const loading = await this.loadingCtrl.create({

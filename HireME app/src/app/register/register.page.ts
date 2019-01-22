@@ -42,10 +42,8 @@ export class RegisterPage implements OnInit {
     
     if(this.email.search('@meuhedet.co.il') < 0)
     {
-      console.log(this.email.search('@meuhedet.co.il'));
+      //console.log(this.email.search('@meuhedet.co.il'));
       this.presentAlert();
-      
-      
     }
     else{ //sucsses
       this.firebase.setUserData(this.name,this.email,this.employeeNum);

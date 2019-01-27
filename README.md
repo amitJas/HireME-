@@ -34,7 +34,7 @@ Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more informa
 
 
 ### Project Documents
-- [ ] [Proposition Form]()<br/>
+- [X] [Proposition Form]()<br/>
 - [ ] [Alpha Version]()<br/>
 - [ ] [Software Requirements Specification]()<br/>
 - [ ] [Software Design Specification]()

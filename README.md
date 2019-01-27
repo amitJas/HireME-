@@ -41,7 +41,7 @@ Please visit our [Wiki](https://github.com/amitJas/HireME/wiki) for more informa
 
 ### Software Design
 - [X] [Architecture](https://github.com/amitJas/HireME/wiki/ERD-Architecture-Diagram)<br/>
-- [X ] [Class diagram](https://github.com/amitJas/HireME/wiki/UML-Diagram)<br/>
+- [X] [Class diagram](https://github.com/amitJas/HireME/wiki/UML-Diagram)<br/>
 - [X] [State charts](https://github.com/amitJas/HireME/wiki/State-Chart-Diagram)<br/>
 - [ ] [Sequence diagram]()<br/>
 - [X] [Use Case diagram](https://github.com/amitJas/HireME/wiki/Use-Case-Diagram)<br/>

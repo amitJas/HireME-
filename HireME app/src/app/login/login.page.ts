@@ -41,8 +41,8 @@ export class LoginPage implements OnInit {
 
   submitLogin(){
     
-    this.presentLoading();
-  
+   // this.presentLoading();
+    this.router.navigate(['home']);
 
   }
 

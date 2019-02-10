@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router'; 
+
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavController,private router: Router) { }
 
   ngOnInit() {
+    //this.redirectToRegister();
   }
 
+
+
+  redirectToRegister(){
+    this.router.navigate(['candidate-card']);
+   }
 }

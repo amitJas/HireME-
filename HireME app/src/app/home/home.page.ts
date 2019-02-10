@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
+  public userTest = ["amit","nadav","yanai"]
   constructor(private nav:NavController,private router: Router) { }
 
   ngOnInit() {

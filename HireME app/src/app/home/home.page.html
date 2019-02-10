@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>HOMRkjfgjfk</ion-title>
+    <ion-title>HOMR</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-tab [root]="app-candidate-card"></ion-tab>
+  <ion-card *ngFor="let user of userTest">
+    <ion-card-header>
+      <ion-card-subtitle>{{user}}</ion-card-subtitle>
+      <ion-card-title>78%</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

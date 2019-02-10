@@ -1,14 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>HOMR</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
-  <ion-card *ngFor="let user of userTest">
-    <ion-card-header>
-      <ion-card-subtitle>{{user}}</ion-card-subtitle>
-      <ion-card-title>78%</ion-card-title>
+<ion-content padding dir="rtl">
+  <ion-card *ngFor="let candidate of candidateTest; let i = index" (click) ="getData()"  >
+    {{}}
+    <ion-card-header> 
+      <ion-row>
+        <ion-col>
+          <ion-card-title class="candidateName">{{candidate}}</ion-card-title>
+        </ion-col>
+          <ion-col><ion-card-title class="presant">78%</ion-card-title></ion-col>
+      </ion-row>
     </ion-card-header>
   </ion-card>
 </ion-content>

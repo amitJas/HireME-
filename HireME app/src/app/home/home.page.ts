@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  public userTest = ["amit","nadav","yanai"]
+  public candidateIndex;
+  public candidateTest = ["עמית","ינאי","נועם","נדב"]
   constructor(private nav:NavController,private router: Router) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
 
 
 
-  redirectToRegister(){
-    this.router.navigate(['candidate-card']);
-   }
+  getData(){
+    console.log(this.candidateIndex);
+  }
 }

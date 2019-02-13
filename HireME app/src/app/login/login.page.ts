@@ -9,9 +9,7 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class LoginPage implements OnInit {
 
-  public email: string;
-  public password: string;
-  
+  public employeeNum: number;
   constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
   
   ngOnInit() {

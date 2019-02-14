@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class FirebaseService {
 
+  public currDepartment: any;
   constructor(private db: AngularFirestore) { }
 
   getUserData() {

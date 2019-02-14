@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController , NavParams } from '@ionic/angular';
+//import { NavController , NavParams } from '@ionic/angular';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-candidate',
@@ -10,11 +11,13 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 export class CandidatePage implements OnInit {
 
   public department:any ;
-  constructor( public params: NavParams,public firebase: FirebaseService) { 
-    this.department = this.firebase.currDepartment;
+  constructor(public firebase: FirebaseService,public home: HomePage) { 
+    
   }
 
   ngOnInit() {
+    this.department = this.firebase.currUserDepartment;
+    //console.log(this.department)
   }
 
 }

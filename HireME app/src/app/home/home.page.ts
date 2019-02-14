@@ -24,12 +24,9 @@ export class HomePage implements OnInit {
  
 
   moveToDepartmentCandidate(department){
+    this.firebase.currUserDepartment = department;
     this.departmentIndex = department;
     console.log(department);
     this.router.navigate(['candidate']);
-  }
-
-  getDepartment(){
-    return this.departmentIndex;
   }
 }

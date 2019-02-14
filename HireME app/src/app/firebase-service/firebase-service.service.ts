@@ -5,7 +5,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class FirebaseService {
 
-  public currDepartment: any;
+  public currUserDepartment: any;
+  // public currDepartment: any;
+  // public currDepartment: any;
+  // public currDepartment: any;
+
+
   constructor(private db: AngularFirestore) { }
 
   getUserData() {
@@ -24,4 +29,7 @@ export class FirebaseService {
     });
   }
 
+
+  
+  
 }

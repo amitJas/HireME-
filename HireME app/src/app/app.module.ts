@@ -38,6 +38,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     StatusBar,
     SplashScreen,
     FirebaseService,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

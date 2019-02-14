@@ -1,6 +1,7 @@
+import { FirebaseService } from './../firebase-service/firebase-service.service';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 
 
@@ -10,17 +11,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public candidateIndex;
-  public candidateTest = ["עמית","ינאי","נועם","נדב"]
-  constructor(private nav:NavController,private router: Router) { }
+
+  public departmentIndex: any;
+  public departmentArr = ["אדמינסטרציה","קלינאות תקשורת","ריפוי בעיסוק","פיזוטרפיה","רפואה","פסיכולוגיה","עבודה סוציאלית"]
+  
+  constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
     //this.redirectToRegister();
   }
 
+ 
 
+  moveToDepartmentCandidate(department){
+    this.departmentIndex = department;
+    console.log(department);
+    this.router.navigate(['candidate']);
+  }
 
-  getData(){
-    console.log(this.candidateIndex);
+  getDepartment(){
+    return this.departmentIndex;
   }
 }

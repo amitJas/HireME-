@@ -1,34 +1,34 @@
-<ion-header dir="rtl">
+<ion-header text-right>
   <ion-toolbar>
     <ion-title>{{department}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding dir="rtl">
+<ion-content padding >
   <ion-card class="candidateData">
-    <ion-card-header> 
+    <ion-card-header text-right> 
       <ion-row>
         <ion-col>
-          <ion-card-title class="candidateName">עמית ג'סקורט</ion-card-title>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-            <ion-card-title class="candidatRoll">פיזוטרפיה</ion-card-title>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-card-title class="candidateID">999888666</ion-card-title>
-      </ion-row>
-      <ion-row>
-          <ion-card-title class="candidateLisens">1234567</ion-card-title>
-      </ion-row>
-      <ion-row>
-          <ion-card-title class="candidatePhone">052-888776</ion-card-title>
-      </ion-row>
-      <ion-row>
-          <ion-card-title class="candidateStartDate">2/5/2020</ion-card-title>
-      </ion-row>
+            <div class="dataCol">
+                <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
+                <ion-card-title class="candidateLisens">1234567</ion-card-title>
+                <ion-card-title class="candidatePhone">052-888776</ion-card-title>
+                <ion-card-title class="candidateStartDate">2/5/2020</ion-card-title>
+            </div>
+          </ion-col>
+          <ion-col >
+              <div class="headerColTitle" >
+                  <ion-card-title class="candidateName">עמית ג'סקורט</ion-card-title>
+                  <ion-card-title class="candidatRoll">פיזוטרפיה</ion-card-title>
+              </div>
+              <div >
+                  <ion-card-title class="candidateID">תז:</ion-card-title>
+                  <ion-card-title class="candidateLisens"> :מס' רשיון</ion-card-title>
+                  <ion-card-title class="candidatePhone">פאלפון: </ion-card-title>
+                  <ion-card-title class="candidateStartDate">תחילת תהליך: </ion-card-title>
+              </div>
+            </ion-col>
+        </ion-row>
     </ion-card-header>
   </ion-card>
 </ion-content>

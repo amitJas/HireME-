@@ -11,12 +11,15 @@ import { HomePage } from '../home/home.page';
 export class CandidatePage implements OnInit {
 
   public department:any ;
+  public candidateNum: string;
+
   constructor(public firebase: FirebaseService,public home: HomePage) { 
     
   }
 
   ngOnInit() {
     this.department = this.firebase.currUserDepartment;
+    this.candidateNum = "89076665";
     //console.log(this.department)
   }
 

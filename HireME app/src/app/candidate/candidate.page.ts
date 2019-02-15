@@ -30,12 +30,12 @@ export class CandidatePage implements OnInit {
   }
 
 
-  stationRouting(currStation){
+  stationRouting(currStation,index){
     console.log(currStation);
     this.station.stationName = currStation;
     for(var i=0 ; i < this.candidateaStationList.length; i++ ){
       if(currStation.localeCompare(this.candidateaStationList[i]) ) 
-        
+        this.station.stationRouting(index)
       }
      
     }

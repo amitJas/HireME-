@@ -12,6 +12,7 @@ export class CandidatePage implements OnInit {
 
   public department:any ;
   public candidateNum: string;
+  public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
 
   constructor(public firebase: FirebaseService,public home: HomePage) { 
     
@@ -23,4 +24,9 @@ export class CandidatePage implements OnInit {
     //console.log(this.department)
   }
 
+
+  stationRouting(station){
+
+
+  }
 }

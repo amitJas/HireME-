@@ -31,8 +31,22 @@
         </ion-row>
     </ion-card-header>
   </ion-card>
+  <ion-content text-right padding  >
+      <div class="candidateList">
+      <ion-card class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i)"  >
+          <ion-card-header> 
+            <ion-row>
+              <ion-col>
+                <ion-card-title class="stationName">{{station}}</ion-card-title>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+        </ion-card>
+      </div>
+</ion-content>
 </ion-content>
 
 
 
-  
+
+    

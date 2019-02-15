@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { firebaseConfig } from '../environments/environment';
 import { FirebaseService } from './firebase-service/firebase-service.service';
+import { StationService } from './stiations/station.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -43,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SplashScreen,
     FirebaseService,
     HomePage,
+    StationService,
   
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

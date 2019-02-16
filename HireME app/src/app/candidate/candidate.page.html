@@ -18,8 +18,8 @@
           </ion-col>
           <ion-col >
               <div class="headerColTitle" >
-                  <ion-card-title class="candidateName">עמית ג'סקורט</ion-card-title>
-                  <ion-card-title class="candidatRoll">פיזוטרפיה</ion-card-title>
+                    <ion-card-title >עמית ג'סקורט</ion-card-title>
+                    <ion-card-title >{{department}}</ion-card-title>
               </div>
               <div >
                   <ion-card-title class="candidateID">תז:</ion-card-title>
@@ -31,19 +31,17 @@
         </ion-row>
     </ion-card-header>
   </ion-card>
-  <ion-content text-right>
-      <div class="candidateList"  >
-      <ion-card class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i)"  >
-          <ion-card-header> 
-            <ion-row>
-              <ion-col>
-                <ion-card-title class="stationName">{{station}}</ion-card-title>
-              </ion-col>
-            </ion-row>
-          </ion-card-header>
-        </ion-card>
-      </div>
-</ion-content>
+    <ion-card text-right class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i)"  >
+        <ion-card-header> 
+          <ion-row>
+            <ion-col>
+              <ion-card-title class="stationName">{{station}}
+                <ion-card-title float-left >{{progress}}%</ion-card-title>
+              </ion-card-title>
+            </ion-col>
+          </ion-row>
+        </ion-card-header>
+      </ion-card>
 </ion-content>
 
 

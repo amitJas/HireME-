@@ -15,8 +15,9 @@ export class CandidatePage implements OnInit {
 
   public department:any ;
   public candidateNum: string;
+  public progress = 34;
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
-  public rouringArrPages = ["interview","'psifas-test'"];
+  public rouringArrPages = ["interview","psifas-test"];
 
   constructor(public firebase: FirebaseService,public home: HomePage, public router:Router) { 
     
@@ -33,4 +34,6 @@ export class CandidatePage implements OnInit {
     console.log(index);
     this.router.navigate([this.rouringArrPages[index]]);
   }
+
+
 }

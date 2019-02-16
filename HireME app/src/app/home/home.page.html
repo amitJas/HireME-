@@ -1,12 +1,12 @@
 
-<ion-content text-right padding  >
-      <ion-card class="departmentCard" *ngFor="let department of departmentArr; let i = index"  (click) ="moveToDepartmentCandidate(department)"  >
-          <ion-card-header> 
-            <ion-row>
-              <ion-col>
-                <ion-card-title class="candidateName">{{department}}</ion-card-title>
-              </ion-col>
-            </ion-row>
-          </ion-card-header>
-        </ion-card>
+<ion-content text-right padding >
+        <ion-card class="cardBox" *ngFor="let department of departmentArr; let i = index"  (click) ="moveToDepartmentCandidate(department)"  >
+            <ion-card-header class="departmentCard"> 
+              <ion-row>
+                <ion-col>
+                  <ion-card-title>{{department}}</ion-card-title>
+                </ion-col>
+              </ion-row>
+            </ion-card-header>
+          </ion-card>
 </ion-content>

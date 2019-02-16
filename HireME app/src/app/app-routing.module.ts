@@ -8,8 +8,9 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'new-candidate', loadChildren: './new-candidate/new-candidate.module#NewCandidatePageModule' },
   { path: 'candidate', loadChildren: './candidate/candidate.module#CandidatePageModule' },
-  { path: 'stations', loadChildren: './stations/stations.module#StationsPageModule' },
-  { path: 'interview', loadChildren: './stations/interview/interview.module#InterviewPageModule' },
+  { path: 'interview', loadChildren: './interview/interview.module#InterviewPageModule' },
+  { path: 'psifas-test', loadChildren: './psifas-test/psifas-test.module#PsifasTestPageModule' },
+
 ];
 
 

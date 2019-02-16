@@ -1,7 +1,13 @@
-.all{
- 
+ion-content{
+   
 }
 
-.candidateID{
-   float: right;
+
+.cardBox{
+   --background: white;
+   --color: white;
+}
+
+ion-card{
+   margin-bottom: 20px;
 }

@@ -1,15 +1,34 @@
-ion-content{
-    --ion-color-gold: #ffd700;
-}
 
 
-.logo{
-    margin-bottom: 53px;
-    margin-top: 38px;
-}
+    ion-content{
+        --ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+    }
+    
+    
+    .logo{
+        margin-bottom: 53px;
+        margin-top: 38px;
+    }
+    
+    .submit{
+        margin-top: 220px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
 
-.submit{
-    margin-top: 220px;
-    padding-right: 50px;
-    padding-left: 50px;
-}
+    .loginBox{
+        --ion-background-color: rgb(255, 255, 255);
+        border-radius: 50px !important;;
+        
+        
+    }
+
+    img{
+        padding-top: 66px;
+    }
+
+
+
+
+
+

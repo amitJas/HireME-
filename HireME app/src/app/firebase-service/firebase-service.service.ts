@@ -20,6 +20,16 @@ export class FirebaseService {
     })
   }
 
+  getCandidateData() {
+    var usersRef = this.db.collection("Candidate").doc('Candidate1').get().subscribe(function(result) {
+      console.log(result.data())
+    })
+  }
+
+  getAllCandidates() {
+    
+  }
+
   setUserData(userName:string, userEmail: string,userNum:number) {
     console.log('in setUsersData');
     console.log(userName,userEmail,userNum);

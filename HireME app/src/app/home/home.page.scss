@@ -2,10 +2,16 @@ ion-content{
    
 }
 
+ion-card-title{
+   font-size: 25px;
+   --color: rgb(26, 98, 252);
+}
 
 .cardBox{
    --background: white;
-   --color: white;
+   --color: rgb(26, 98, 252);
+   
+   
 }
 
 ion-card{

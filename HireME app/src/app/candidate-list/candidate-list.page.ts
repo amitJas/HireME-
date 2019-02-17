@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
+
 
 @Component({
   selector: 'app-candidate-list',
@@ -10,16 +12,17 @@ export class CandidateListPage implements OnInit {
 
   public department:any
   public allCandidates = ["עמית","נדב","נועם","ינאי"];
+  
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(private firebase: FirebaseService, public router: Router) { }
 
   ngOnInit() {
 
     this.department = this.firebase.currUserDepartment;
-   
   }
 
-  goToCandidate(){
-    
+  goToCandidate(candidate){
+    this.firebase.currCandidate = candidate;
+    this.router.navigate(['candidate']);
   }
 }

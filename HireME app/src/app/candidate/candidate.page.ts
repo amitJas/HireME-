@@ -18,6 +18,7 @@ export class CandidatePage implements OnInit {
   public progress = 34;
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
   public rouringArrPages = ["interview","psifas-test"];
+  public currCandidat: any;
 
   constructor(public firebase: FirebaseService,public home: HomePage, public router:Router) { 
     
@@ -25,6 +26,7 @@ export class CandidatePage implements OnInit {
 
   ngOnInit() {
     this.department = this.firebase.currUserDepartment;
+    this.currCandidat = this.firebase.currCandidate;
     this.candidateNum = "89076665";
     //console.log(this.department)
   }

@@ -6,7 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FirebaseService {
 
   public currUserDepartment: any;
-  // public currDepartment: any;
+  public currDepartment: any;
+  public currCandidate: any;
   // public currDepartment: any;
   // public currDepartment: any;
 

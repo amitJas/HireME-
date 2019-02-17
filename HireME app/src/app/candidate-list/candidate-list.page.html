@@ -4,13 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
     <ion-card text-right class="allCandidates" *ngFor="let candidate of allCandidates; let i = index"  (click) ="goToCandidate(candidate)"  >
         <ion-card-header> 
           <ion-row>
             <ion-col>
-              <ion-card-title class="stationName">{{candidate}}</ion-card-title>
-              <ion-card-title float-left >%</ion-card-title>
+              <ion-card-title class="stationName">{{candidate}}
+                <ion-card-title float-left >%</ion-card-title>
+              </ion-card-title>
             </ion-col>
           </ion-row>
         </ion-card-header>

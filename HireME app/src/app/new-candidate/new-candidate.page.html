@@ -5,5 +5,61 @@
 </ion-header>
 
 <ion-content padding>
+  <div>
+    <ion-list>
 
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input type="text" [(ngModel)]="text" name="fistname" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="text" [(ngModel)]="text" name="lastname" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+                <ion-label>Birth Date</ion-label>
+                <ion-datetime display-format="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">ID</ion-label>
+            <ion-input type="text" [(ngModel)]="text" name="ID" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Profession</ion-label>
+            <ion-input type="text" [(ngModel)]="text" name="Profession" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-checkbox checked="true">Have an Experience?</ion-checkbox>
+            <ion-label position="floating">If Yes , How Many Years</ion-label>
+            <ion-input type="Number" [(ngModel)]="Number" name="Experience" required="not"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-checkbox checked="true">Passed Profession Exam?</ion-checkbox>
+            <ion-label position="floating">If Yes , Please enter a Grade</ion-label>
+            <ion-input type="Grade" [(ngModel)]="Number" name="Grade" required="not"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Working ID</ion-label>
+            <ion-input type="text" [(ngModel)]="text" name="WID" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input type="tel" [(ngModel)]="tel" name="Phone" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password"  [(ngModel)]="password" name="email" required="required"></ion-input>
+        </ion-item>
+        <div padding text-center>
+            <ion-button *ngIf="savechanges" ion-button color="danger" round (click)="submitchange()">save changes</ion-button>
+            <!--show dead button if form is not filded-->
+            <ion-button color="danger" size="full" *ngIf="!email && !password"  >Save changes</ion-button>
+           
+        </div>
+    </ion-list>
+</div>
 </ion-content>

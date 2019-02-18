@@ -10,14 +10,14 @@
           <ion-row>
             <ion-col>
               <ion-card-title class="stationName">{{candidate}}
-                <ion-card-title float-left >%</ion-card-title>
+                <ion-card-title float-left >{{candidateProgress}}%</ion-card-title>
               </ion-card-title>
             </ion-col>
           </ion-row>
         </ion-card-header>
     </ion-card>
 
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click) ="goToNewCandidate()">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>

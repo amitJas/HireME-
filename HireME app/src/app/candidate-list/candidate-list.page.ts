@@ -11,13 +11,18 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 export class CandidateListPage implements OnInit {
 
   public department:any
-  public allCandidates = ["עמית","נדב","נועם","ינאי"];
+  //public allCandidates = ["עמית","נדב","נועם","ינאי"];
+  public allCandidates:any;
   public candidateProgress: any;
 
   constructor(private firebase: FirebaseService, public router: Router) { }
 
   ngOnInit() {
     this.department = this.firebase.currUserDepartment;
+    this.allCandidates = this.firebase.getAllCandidates();
+    //console.log(this.allCandidates)
+    console.log("after allCandidates")
+    console.log(this.allCandidates)
   }
 
   goToCandidate(candidate){
@@ -28,4 +33,8 @@ export class CandidateListPage implements OnInit {
   goToNewCandidate(){
     this.router.navigate(['new-candidate']);
   }
+
+ 
+ 
+
 }

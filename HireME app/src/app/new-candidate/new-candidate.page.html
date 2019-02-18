@@ -44,7 +44,7 @@
         </ion-item>
         <ion-item>
                   <ion-label position="floating" text-right>במידה ויש ניסיון, יש להקליד מס' שנים</ion-label>
-                  <ion-input type="Number" [(ngModel)]="experienceInYears" name="experienceInYears" required="not"></ion-input>
+                  <ion-input text-right type="Number" [(ngModel)]="experienceInYears" name="experienceInYears" required="not"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -54,11 +54,11 @@
         
         <ion-item>
             <ion-label position="floating" text-right>אם עשית מבחן , אנא הזן את הציון שקיבלת</ion-label>
-            <ion-input type="Grade" [(ngModel)]="examGrade" name="examGrade" required="not"></ion-input>
+            <ion-input text-right type="Number" [(ngModel)]="examGrade" name="examGrade" required="not"></ion-input>
         </ion-item>
         <ion-item text-right>
             <ion-label position="floating">מספר פלאפון</ion-label>
-            <ion-input type="Phone" [(ngModel)]="phone" name="phone" required="required"></ion-input>
+            <ion-input type="Number" [(ngModel)]="phone" name="phone" required="required"></ion-input>
         </ion-item>
         <ion-item >
             <ion-label position="floating" text-right>דואר אלקטרוני</ion-label>
@@ -71,7 +71,7 @@
         <div padding text-center>
             <ion-button *ngIf="savechanges" ion-button color="danger" round (click)="submitchange()">save changes</ion-button>
             <!--show dead button if form is not filded-->
-            <ion-button color="danger" size="full" *ngIf="!email && !password"  >Save changes</ion-button>
+            <ion-button color="danger" size="full" *ngIf="email||password"  >Save changes</ion-button>
            
         </div>
     </ion-list>

@@ -14,9 +14,12 @@
 
 ion-content{
     //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+    --background: url('./assets/pics/back2.png');
 }
 
 ion-card{
     --background: white;
-    --color: white;
+    --color: rgb(26, 98, 252);
+    margin-bottom: 15px;
+ 
 }

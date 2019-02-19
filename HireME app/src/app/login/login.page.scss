@@ -1,23 +1,21 @@
 
 
     ion-content{
-        --ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+        --background: url('../../assets/pics/back.png');
+        //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
     }
-    
-    
-    .logo{
-        margin-bottom: 53px;
-        margin-top: 38px;
+
+    .passwordBox{
+        --ion-background-color: white;
+
     }
-    
     .submit{
-        margin-top: 220px;
-        padding-right: 50px;
-        padding-left: 50px;
+        margin-top: 150px;
+       
     }
 
     .loginBox{
-        --ion-background-color: rgb(255, 255, 255);
+        --ion-background-color: url('../../assets/pics/back+logo.png');
         border-radius: 50px !important;
         
         

@@ -1,6 +1,10 @@
 <ion-header text-right>
   <ion-toolbar>
-    <ion-title>{{department}}</ion-title>
+    <ion-title>
+      <ion-row >
+        <ion-col >{{department}} <ion-icon id="pathArrow" name="arrow-dropleft"> </ion-icon> {{currCandidat}} </ion-col>
+      </ion-row>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,22 +14,22 @@
       <ion-row>
         <ion-col>
             <div class="dataCol">
-                <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
-                <ion-card-title class="candidateLisens">1234567</ion-card-title>
-                <ion-card-title class="candidatePhone">052-888776</ion-card-title>
-                <ion-card-title class="candidateStartDate">2/5/2020</ion-card-title>
+              <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
+              <ion-card-title class="candidateLisens">1234567</ion-card-title>
+              <ion-card-title class="candidatePhone">052-888776</ion-card-title>
+              <ion-card-title class="candidateStartDate">2/5/2020</ion-card-title>
             </div>
           </ion-col>
           <ion-col >
               <div class="headerColTitle" >
-                    <ion-card-title >{{currCandidat}}</ion-card-title>
-                    <ion-card-title >{{department}}</ion-card-title>
+                <ion-card-title >{{currCandidat}}</ion-card-title>
+                <ion-card-title >{{department}}</ion-card-title>
               </div>
               <div >
-                  <ion-card-title class="candidateID">תז:</ion-card-title>
-                  <ion-card-title class="candidateLisens"> :מס' רשיון</ion-card-title>
-                  <ion-card-title class="candidatePhone">פאלפון: </ion-card-title>
-                  <ion-card-title class="candidateStartDate">תחילת תהליך: </ion-card-title>
+                <ion-card-title class="candidateID">תז:</ion-card-title>
+                <ion-card-title class="candidateLisens"> :מס' רשיון</ion-card-title>
+                <ion-card-title class="candidatePhone">פאלפון: </ion-card-title>
+                <ion-card-title class="candidateStartDate">תחילת תהליך: </ion-card-title>
               </div>
             </ion-col>
         </ion-row>

@@ -39,7 +39,7 @@ export class FirebaseService {
     //     return this.callCandidateName = doc.data();
     //   })
     // })
-    //return this.db.collection("Candidate").get().toPromise().then(result => result.map(data =>data.data()))
+    return this.db.collection("Candidates").get();
   }
 
   setUserData(userName:string, userEmail: string,userNum:number) {

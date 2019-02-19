@@ -26,7 +26,6 @@ export class CandidateListPage implements OnInit {
     })
     console.log(this.allCandidates)
     console.log("after allCandidates")
-    
   }
 
   goToCandidate(candidate){

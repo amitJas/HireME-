@@ -33,12 +33,6 @@ export class FirebaseService {
   }
 
   getAllCandidates() {
-    // console.log("in getAllCandidates ")
-    // var usersRef = this.db.collection("Candidates").get().subscribe(function(result) {
-    //   result.docs.forEach(doc => {
-    //     return this.callCandidateName = doc.data();
-    //   })
-    // })
     return this.db.collection("Candidates").get();
   }
 

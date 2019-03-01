@@ -28,12 +28,12 @@ public examGrade:any;
     public firstName: string
     public lestName: string
     public strtProcess: Date;
-    public id: number
+    public idd: number
     public job: string
     public experience: any
     public testGraid: any;
-    public phone: number
-    public email: string
+    public phoone: number
+    public emaiil: string
   
     public newC: object;
     

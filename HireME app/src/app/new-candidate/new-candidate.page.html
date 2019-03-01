@@ -1,12 +1,11 @@
-<ion-header text-center>
+<ion-header>
   <ion-toolbar>
-    <ion-title>טופס מועמד חדש</ion-title>
+    <ion-title>newCandidate</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <div>
-<<<<<<< HEAD
     <ion-list text-right>
         <ion-item text-right>
           <ion-label position="floating">שם פרטי</ion-label>
@@ -74,54 +73,6 @@
             <!--show dead button if form is not filded-->
             <ion-button color="danger" size="full" *ngIf="email||password"  >Save changes</ion-button>
            
-=======
-    <ion-list>
-        <ion-item text-right>
-          <ion-label position="floating">שם פרטי</ion-label>
-          <ion-input type="text" [(ngModel)]="firstName" name="fistname" required="required"></ion-input>
-        </ion-item>
-        <ion-item text-right >
-          <ion-label  position="floating">שם משפחה</ion-label>
-          <ion-input type="text" [(ngModel)]="lestName" name="lastname" required="required"></ion-input>
-        </ion-item>
-        <ion-item>
-                <ion-label text-right >תחילת תהליך</ion-label>
-                <ion-datetime [(ngModel)]="strtProcess" display-format="MM/DD/YYYY"></ion-datetime>
-        </ion-item>
-        <ion-item>
-            <ion-label text-right position="floating">מס' ת.ז</ion-label>
-            <ion-input type="number" [(ngModel)]="id" name="ID" required="required"></ion-input>
-        </ion-item >
-        <ion-item text-right >
-            <ion-label position="floating">משרה</ion-label>
-            <ion-input type="text" [(ngModel)]="job" name="job" required="required"></ion-input>
-        </ion-item>
-        <!-- <ion-item text-right>
-            <ion-row>
-                <ion-checkbox checked="true" ng-model="myVar" ng-init="myVar = true" >האם יש נסיון?</ion-checkbox>
-                <div ng-if="myVar" >
-                    <ion-label position="floating">צין כמה שנים</ion-label>
-                    <ion-input type="Number" [(ngModel)]="experience" name="Experience" required="not"></ion-input>
-                </div>
-            </ion-row>
-            
-        </ion-item> -->
-        <!-- <ion-item text-right >
-            <ion-checkbox checked="true">עשית בעבר מבחן פסיפס?</ion-checkbox>
-            <ion-label position="floating">אם כן, רשום ציון</ion-label>
-            <ion-input type="Grade" [(ngModel)]="testGraid" name="Grade" required="not"></ion-input>
-        </ion-item> -->
-        <ion-item>
-            <ion-label text-right position="floating">פלאפון</ion-label>
-            <ion-input type="tel" [(ngModel)]="phone" name="Phone" required="required"></ion-input>
-        </ion-item>
-        <ion-item >
-            <ion-label text-right stacked>אימייל</ion-label>
-            <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
-        </ion-item>
-        <div padding text-center>
-            <ion-button ion-button color="danger" round (click)="submitchange()">שמור</ion-button>
->>>>>>> bf155f6c6f63f2f51adfecd089f0d6c6784c9ca2
         </div>
     </ion-list>
 </div>

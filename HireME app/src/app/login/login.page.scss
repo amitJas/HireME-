@@ -1,31 +1,29 @@
 
 
     ion-content{
-        --ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+        --background: url('../../assets/pics/back+logo2.png');
+        //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
     }
+
+    .passwordBox{
+        --ion-background-color: white;
+        margin-top: 260px;
+        --border-radius: 30px;
+        width: fit-content;
+        margin-right: 27px;
+        --border-color:blue;
     
-    
-    .logo{
-        margin-bottom: 53px;
-        margin-top: 38px;
     }
-    
     .submit{
-        margin-top: 220px;
-        padding-right: 50px;
-        padding-left: 50px;
+        margin-top: 150px;
+       
     }
 
     .loginBox{
-        --ion-background-color: rgb(255, 255, 255);
-        border-radius: 50px !important;
-        
-        
+        --ion-background-color: url('../../assets/pics/back+logo2.png');  
     }
 
-    img{
-        padding-top: 66px;
-    }
+    
 
 
 

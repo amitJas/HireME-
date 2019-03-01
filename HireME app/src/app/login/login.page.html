@@ -1,16 +1,11 @@
 <ion-content  class="container"  padding dir=rtl>
   <div class="loginBox"  > 
-      <ion-list>
-          <ion-item>
-              <img class="logo" src="../../assets/pics/logo.png" alt="logo">
-          </ion-item>
-          <ion-item>
-              <ion-label stacked>סיסמה</ion-label>
-              <ion-input type="password"  [(ngModel)]="employeeNum"  required="required"></ion-input>
-          </ion-item>
-          <div padding text-center>
-              <ion-button ion-button class = "submit"  round (click)="submitLogin()">כניסה</ion-button>
-          </div>
-      </ion-list>
+    <ion-item class="passwordBox">
+        <ion-label stacked>סיסמה</ion-label>
+        <ion-input type="password"  [(ngModel)]="employeeNum"  required="required"></ion-input>
+    </ion-item>
+    <div padding text-center float-center>
+        <ion-button ion-button class = "submit"  round (click)="submitLogin()">כניסה</ion-button>
+    </div>
   </div>
 </ion-content>

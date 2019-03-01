@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
 @Injectable({ providedIn: 'root' })
 
 export class FirebaseService {
 
   public currUserDepartment: any;
   public currDepartment: any;
-  public currCandidate: any;
-  // public currDepartment: any;
+  public currCandidate:any  ;
+  public callCandidateName:any;
   // public currDepartment: any;
 
 
   constructor(private db: AngularFirestore) { }
 
+  setArrayOfNames(doc){
+    this.callCandidateName.push(doc.data().name);
+    console.log(this.callCandidateName)
+  }
+  
   getUserData() {
     var usersRef = this.db.collection("Users").doc('User1').get().subscribe(function(result) {
       console.log(result.data())
@@ -27,7 +33,7 @@ export class FirebaseService {
   }
 
   getAllCandidates() {
-    
+    return this.db.collection("Candidates").get();
   }
 
   setUserData(userName:string, userEmail: string,userNum:number) {
@@ -39,7 +45,6 @@ export class FirebaseService {
       employeeNumber: userNum
     });
   }
-
 
   
   

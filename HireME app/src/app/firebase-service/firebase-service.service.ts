@@ -28,7 +28,7 @@ export class FirebaseService {
     // })
     console.log(employeeNum)
     console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
-    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get()
+    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get();
   }
 
 

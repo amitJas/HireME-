@@ -15,6 +15,23 @@ export class FirebaseService {
 
   constructor(private db: AngularFirestore) { }
 
+  isAuser(employeeNum){
+    //return the all colation if firebase object
+    // this.db.collection('Users').get().subscribe((snapshot) => {
+    //   console.log(snapshot.docs);
+    // })
+    //return all the colation with data
+    // this.db.collection('Users').get().subscribe((snapshot) => {
+    //   snapshot.docs.forEach(doc => {
+    //     console.log(doc.data())
+    //   })
+    // })
+    console.log(employeeNum)
+    console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
+    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get()
+  }
+
+
   setArrayOfNames(doc){
     this.callCandidateName.push(doc.data().name);
     console.log(this.callCandidateName)
@@ -36,15 +53,15 @@ export class FirebaseService {
     return this.db.collection("Candidates").get();
   }
 
-  setUserData(userName:string, userEmail: string,userNum:number) {
-    console.log('in setUsersData');
-    console.log(userName,userEmail,userNum);
-    this.db.collection('Users').add({
-      name: userName,
-      email: userEmail,
-      employeeNumber: userNum
-    });
-  }
+  // setUserData(userName:string, userEmail: string,userNum:number) {
+  //   console.log('in setUsersData');
+  //   console.log(userName,userEmail,userNum);
+  //   this.db.collection('Users').add({
+  //     name: userName,
+  //     email: userEmail,
+  //     employeeNumber: userNum
+  //   });
+  // }
 
   
   

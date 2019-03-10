@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -10,27 +12,39 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 export class LoginPage implements OnInit {
 
   public employeeNum: number;
+  public loading;
+
   constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
   
   ngOnInit() {
     
   }
+  
+  isANmber(number)
+  {return !/\D/.test(number);}
 
   //loding icon
   async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Hellooo',
+    this.loading = await this.loadingCtrl.create({
       duration: 2000
     });
-    return await loading.present();
+    return await this.loading.present();
   }
 
   // //alert icon
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
+      header: 'סיסמה שגויה',
+      buttons: ['OK']
+
+    });
+
+    await alert.present();
+  }
+
+  async presentEmptyFildAlert() {
+    const alert = await this.alertController.create({
+      header: 'אנא מלא את שדה הסיסמה',
       buttons: ['OK']
     });
 
@@ -38,17 +52,16 @@ export class LoginPage implements OnInit {
   }
 
   submitLogin(){
-    
-   // this.presentLoading();
-    this.router.navigate(['home']);
-
-  }
-
-  forgotPassword(){
-
-  }
-
-  redirectToRegister(){
-   this.router.navigate(['register']);
+    let loader = this.presentLoading().then(() => {
+      console.log( Number.isSafeInteger(this.employeeNum))
+      if(!this.employeeNum || this.isANmber(this.employeeNum) == false){
+        this.loading.dismiss()
+        this.presentEmptyFildAlert();
+      }else{
+        //add function to chec with firestore
+        this.loading.dismiss()
+        this.router.navigate(['home'])
+      }
+    });
   }
 }

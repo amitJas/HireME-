@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
         this.presentEmptyFildAlert();
       }else{
         //add function to chec with firestore
-        if(this.firebase.isAuser(this.employeeNum) != true)
+        this.firebase.isAuser(this.employeeNum)
         this.loading.dismiss()
         this.router.navigate(['home'])
       }

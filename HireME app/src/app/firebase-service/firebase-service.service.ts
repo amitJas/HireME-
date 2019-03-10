@@ -27,8 +27,13 @@ export class FirebaseService {
     //   })
     // })
     console.log(employeeNum)
-    console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
-    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get();
+    //console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
+    let chaec = this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get().subscribe((snapshot) => {
+      snapshot.docs.forEach(doc => {
+        console.log(doc.data())
+        return doc.data()
+      })
+    })
   }
 
 

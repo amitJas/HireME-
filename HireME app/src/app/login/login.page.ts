@@ -53,13 +53,17 @@ export class LoginPage implements OnInit {
 
   submitLogin(){
     let loader = this.presentLoading().then(() => {
-      console.log( Number.isSafeInteger(this.employeeNum))
       if(!this.employeeNum || this.isANmber(this.employeeNum) == false){
         this.loading.dismiss()
         this.presentEmptyFildAlert();
       }else{
         //add function to chec with firestore
+        // var temp = this.firebase.isAuser(this.employeeNum).subscride(result =>{
+        //   console.log(result)
+        // })
+        // console.log(this.firebase.isAuser(this.employeeNum), temp)
         this.firebase.isAuser(this.employeeNum)
+      
         this.loading.dismiss()
         this.router.navigate(['home'])
       }

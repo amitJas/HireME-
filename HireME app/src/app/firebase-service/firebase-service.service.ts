@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, docChanges } from '@angular/fire/firestore';
 
 
 @Injectable({ providedIn: 'root' })
 
 export class FirebaseService {
-
+  
+  public currUser: any;
   public currUserDepartment: any;
   public currDepartment: any;
   public currCandidate:any  ;
@@ -29,10 +30,21 @@ export class FirebaseService {
     console.log(employeeNum)
     //console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
     let chaec = this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get().subscribe((snapshot) => {
-      snapshot.docs.forEach(doc => {
-        console.log(doc.data())
-        return doc.data()
-      })
+      if(snapshot.empty)
+        this.currUser =  false
+      else{
+        snapshot.docs.forEach(doc => {
+          console.log(doc.data())
+          this.currUser =  doc.data()
+        })
+      }
+      // snapshot.docs.forEach(doc => {
+        
+      //   console.log(doc.data())
+      //   if(!doc.data())
+      //     console.log("false")
+      //   return doc.data()
+      // })
     })
   }
 

@@ -45,7 +45,7 @@ export class RegisterPage implements OnInit {
       this.presentAlert();
     }
     else{ //sucsses
-      this.firebase.setUserData(this.name,this.email,this.employeeNum);
+     // this.firebase.setUserData(this.name,this.email,this.employeeNum);
     }
 
     

@@ -6,5 +6,10 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class StationService {
 
-  constructor(private firebase: FirebaseService) { }
+  public currUser: any;
+  public currCandidate: any;
+
+  constructor(private firebase: FirebaseService) {
+    this.currCandidate = this.firebase.currCandidate
+   }
 }

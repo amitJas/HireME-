@@ -57,15 +57,13 @@ export class LoginPage implements OnInit {
         this.loading.dismiss()
         this.presentEmptyFildAlert();
       }else{
-        //add function to chec with firestore
-        // var temp = this.firebase.isAuser(this.employeeNum).subscride(result =>{
-        //   console.log(result)
-        // })
-        // console.log(this.firebase.isAuser(this.employeeNum), temp)
-        this.firebase.isAuser(this.employeeNum)
+        let yyy:any;
+        yyy = this.firebase.isAuser(this.employeeNum)
+        console.log("user",yyy)
       
-        this.loading.dismiss()
-        this.router.navigate(['home'])
+      
+        // this.loading.dismiss()
+        // this.router.navigate(['home'])
       }
     });
   }

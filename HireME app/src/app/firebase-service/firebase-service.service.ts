@@ -10,76 +10,38 @@ export class FirebaseService {
   public currUserDepartment: any;
   public currDepartment: any;
   public currCandidate:any  ;
-  public callCandidateName:any;
-  // public currDepartment: any;
-
-
+  
   constructor(private db: AngularFirestore) { }
 
   isAuser(employeeNum){
-    //return the all colation if firebase object
-    // this.db.collection('Users').get().subscribe((snapshot) => {
-    //   console.log(snapshot.docs);
-    // })
-    //return all the colation with data
-    // this.db.collection('Users').get().subscribe((snapshot) => {
-    //   snapshot.docs.forEach(doc => {
-    //     console.log(doc.data())
-    //   })
-    // })
     console.log(employeeNum)
+    let name = ""
     //console.log(this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get())
-    let chaec = this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get().subscribe((snapshot) => {
-      if(snapshot.empty)
-        this.currUser =  false
-      else{
-        snapshot.docs.forEach(doc => {
-          console.log(doc.data())
-          this.currUser =  doc.data()
-        })
-      }
-      // snapshot.docs.forEach(doc => {
-        
-      //   console.log(doc.data())
-      //   if(!doc.data())
-      //     console.log("false")
-      //   return doc.data()
-      // })
+    let chaec = this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get().subscribe((res) =>{
+       res.docs.forEach((doc) =>{
+        console.log("doc.data().name",doc.data().name)
+        name = doc.data().name
+        return name
+        console.log("name",name)
+      })
     })
+    console.log("chaec",chaec)
+   
+    return chaec
   }
 
-
-  setArrayOfNames(doc){
-    this.callCandidateName.push(doc.data().name);
-    console.log(this.callCandidateName)
-  }
-  
-  getUserData() {
-    var usersRef = this.db.collection("Users").doc('User1').get().subscribe(function(result) {
-      console.log(result.data())
+ 
+  //return array of all the candidate name in the store - Finished!!!
+  getAllCandidateName(){
+      //console.log("in firebase get all candeats names")
+      let allCandidteName = [];
+      var namesArr =  this.db.collection("Candidates").get().subscribe((snap) =>{
+        snap.docs.forEach(doc => {
+          console.log(doc.data().name)
+          allCandidteName.push(doc.data().name)
+      })
     })
+    return allCandidteName
   }
 
-  getCandidateData() {
-    var usersRef = this.db.collection("Candidate").doc('Candidate1').get().subscribe(function(result) {
-      console.log(result.data())
-    })
-  }
-
-  getAllCandidates() {
-    return this.db.collection("Candidates").get();
-  }
-
-  // setUserData(userName:string, userEmail: string,userNum:number) {
-  //   console.log('in setUsersData');
-  //   console.log(userName,userEmail,userNum);
-  //   this.db.collection('Users').add({
-  //     name: userName,
-  //     email: userEmail,
-  //     employeeNumber: userNum
-  //   });
-  // }
-
-  
-  
 }

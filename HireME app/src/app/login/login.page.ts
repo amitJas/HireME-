@@ -41,6 +41,7 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
+  
 
   async presentEmptyFildAlert() {
     const alert = await this.alertController.create({
@@ -57,13 +58,16 @@ export class LoginPage implements OnInit {
         this.loading.dismiss()
         this.presentEmptyFildAlert();
       }else{
-        let yyy:any;
-        yyy = this.firebase.isAuser(this.employeeNum)
-        console.log("user",yyy)
-      
-      
-        // this.loading.dismiss()
-        // this.router.navigate(['home'])
+        this.firebase.isAuser(this.employeeNum).subscribe((snap) =>{
+          if(!snap.empty){
+            this.loading.dismiss()
+            console.log("yes")
+            this.router.navigate(['home'])
+          }
+          else{
+            console.log("no")
+          }
+        })
       }
     });
   }

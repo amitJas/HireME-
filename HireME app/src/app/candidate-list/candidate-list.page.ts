@@ -17,19 +17,12 @@ export class CandidateListPage implements OnInit {
   public candidateProgress: any;
 
   constructor(private firebase: FirebaseService, public router: Router) { 
-    this.allCandidates = this.firebase.getAllCandidateName();
-    //console.log("all names",this.allCandidates);
+    this.allCandidates = this.firebase.getAllCandidate();
+    console.log("all names",this.allCandidates);
   }
 
   ngOnInit() {
     this.department = this.firebase.currUserDepartment;
-    // this.firebase.getAllCandidates().subscribe( res => {
-    //   res.docs.forEach(doc =>{
-    //     this.allCandidates.push(doc.data().name)
-    //   })
-    // })
-    // console.log(this.allCandidates)
-    // console.log("after allCandidates")
   }
 
   goToCandidate(candidate){

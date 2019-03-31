@@ -9,7 +9,7 @@
     <ion-list>
         <ion-item text-right>
           <ion-label position="floating">שם פרטי</ion-label>
-          <ion-input type="text" [(ngModel)]="firstName" name="fistname" required="required"></ion-input>
+          <ion-input type="text" (ngModel)="candidate.firstName" name="fistname" required="required"></ion-input>
         </ion-item>
         <ion-item text-right >
           <ion-label  position="floating">שם משפחה</ion-label>

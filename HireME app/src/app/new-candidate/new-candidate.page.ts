@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../firebase-service/firebase-service.service';
 
 @Component({
   selector: 'app-new-candidate',
@@ -7,27 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCandidatePage implements OnInit {
 
-  
     public firstName: string
     public lestName: string
     public strtProcess: Date;
-    public id: number
+    public id: string
     public job: string
-    public experience: any
-    public testGraid: any;
+    // public experience: any
+    // public testGraid: any;
     public phone: number
     public email: string
   
-    public newC: object;
     
-  constructor() { }
+    
+  constructor(private firebase: FirebaseService) { }
 
   ngOnInit() {
   }
 
   submitchange(){
-    
-   
+    let candidate ={
+      
+    }
+   this.firebase.addCandidate(candidate)
   }
 
 }

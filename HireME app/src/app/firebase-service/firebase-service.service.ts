@@ -36,7 +36,14 @@ export class FirebaseService {
     return allCandidteName
   }
 
-  addCandidate(){
-    
+  addCandidate(candiate){
+    // console.log('in setUsersData');
+    // console.log(userName,userEmail,userNum);
+    // this.db.collection('Users').add({
+    //   name: userName,
+    //   email: userEmail,
+    //   employeeNumber: userNum
+    // });
   }
+
 }

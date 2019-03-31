@@ -36,4 +36,7 @@ export class FirebaseService {
     return allCandidteName
   }
 
+  addCandidate(){
+    
+  }
 }

@@ -36,14 +36,20 @@ export class FirebaseService {
     return allCandidteName
   }
 
-  addCandidate(candiate){
-    // console.log('in setUsersData');
-    // console.log(userName,userEmail,userNum);
-    // this.db.collection('Users').add({
-    //   name: userName,
-    //   email: userEmail,
-    //   employeeNumber: userNum
-    // });
+  //adding new candidate to firebase' no station yet only data
+  addNewCandidate(candidate){
+  this.db.collection('Candidates').doc('Candidate').collection('Data').doc('CandidateDoc').set({
+    ferstname: candidate.firstname,
+    lestname: candidate.lestname,
+    id: candidate.id,
+    job: candidate.job,
+    startdate: candidate.strtProcess,
+    phone: candidate.phone,
+    email: candidate.email,
+    progress: 0
+  })
+  
+
   }
 
 }

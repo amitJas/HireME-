@@ -10,7 +10,7 @@ export class NewCandidatePage implements OnInit {
 
     public firstName: string
     public lestName: string
-    public strtProcess: Date;
+    public strtProcess: any;
     public id: string
     public job: string
     // public experience: any
@@ -26,9 +26,17 @@ export class NewCandidatePage implements OnInit {
   }
 
   submitchange(){
+    console.log(this.firstName)
     let candidate ={
-      
+      firstname: this.firstName,
+      lestname: this.lestName,
+      id: this.id,
+      job: this.job,
+      startdate: this.strtProcess,
+      phone: this.phone,
+      email: this.email
     }
+    console.log(candidate)
    this.firebase.addCandidate(candidate)
   }
 

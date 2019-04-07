@@ -38,6 +38,7 @@ export class NewCandidatePage implements OnInit {
     }
     console.log(candidate)
    this.firebase.addNewCandidate(candidate)
+   //window.location.reload();
   }
 
 }

@@ -32,12 +32,12 @@ export class NewCandidatePage implements OnInit {
       lestname: this.lestName,
       id: this.id,
       job: this.job,
-      startdate: this.strtProcess,
+      //startdate: this.strtProcess,
       phone: this.phone,
       email: this.email
     }
     console.log(candidate)
-   this.firebase.addCandidate(candidate)
+   this.firebase.addNewCandidate(candidate)
   }
 
 }

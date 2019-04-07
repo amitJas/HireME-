@@ -36,7 +36,7 @@ export class FirebaseService {
     return allCandidteName
   }
 
-  //adding new candidate to firebase' no station yet only data
+  //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
   this.db.collection('Candidates').doc('Candidate').collection('Data').doc('CandidateDoc').set({
     ferstname: candidate.firstname,

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>
       <ion-row >
-        <ion-col >{{department}}<ion-icon id="pathArrow" name="arrow-dropleft"> </ion-icon> {{currCandidat}} </ion-col>
+        <ion-col >{{department}}<ion-icon id="pathArrow" name="arrow-dropleft"> </ion-icon> {{currCandidat.name}} </ion-col>
       </ion-row>
     </ion-title>
   </ion-toolbar>
@@ -14,15 +14,15 @@
       <ion-row>
         <ion-col>
             <div class="dataCol">
-              <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
-              <ion-card-title class="candidateLisens">1234567</ion-card-title>
-              <ion-card-title class="candidatePhone">052-888776</ion-card-title>
+              <ion-card-title class="candidateID">{{currCandidat.id}}</ion-card-title>
+              <ion-card-title class="candidateLisens">{{currCandidat.lisens}}</ion-card-title>
+              <ion-card-title class="candidatePhone">{{currCandidat.phone}}</ion-card-title>
               <ion-card-title class="candidateStartDate">2/5/2020</ion-card-title>
             </div>
           </ion-col>
           <ion-col >
               <div class="headerColTitle" >
-                <ion-card-title >{{currCandidat}}</ion-card-title>
+                <ion-card-title >{{currCandidat.name}}</ion-card-title>
                 <ion-card-title >{{department}}</ion-card-title>
               </div>
               <div >

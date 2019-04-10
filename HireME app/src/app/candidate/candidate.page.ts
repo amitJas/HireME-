@@ -18,19 +18,28 @@ export class CandidatePage implements OnInit {
   public progress = 34;
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
   public rouringArrPages = ["interview","psifas-test"];
-  public currCandidat: any;
+  public currCandidat = {};
+ 
 
   constructor(public firebase: FirebaseService,public home: HomePage, public router:Router) { 
-    
+    //console.log("444444444444444444444444444",this.firebase.currCandidate)
+    // this.firebase.getCandidateData(this.firebase.currCandidate).subscribe((data) => {
+    //  data.docs.forEach(ref =>{
+    //     this.currCandidat = ref.data()
+    //     })
+    //   })
   }
 
   ngOnInit() {
     this.department = this.firebase.currUserDepartment;
-    this.currCandidat = this.firebase.currCandidate;
     this.candidateNum = "89076665";
+    this.firebase.getCandidateData(this.firebase.currCandidate).subscribe((data) => {
+      data.docs.forEach(ref =>{
+         this.currCandidat = ref.data()
+         })
+       })
     //console.log(this.department)
   }
-
 
   stationRouting(index){
     console.log(index);

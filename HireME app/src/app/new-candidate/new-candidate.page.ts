@@ -8,8 +8,8 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class NewCandidatePage implements OnInit {
 
-    public firstName: string
-    public lestName: string
+    public name: string
+    //public lestName: string
     public strtProcess: any;
     public id: string
     public job: string
@@ -17,7 +17,7 @@ export class NewCandidatePage implements OnInit {
     // public testGraid: any;
     public phone: number
     public email: string
-  
+    public lisens: string
     
     
   constructor(private firebase: FirebaseService) { }
@@ -26,12 +26,11 @@ export class NewCandidatePage implements OnInit {
   }
 
   submitchange(){
-    console.log(this.firstName)
     let candidate ={
-      firstname: this.firstName,
-      lestname: this.lestName,
+      name: this.name,
       id: this.id,
       job: this.job,
+      lisens: this.lisens,
       //startdate: this.strtProcess,
       phone: this.phone,
       email: this.email

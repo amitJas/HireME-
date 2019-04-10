@@ -28,8 +28,8 @@ export class FirebaseService {
         snap.docs.forEach(doc => {
           //console.log(doc.data().name)
           allCandidteName.push({
-            name: doc.data().firstname + " " + doc.data().lestname,
-            progres:doc.data().progress
+            name: doc.data().name,// doc.data().firstname + " " + doc.data().lestname,
+            progres: doc.data().progress
           })
       })
     })
@@ -39,17 +39,18 @@ export class FirebaseService {
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
   this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data').add({
-    firstname: candidate.firstname,
-    lestname: candidate.lestname,
-    id: candidate.id,
-    job: candidate.job,
-    //startdate: candidate.strtProcess,
-    phone: candidate.phone,
-    email: candidate.email,
-    progress: 0
-  })
-  
-
+      name: candidate.name,
+      id: candidate.id,
+      job: candidate.job,
+      //startdate: candidate.strtProcess,
+      lisens: candidate.lisens,
+      phone: candidate.phone,
+      email: candidate.email,
+      progress: 0
+    })
   }
 
+  getCandidateData(candidateName){
+    return this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data',ref => ref.where("name","==",candidateName)).get()
+  }
 }

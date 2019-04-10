@@ -26,7 +26,8 @@ export class CandidateListPage implements OnInit {
   }
 
   goToCandidate(candidate){
-    this.firebase.currCandidate = candidate;
+    console.log(candidate)
+    this.firebase.currCandidate = candidate.name;
     this.router.navigate(['candidate']);
   }
 

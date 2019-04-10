@@ -29,7 +29,7 @@ export class FirebaseService {
           //console.log(doc.data().name)
           allCandidteName.push({
             name: doc.data().name,// doc.data().firstname + " " + doc.data().lestname,
-            progres: doc.data().progress
+            progres: this.calculatProgress(doc.data().progress,6)
           })
       })
     })
@@ -52,5 +52,12 @@ export class FirebaseService {
 
   getCandidateData(candidateName){
     return this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data',ref => ref.where("name","==",candidateName)).get()
+  }
+
+  
+  calculatProgress(progress,num){
+    if(progress)
+      return Math.round((progress / num ) * 100)
+    return  progress  
   }
 }

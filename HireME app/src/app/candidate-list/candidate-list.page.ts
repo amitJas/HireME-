@@ -37,5 +37,6 @@ export class CandidateListPage implements OnInit {
 
  
  
+ 
 
 }

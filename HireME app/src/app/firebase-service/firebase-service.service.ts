@@ -7,10 +7,15 @@ import { stringify } from '@angular/compiler/src/util';
 
 export class FirebaseService {
   
+  private STATIOS = {
+    allStations: 6,
+    interview: 3,
+  }
   public currUser: any;
   public currUserDepartment: any;
   public currDepartment: any;
   public currCandidate:{};
+  
   
   constructor(private db: AngularFirestore) { }
 
@@ -29,7 +34,7 @@ export class FirebaseService {
           //console.log(doc.data().name)
           allCandidteName.push({
             name: doc.data().name,// doc.data().firstname + " " + doc.data().lestname,
-            progres: this.calculatProgress(doc.data().progress,6)
+            progres: this.calculatProgress(doc.data().progress,this.STATIOS.allStations)
           })
       })
     })
@@ -59,5 +64,10 @@ export class FirebaseService {
     if(progress)
       return Math.round((progress / num ) * 100)
     return  progress  
+  }
+
+
+  convertDate(){
+    
   }
 }

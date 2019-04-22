@@ -12,7 +12,7 @@ export class StationService {
 
   constructor(private firebase: FirebaseService) {
     this.currCandidate = this.firebase.currCandidate
-    console.log(this.currStation)
+
    }
 
 

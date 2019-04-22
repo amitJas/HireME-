@@ -12,7 +12,6 @@ export class FormsPage implements OnInit {
 
   ngOnInit() {
     this.station.currStation = 'טפסים';
-    this.station.printBLA();
   }
 
 

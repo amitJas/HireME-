@@ -1,18 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>forms</ion-title>
+    <ion-title text-right >חובקן טפסים</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list text-right>
     <ion-item>  
-      <ion-label>בשלב זה יש לשלוח למועמד את הטפסים הבאים</ion-label>
+      <ion-card-title text-right >בשלב זה יש לשלוח למועמד את הטפסים הבאים</ion-card-title>
     </ion-item>
-    <ion-item>  
-        <ion-label text-right >נשלח למועמד בתאריך</ion-label>
-        <!-- <ion-label text-right >{{data.id}} yyyyy </ion-label> -->
-        <ion-datetime [(ngModel)]="sendDate" display-format="MM/DD/YYYY"></ion-datetime>
+    <ion-item> 
+        <ion-row>
+          <ion-col>
+              <ion-card-title text-left *ngIf="sendShow"> {{getSendDate()}} </ion-card-title>
+              <ion-datetime *ngIf="!sendShow" [(ngModel)]="tast" display-format="MM/DD/YYYY"></ion-datetime> 
+          </ion-col>
+          <ion-col>
+              <ion-label text-right>נשלח למועמד בתאריך</ion-label>
+          </ion-col>
+        </ion-row> 
     </ion-item>
     <ion-item>  
         <ion-label text-right>חזר מהמועמד בתאריך</ion-label>

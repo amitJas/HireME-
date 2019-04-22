@@ -1,5 +1,7 @@
+import { async } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
+import { timeout } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +10,8 @@ export class StationService {
 
   public currUser: any;
   public currCandidate: any;
-  public currStation: any;
-  public currStationData:any;
+  public stationName: any;
+  public station: any;
 
   constructor(private firebase: FirebaseService) {
    }
@@ -19,14 +21,15 @@ export class StationService {
 
 
    getSatationData(){
-    console.log(this.currStation)
-    this.firebase.getStation(this.currStation).subscribe((snap) => {
-      if(snap.empty)
-        this.firebase.addStation(this.currStation)
-      snap.docs.forEach(doc => {
-        this.currStationData = doc.data()
+   //console.log(this.currStation)
+    let temp = this.firebase.getStation(this.stationName).subscribe((data) => {
+      if(data.empty)
+        this.firebase.addStation(this.stationName)
+      data.docs.forEach(ref => {
+        this.station = ref.data()
       })
     })
+    return temp
    }
 
  

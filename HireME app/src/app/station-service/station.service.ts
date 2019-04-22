@@ -9,17 +9,26 @@ export class StationService {
   public currUser: any;
   public currCandidate: any;
   public currStation: any;
+  public currStationData:any;
 
   constructor(private firebase: FirebaseService) {
-    this.currCandidate = this.firebase.currCandidate
-
    }
 
 
 
 
 
-   printBLA(){
+   getSatationData(){
     console.log(this.currStation)
+    this.firebase.getStation(this.currStation).subscribe((snap) => {
+      if(snap.empty)
+        this.firebase.addStation(this.currStation)
+      snap.docs.forEach(doc => {
+        this.currStationData = doc.data()
+      })
+    })
    }
+
+ 
+
 }

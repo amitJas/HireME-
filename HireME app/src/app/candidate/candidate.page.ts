@@ -21,16 +21,17 @@ export class CandidatePage implements OnInit {
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','hr-approval','open-systems'];
   public currCandidat = {};
+  
  
 
   constructor(public firebase: FirebaseService,public home: HomePage, public router:Router/*,public station:StationService*/) { 
   }
 
   ngOnInit() {
-    this.department = this.firebase.currUserDepartment;
-    this.firebase.getCandidateData(this.firebase.currCandidate).subscribe((data) => {
+    this.firebase.getCandidateData().subscribe((data) => {
       data.docs.forEach(ref =>{
          this.currCandidat = ref.data()
+         this.firebase.firebaseCID = ref.data().id
          })
        })
     

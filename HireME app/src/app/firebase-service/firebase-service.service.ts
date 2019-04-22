@@ -9,10 +9,9 @@ export class FirebaseService {
   
   private stations = 6;
   public currUser: any;
-  public currUserDepartment: any;
-  public currDepartment: any;
-  public currCandidate:{};
-  
+  public department: any;
+  public firebaseCID: any;
+  public firebaseCName: any;
   
   constructor(private db: AngularFirestore) { }
 
@@ -24,13 +23,11 @@ export class FirebaseService {
  
   //return array of all the candidate name in the store - Finished!!!
   getAllCandidate(){
-      //console.log("in firebase get all candeats names")
       let allCandidteName = [];
-      var namesArr =  this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data').get().subscribe((snap) =>{
+      var namesArr =  this.db.collection(this.department).doc('Candidate').collection('Data').get().subscribe((snap) =>{
         snap.docs.forEach(doc => {
-          //console.log(doc.data().name)
           allCandidteName.push({
-            name: doc.data().name,// doc.data().firstname + " " + doc.data().lestname,
+            name: doc.data().name,
             progres: this.calculatProgress(doc.data().progress,this.stations)
           })
       })
@@ -40,7 +37,7 @@ export class FirebaseService {
 
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
-  this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data').add({
+  this.db.collection(this.department).doc('Candidate').collection('Data').add({
       name: candidate.name,
       id: candidate.id,
       job: candidate.job,
@@ -52,8 +49,9 @@ export class FirebaseService {
     })
   }
 
-  getCandidateData(candidateName){
-    return this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data',ref => ref.where("name","==",candidateName)).get()
+  getCandidateData(){
+    //this.currCandidate = this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data',ref => ref.where("name","==",candidateName)).get()
+    return this.db.collection(this.department).doc('Candidate').collection('Data',ref => ref.where("name","==",this.firebaseCName)).get()
   }
 
   
@@ -67,4 +65,25 @@ export class FirebaseService {
   convertDate(){
     
   }
+
+  addStation(station){
+    console.log("addStation",station)
+      this.db.collection(this.department).doc('Candidate').collection(station).add({
+        id: this.firebaseCID
+      })
+    }
+  
+    setStationFile(station,filde,val){
+      this.db.collection(this.department).doc('Candidate').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
+        filde:val
+      })
+    }
+  
+    getStation(station){
+      console.log('getStation',station)
+     return this.db.collection(this.department).doc('Candidate').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+    }
+
+
+
 }

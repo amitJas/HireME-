@@ -22,12 +22,11 @@ export class CandidateListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.department = this.firebase.currUserDepartment;
   }
 
   goToCandidate(candidate){
     console.log(candidate)
-    this.firebase.currCandidate = candidate.name;
+    this.firebase.firebaseCName = candidate.name;
     this.router.navigate(['candidate']);
   }
 

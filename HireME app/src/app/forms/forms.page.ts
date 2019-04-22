@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StationService } from './../station-service/station.service';
 
 @Component({
   selector: 'app-forms',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsPage implements OnInit {
 
-  constructor() { }
+  constructor(private station: StationService ) { }
 
   ngOnInit() {
+    this.station.currStation = 'טפסים';
+    this.station.printBLA();
   }
 
+
+  
 }

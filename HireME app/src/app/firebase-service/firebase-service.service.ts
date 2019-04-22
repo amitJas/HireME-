@@ -7,10 +7,7 @@ import { stringify } from '@angular/compiler/src/util';
 
 export class FirebaseService {
   
-  private STATIOS = {
-    allStations: 6,
-    interview: 3,
-  }
+  private stations = 6;
   public currUser: any;
   public currUserDepartment: any;
   public currDepartment: any;
@@ -34,7 +31,7 @@ export class FirebaseService {
           //console.log(doc.data().name)
           allCandidteName.push({
             name: doc.data().name,// doc.data().firstname + " " + doc.data().lestname,
-            progres: this.calculatProgress(doc.data().progress,this.STATIOS.allStations)
+            progres: this.calculatProgress(doc.data().progress,this.stations)
           })
       })
     })

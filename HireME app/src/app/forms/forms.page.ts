@@ -19,7 +19,7 @@ export class FormsPage implements OnInit {
     this.station.currStation = 'טפסים';
     this.station.getSatationData()
     this.data = this.station.currStationData
-    setTimeout(() => {  console.log( this.data); }, 3000);
+    // setTimeout(() => {  console.log( this.data); }, 3000);
    
   }
   

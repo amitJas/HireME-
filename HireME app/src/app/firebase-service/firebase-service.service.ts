@@ -50,7 +50,6 @@ export class FirebaseService {
   }
 
   getCandidateData(){
-    //this.currCandidate = this.db.collection(this.currUserDepartment).doc('Candidate').collection('Data',ref => ref.where("name","==",candidateName)).get()
     return this.db.collection(this.department).doc('Candidate').collection('Data',ref => ref.where("name","==",this.firebaseCName)).get()
   }
 

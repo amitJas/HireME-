@@ -11,30 +11,31 @@ import { StationService } from './../station-service/station.service';
 export class FormsPage implements OnInit {
 
   public sendDate: any;
+  public returnDate: any;
   public sendShow = false;
-  public data: any;
-  public test = '1/1/222'
+  
+  
 
   constructor(private station: StationService ) { }
 
   ngOnInit() {
-    this.station.stationName = 'טפסים';
-    this.station.getSatationData()
-    this.data = this.station.station
-    //setTimeout(() => {  console.log(  this.station.station,"in forms");
-    //this.getSendDate() }, 500);
-    //this.getSendDate()
+ 
   }
 
   
-  // getSendDate(){
-  //   if(this.station.station.id){
-  //     this.sendDate = this.test
-  //     this.sendShow = true
+  // setData(sendDate){
+  //   console.log("in setData",sendDate)
+  //   if(this.station.station.sendTime){
+
   //   }
-  //  return this.sendDate
    
-   
+  // } 
   
+  setDate(date,num){
+    if(num)
+      console.log('send time',date)
+    if(!num)
+      console.log('return time',date)
+  }
   
 }

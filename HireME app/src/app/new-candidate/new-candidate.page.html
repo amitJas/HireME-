@@ -11,14 +11,6 @@
           <ion-label position="floating">שם מלא</ion-label>
           <ion-input type="text" [(ngModel)]="name" name="fistname" required="required"></ion-input>
         </ion-item>
-        <!-- <ion-item text-right >
-          <ion-label  position="floating">שם משפחה</ion-label>
-          <ion-input type="text" [(ngModel)]="lestName" name="lastname" required="required"></ion-input>
-        </ion-item> -->
-        <ion-item>
-                <ion-label text-right >תחילת תהליך</ion-label>
-                <ion-datetime [(ngModel)]="strtProcess" display-format="MM/DD/YYYY"></ion-datetime>
-        </ion-item>
         <ion-item>
             <ion-label text-right position="floating">מס' ת.ז</ion-label>
             <ion-input type="number" [(ngModel)]="id" name="ID" required="required"></ion-input>
@@ -53,6 +45,10 @@
         <ion-item >
             <ion-label text-right stacked>אימייל</ion-label>
             <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label text-right >תחילת תהליך</ion-label>
+            <ion-datetime [(ngModel)]="strtProcess"  display-format="MM/DD/YYYY"></ion-datetime>
         </ion-item>
         <div padding text-center>
             <ion-button ion-button color="danger" round (click)="submitchange()">שמור</ion-button>

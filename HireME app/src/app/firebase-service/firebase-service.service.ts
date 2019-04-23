@@ -37,16 +37,18 @@ export class FirebaseService {
 
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
+    console.log(candidate.strtProcess)
   this.db.collection(this.department).doc('Candidate').collection('Data').add({
       name: candidate.name,
       id: candidate.id,
       job: candidate.job,
-      //startdate: candidate.strtProcess,
+      startdate: Date.parse(candidate.startdate),
       lisens: candidate.lisens,
       phone: candidate.phone,
       email: candidate.email,
       progress: 0
     })
+    
   }
 
   getCandidateData(){
@@ -67,22 +69,22 @@ export class FirebaseService {
 
   addStation(station){
     console.log("addStation",station)
-      this.db.collection(this.department).doc('Candidate').collection(station).add({
+      this.db.collection(this.department).doc('Station').collection(station).add({
         id: this.firebaseCID
       })
     }
   
     setStationFile(station,filde,val){
-      this.db.collection(this.department).doc('Candidate').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
+      this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
         filde:val
       })
     }
   
     getStation(station){
       console.log('getStation',station)
-     return this.db.collection(this.department).doc('Candidate').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+     return this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
     }
 
-
+  
 
 }

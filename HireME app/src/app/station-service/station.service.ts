@@ -10,7 +10,7 @@ export class StationService {
 
   public currUser: any;
   public currCandidate: any;
-  public stationName: any;
+  //public stationName: any;
   public station: any;
 
   constructor(private firebase: FirebaseService) {
@@ -20,11 +20,11 @@ export class StationService {
 
 
 
-   getSatationData(){
-   //console.log(this.currStation)
-    let temp = this.firebase.getStation(this.stationName).subscribe((data) => {
+   getSatationData(stationName){
+   console.log(stationName)
+    let temp = this.firebase.getStation(stationName).subscribe((data) => {
       if(data.empty)
-        this.firebase.addStation(this.stationName)
+        this.firebase.addStation(stationName)
       data.docs.forEach(ref => {
         this.station = ref.data()
       })
@@ -32,6 +32,6 @@ export class StationService {
     return temp
    }
 
- 
+   
 
 }

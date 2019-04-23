@@ -1,4 +1,4 @@
-//import { StationService } from './../station-service/station.service';
+import { StationService } from './../station-service/station.service';
 import { Component, OnInit } from '@angular/core';
 //import { NavController , NavParams } from '@ionic/angular';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
@@ -24,7 +24,7 @@ export class CandidatePage implements OnInit {
   
  
 
-  constructor(public firebase: FirebaseService,public home: HomePage, public router:Router/*,public station:StationService*/) { 
+  constructor(public firebase: FirebaseService,public home: HomePage, public router:Router,public station:StationService) { 
   }
 
   ngOnInit() {
@@ -39,6 +39,7 @@ export class CandidatePage implements OnInit {
 
   stationRouting(index,station){
     console.log(index,station);
+    this.station.getSatationData(station)
     this.router.navigate([this.rouringArrPages[index]]);
   }
 

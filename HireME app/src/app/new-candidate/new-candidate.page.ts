@@ -10,7 +10,7 @@ export class NewCandidatePage implements OnInit {
 
     public name: string
     //public lestName: string
-    public strtProcess: any;
+    public strtProcess: String;
     public id: string
     public job: string
     // public experience: any
@@ -31,11 +31,11 @@ export class NewCandidatePage implements OnInit {
       id: this.id,
       job: this.job,
       lisens: this.lisens,
-      //startdate: this.strtProcess,
+      startdate: this.strtProcess,
       phone: this.phone,
       email: this.email
     }
-    console.log(candidate)
+    console.log(this.strtProcess)
    this.firebase.addNewCandidate(candidate)
    //window.location.reload();
   }

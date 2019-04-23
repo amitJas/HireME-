@@ -21,19 +21,20 @@ export class FormsPage implements OnInit {
     this.station.stationName = 'טפסים';
     this.station.getSatationData()
     this.data = this.station.station
-    setTimeout(() => {  console.log(  this.station.station,"in forms");
-    this.getSendDate() }, 500);
+    //setTimeout(() => {  console.log(  this.station.station,"in forms");
+    //this.getSendDate() }, 500);
     //this.getSendDate()
   }
+
   
-  getSendDate(){
-    if(this.station.station.id){
-      this.sendDate = this.test
-      this.sendShow = true
-    }
-   return this.sendDate
+  // getSendDate(){
+  //   if(this.station.station.id){
+  //     this.sendDate = this.test
+  //     this.sendShow = true
+  //   }
+  //  return this.sendDate
    
-  }
+   
   
   
 }

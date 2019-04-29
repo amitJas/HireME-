@@ -1,26 +1,30 @@
-<ion-header text-center>
+<ion-header>
   <ion-toolbar>
-    <ion-title>ראיון</ion-title>
+    <ion-title>Interview</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header text-right> 
-          <ion-row>
-            <ion-co> 
-              <ion-card-title>שם מראין</ion-card-title>
-            </ion-col> 
-            </ion-row>
-            <ion-row>
-              <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
-            </ion-row>
-            <ion-row>
-              <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
-            </ion-row>
-            <ion-row>
-              <ion-card-title class="candidateID">{{candidateNum}}</ion-card-title>
-            </ion-row>
-        </ion-card-header>
-      </ion-card>
+  <div>
+    <ion-list text-right>
+        <ion-item text-right>
+          <ion-label position="floating">שם מועמד</ion-label>
+          <ion-input type="text" [(ngModel)]="CandidateName" name="CandidateName" required="required"></ion-input>
+        </ion-item>
+        <ion-item text-right>
+          <ion-label position="floating">שם מראיין</ion-label>
+          <ion-input type="text" [(ngModel)]="interviewer" name="interviewer" required="required"></ion-input>
+        </ion-item>
+        <ion-item text-right> 
+                <ion-label text-right>תאריך מבחן</ion-label>
+                <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date" name="date" required="required"></ion-datetime>
+        </ion-item>
+        <ion-item text-right>
+          <ion-label position="floating">תקציר הראיון</ion-label>
+          <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
+        </ion-item>
+
+       <ion-toggle ng-model ="pass" >עבר<ion-toggle>
+    </ion-list>
+</div>
 </ion-content>

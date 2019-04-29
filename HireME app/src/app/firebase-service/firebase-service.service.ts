@@ -69,16 +69,22 @@ export class FirebaseService {
 
   addStation(station){
     console.log("addStation",station)
-      this.db.collection(this.department).doc('Station').collection(station).add({
+      this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID
       })
     }
   
-    setStationFile(station,filde,val){
-      this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
-        filde:val
-      })
-    }
+  //   // setStationFile(station,filde,val){
+  //   //   console.log('setStationFile',station ,filde,val)
+  //   //   let twmp = this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+  //   //   console.log('twmp',twmp)
+  //   //   this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
+  //   //     filde:val
+  //   //   })
+  //   //   // this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+  //   //   //     filde:val
+  //   //   //   })
+  //   // }
   
     getStation(station){
       console.log('getStation',station)

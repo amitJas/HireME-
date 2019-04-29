@@ -19,6 +19,7 @@ export class FormsPage implements OnInit {
   constructor(private station: StationService ) { }
 
   ngOnInit() {
+    
  
   }
 
@@ -31,11 +32,15 @@ export class FormsPage implements OnInit {
    
   // } 
   
-  setDate(date,num){
-    if(num)
-      console.log('send time',date)
-    if(!num)
+  setDate(date,bool){
+    if(bool){
+      console.log('send time set',date)
+      //this.station.setFile('sendDate',date)
+    }
+      
+    if(!bool)
       console.log('return time',date)
+      //this.station.setFile('returnDate',date)
   }
   
 }

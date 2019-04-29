@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { firebaseConfig } from '../environments/environment';
 import { FirebaseService } from './firebase-service/firebase-service.service';
+import { StationService } from './station-service/station.service'
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -41,7 +42,8 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
   providers: [
     StatusBar,
     SplashScreen,
-    FirebaseService,
+    // FirebaseService,
+    // StationService,
     HomePage,
   
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -18,15 +16,13 @@ export class HomePage implements OnInit {
   constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
-    //this.redirectToRegister();
   }
 
  
-
+  //
   moveToDepartmentCandidate(department){
-    this.firebase.currUserDepartment = department;
+    this.firebase.department = department;
     this.departmentIndex = department;
-    console.log(department);
     this.router.navigate(['candidate-list']);
   }
 }

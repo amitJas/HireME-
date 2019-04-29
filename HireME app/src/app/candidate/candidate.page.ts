@@ -1,8 +1,10 @@
+import { StationService } from './../station-service/station.service';
 import { Component, OnInit } from '@angular/core';
 //import { NavController , NavParams } from '@ionic/angular';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
+
 
 
 
@@ -17,23 +19,27 @@ export class CandidatePage implements OnInit {
   public candidateNum: string;
   public progress = 34;
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
-  public rouringArrPages = ["interview","psifas-test"];
-  public currCandidat: any;
+  public rouringArrPages = ["interview","psifas-test",'salary','forms','hr-approval','open-systems'];
+  public currCandidat = {};
+  
+ 
 
-  constructor(public firebase: FirebaseService,public home: HomePage, public router:Router) { 
-    
+  constructor(public firebase: FirebaseService,public home: HomePage, public router:Router,public station:StationService) { 
   }
 
   ngOnInit() {
-    this.department = this.firebase.currUserDepartment;
-    this.currCandidat = this.firebase.currCandidate;
-    this.candidateNum = "89076665";
-    //console.log(this.department)
+    this.firebase.getCandidateData().subscribe((data) => {
+      data.docs.forEach(ref =>{
+         this.currCandidat = ref.data()
+         this.firebase.firebaseCID = ref.data().id
+         })
+       })
+    
   }
 
-
-  stationRouting(index){
-    console.log(index);
+  stationRouting(index,station){
+    console.log(index,station);
+    this.station.getSatationData(station)
     this.router.navigate([this.rouringArrPages[index]]);
   }
 

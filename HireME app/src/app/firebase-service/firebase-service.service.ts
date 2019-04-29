@@ -1,51 +1,96 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, docChanges } from '@angular/fire/firestore';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Injectable({ providedIn: 'root' })
 
 export class FirebaseService {
-
-  public currUserDepartment: any;
-  public currDepartment: any;
-  public currCandidate:any  ;
-  public callCandidateName:any;
-  // public currDepartment: any;
-
-
+  
+  private stations = 6;
+  public currUser: any;
+  public department: any;
+  public firebaseCID: any;
+  public firebaseCName: any;
+  
   constructor(private db: AngularFirestore) { }
 
-  setArrayOfNames(doc){
-    this.callCandidateName.push(doc.data().name);
-    console.log(this.callCandidateName)
+  //chkein the user
+  isAuser(employeeNum){
+    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get()
   }
-  
-  getUserData() {
-    var usersRef = this.db.collection("Users").doc('User1').get().subscribe(function(result) {
-      console.log(result.data())
+
+ 
+  //return array of all the candidate name in the store - Finished!!!
+  getAllCandidate(){
+      let allCandidteName = [];
+      var namesArr =  this.db.collection(this.department).doc('Candidate').collection('Data').get().subscribe((snap) =>{
+        snap.docs.forEach(doc => {
+          allCandidteName.push({
+            name: doc.data().name,
+            progres: this.calculatProgress(doc.data().progress,this.stations)
+          })
+      })
     })
+    return allCandidteName
   }
 
-  getCandidateData() {
-    var usersRef = this.db.collection("Candidate").doc('Candidate1').get().subscribe(function(result) {
-      console.log(result.data())
+  //adding new candidate to firebase, no station yet only data
+  addNewCandidate(candidate){
+    console.log(candidate.strtProcess)
+  this.db.collection(this.department).doc('Candidate').collection('Data').add({
+      name: candidate.name,
+      id: candidate.id,
+      job: candidate.job,
+      startdate: Date.parse(candidate.startdate),
+      lisens: candidate.lisens,
+      phone: candidate.phone,
+      email: candidate.email,
+      progress: 0
     })
+    
   }
 
-  getAllCandidates() {
-    return this.db.collection("Candidates").get();
-  }
-
-  setUserData(userName:string, userEmail: string,userNum:number) {
-    console.log('in setUsersData');
-    console.log(userName,userEmail,userNum);
-    this.db.collection('Users').add({
-      name: userName,
-      email: userEmail,
-      employeeNumber: userNum
-    });
+  getCandidateData(){
+    return this.db.collection(this.department).doc('Candidate').collection('Data',ref => ref.where("name","==",this.firebaseCName)).get()
   }
 
   
+  calculatProgress(progress,num){
+    if(progress)
+      return Math.round((progress / num ) * 100)
+    return  progress  
+  }
+
+
+  convertDate(){
+    
+  }
+
+  addStation(station){
+    console.log("addStation",station)
+      this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+        id: this.firebaseCID
+      })
+    }
   
+  //   // setStationFile(station,filde,val){
+  //   //   console.log('setStationFile',station ,filde,val)
+  //   //   let twmp = this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+  //   //   console.log('twmp',twmp)
+  //   //   this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
+  //   //     filde:val
+  //   //   })
+  //   //   // this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+  //   //   //     filde:val
+  //   //   //   })
+  //   // }
+  
+    getStation(station){
+      console.log('getStation',station)
+     return this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+    }
+
+  
+
 }

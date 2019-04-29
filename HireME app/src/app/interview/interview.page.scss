@@ -1,4 +1,17 @@
-.box{
-    --background: white;
-    --color: white;
+$haedline-color:  rgb(26, 98, 252);
+
+ion-list{
+    border-radius: 14px;
+    padding-bottom: 20px;
+}
+
+
+ion-item{
+    ion-label{
+        margin-right: 10px;
+    }
+
+    ion-card-title{
+        margin: 20px 0px 20px 0px;
+    }
 }

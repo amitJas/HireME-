@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>salary</ion-title>
+    <ion-title text-center>salary</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,8 +12,8 @@
                 <ion-input type="text" [(ngModel)]="CandidateName" name="CandidateName" required="required"></ion-input>
           </ion-item>
           <ion-item>
-                    <ion-label>התקבלו כל הקבצים</ion-label>
                     <ion-toggle ng-model="allfilesaccepted" ></ion-toggle>
+                    <ion-label text-right>התקבלו כל הקבצים</ion-label>
          </ion-item>
 
           <ion-item text-right> 
@@ -34,8 +34,8 @@
         </ion-item>
         
         <ion-item>
-               <ion-label>תשובה</ion-label>
                <ion-toggle ng-model="answer" ></ion-toggle>
+               <ion-label text-right >תשובה</ion-label>
         </ion-item>
 
 

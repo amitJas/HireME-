@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Interview</ion-title>
+    <ion-title text-center >Interview</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,11 +20,15 @@
                 <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date" name="date" required="required"></ion-datetime>
         </ion-item>
         <ion-item text-right>
-          <ion-label position="floating">תקציר הראיון</ion-label>
-          <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
+                <ion-label position="floating">תקציר הראיון</ion-label>
+                <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
+        </ion-item>
+       <ion-item>
+                <ion-toggle ng-model="pass" ></ion-toggle>
+                <ion-label text-right >עבר</ion-label>
         </ion-item>
 
-       <ion-toggle ng-model ="pass" >עבר</ion-toggle>
+        
     </ion-list>
-</div>
+  </div>
 </ion-content>

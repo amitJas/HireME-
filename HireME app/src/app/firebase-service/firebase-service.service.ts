@@ -74,21 +74,23 @@ export class FirebaseService {
       })
     }
   
-  //   // setStationFile(station,filde,val){
-  //   //   console.log('setStationFile',station ,filde,val)
-  //   //   let twmp = this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
-  //   //   console.log('twmp',twmp)
-  //   //   this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
-  //   //     filde:val
-  //   //   })
-  //   //   // this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
-  //   //   //     filde:val
-  //   //   //   })
-  //   // }
+    setStationFile(station,filde,val){
+      console.log('setStationFile',station ,filde,val)
+      this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+        [filde] : val
+      }, { merge: true })
+      // console.log('twmp',twmp)
+      // this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
+      //   filde:val
+      // })
+      // this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+      //     filde:val
+      //   })
+    }
   
     getStation(station){
-      console.log('getStation',station)
-     return this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
+      console.log('getStation',station,this.firebaseCID.toString())
+     return this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).get()
     }
 
   

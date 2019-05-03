@@ -20,39 +20,24 @@ export class StationService {
 
 
 
-  //  getSatationData(stationName){
-  //  console.log(stationName)
-  //  this.currStationName = stationName
-  //   let temp = this.firebase.getStation(stationName).subscribe((data) => {
-  //     if(data.empty)
-  //       this.firebase.addStation(stationName)
-  //     data.docs.forEach(ref => {
-  //       this.station = ref.data()
-  //     })
-  //   })
-  //   return temp
-  //  }
-
    getSatationData(stationName){
    console.log(stationName)
    this.currStationName = stationName
     let temp = this.firebase.getStation(stationName).subscribe((data) => {
-      if(data.empty)
+      console.log(data.data())
+      if(data)
         this.firebase.addStation(stationName)
-      data.docs.forEach(ref => {
-        this.station = ref.data()
-      })
+      this.station = data.data()
     })
     return temp
    }
 
-
-   setFormSend(fildeName,val){
+  setFormSend(fildeName,val){
     console.log('setFile',this.currStationName,fildeName,val)
-     
-
    }
-
+   setFile(fildeName,data){
+     this.firebase.setStationFile(this.currStationName,fildeName,data)
+   }
 
    //this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
   

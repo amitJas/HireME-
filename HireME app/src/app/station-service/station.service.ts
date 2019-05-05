@@ -18,7 +18,19 @@ export class StationService {
 
 
 
-
+  //  initData()
+  // {
+  //   //console.log('in initform' ,this.station.station.sendDate )
+  //   if(this.station.station.sendDate){
+  //     //this.fixdData = true;
+  //     this.sendDate = this.station.station.sendDate;
+  //   }
+  //   if(this.station.station.returnDate){
+  //     //this.fixdData = true;
+  //     this.returnDate = this.station.station.returnDate;
+  //   }
+   
+  // }
 
    getSatationData(stationName){
    console.log(stationName)
@@ -27,9 +39,9 @@ export class StationService {
       console.log(data.data())
       if(data)
         this.firebase.addStation(stationName)
-      this.station = data.data()
+        this.station = data.data()
     })
-    return temp
+    return this.station
    }
 
   setFormSend(fildeName,val){

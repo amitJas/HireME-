@@ -16,7 +16,8 @@ export class FormsPage implements OnInit {
   public returnDate: any;
   public sendShow = false;
   private fixdData = true;
-  
+  private addForm = false;
+  private newForm :String;
 
   constructor(private station: StationService ) { }
 
@@ -25,24 +26,21 @@ export class FormsPage implements OnInit {
       console.log('this.station', this.station.station)
       this.initData()
     },500)
-    
-    
-
-    
+    //console.log('this.station', this.station.station)
+    // this.station.getSatationData('חובקן טפסים').subscribe(ste =>{
+    //   this.initData(ste)
+    // })
   }
 
   initData()
   {
-    console.log('in initform' ,this.station.station.sendDate )
     if(this.station.station.sendDate){
-      //this.fixdData = true;
       this.sendDate = this.station.station.sendDate;
     }
     if(this.station.station.returnDate){
-      //this.fixdData = true;
       this.returnDate = this.station.station.returnDate;
     }
-    
+   
   }
   // setData(sendDate){
   //   console.log("in setData",sendDate)
@@ -51,16 +49,24 @@ export class FormsPage implements OnInit {
   //   }
    
   // } 
+  moreForms(){
+    //console.log(rdiuoName)
+    this.addForm = true;
+  }
+
+  addFrom(){
+    document.createElement( "<ion-item></ion-item>" );
+  }
   
   setDate(date,bool){
-    if(bool){
-      console.log('send time set',date)
-      this.station.setFile('sendDate',date)
-    }
-      
+    if(bool)
+      this.station.setFile('sendDate',date) 
     if(!bool)
-      console.log('return time',date)
       this.station.setFile('returnDate',date)
+  }
+
+  setRdiuoForms(rdiuoName){
+    console.log(rdiuoName)
   }
   
 }

@@ -79,13 +79,6 @@ export class FirebaseService {
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
         [filde] : val
       }, { merge: true })
-      // console.log('twmp',twmp)
-      // this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).add({
-      //   filde:val
-      // })
-      // this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
-      //     filde:val
-      //   })
     }
   
     getStation(station){

@@ -15,27 +15,31 @@
         <ion-datetime [(ngModel)]="returnDate" (ionChange)='setDate(returnDate,false)' display-format="MM/DD/YYYY"></ion-datetime>
         <ion-label text-right >חזר מהמועמד בתאריך</ion-label>
     </ion-item>
-    <ion-list> 
+    <ion-list class="formList"> 
           <div text-right class="subNote">סמן את הטפסים שחזרו</div>
         <ion-item>
             <ion-label text-right>טופס 101</ion-label>
-            <ion-radio slot="start" value="biff" ></ion-radio>
+            <ion-radio slot="start" value="biff" (ionSelect)='setRdiuoForms("101")'></ion-radio>
         </ion-item>
         <ion-item>
             <ion-label text-right>חוזה העסקה</ion-label>
-            <ion-radio slot="start" value="biff" ></ion-radio>
+            <ion-radio slot="start" value="biff"  (ionSelect)='setRdiuoForms("העסקה")' ></ion-radio>
         </ion-item>
         <ion-item>
             <ion-label  text-right >ויתור סודיות</ion-label>
-            <ion-radio slot="start" value="biff" ></ion-radio>
+            <ion-radio slot="start" value="biff" (ionSelect)='setRdiuoForms("סודיות")' ></ion-radio>
         </ion-item>
         <ion-item>
             <ion-label  text-right >אישור בטחוני</ion-label>
-          <ion-radio slot="start" value="biff" ></ion-radio>
+          <ion-radio slot="start" value="biff"  (ionSelect)='setRdiuoForms("ביטחון")' ></ion-radio>
         </ion-item>
     </ion-list>
-    <ion-item >
-      <ion-label  text-right>האם יש טפסים נוספים הנחוצים</ion-label>
+    <ion-item lines="none">
+        <ion-label  text-right >הוסף טופס</ion-label>
+    </ion-item>
+    <ion-item class="moreform">
+      <ion-button small  (click)='addFrom()'>הוסף</ion-button>
+      <ion-textarea text-right [(ngModel)]="newForm" placeholder="שם הטופס"></ion-textarea>
     </ion-item>
     <ion-item lines="none">
         <ion-toggle ></ion-toggle>

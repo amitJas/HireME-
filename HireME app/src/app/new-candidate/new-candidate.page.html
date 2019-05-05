@@ -5,77 +5,6 @@
 </ion-header>
 
 <ion-content padding>
-<<<<<<< HEAD
-  <div>
-    <ion-list text-right>
-        <ion-item text-right>
-          <ion-label position="floating">שם פרטי</ion-label>
-          <ion-input type="text" [(ngModel)]="firstname" name="firstname" required="required"></ion-input>
-        </ion-item>
-        <ion-item text-right>
-          <ion-label position="floating">שם משפחה</ion-label>
-          <ion-input type="text" [(ngModel)]="lastname" name="lastname" required="required"></ion-input>
-        </ion-item>
-        <ion-item text-right> 
-                <ion-label text-right>תאריך רישום למערכת</ion-label>
-                <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date" name="date" required="required"></ion-datetime>
-        </ion-item>
-        <ion-item text-right>
-            <ion-label position="floating">תעודת זהות</ion-label>
-            <ion-input type="Number" [(ngModel)]="idd" name="id" required="required"></ion-input>
-        </ion-item>
-
-        <ion-item text-right>
-            <ion-label text-right >מקצוע</ion-label>
-            <ion-select text-right cancelText="התעלם" okText="בחר" value="doctor" text-right type="picklist" [(ngModel)]="profession" name="Profession" required="required">
-                <ion-select-option value="doctor" text-right>רפואה</ion-select-option>
-                <ion-select-option value="nurse" text-right>סיעוד</ion-select-option>
-                <ion-select-option value="administration" text-right>אדמינסטרציה</ion-select-option>
-                <ion-select-option value="psychology" text-right>פסיכולוגיה</ion-select-option>
-                <ion-select-option value="physiotherapy" text-right>פיזיוטרפיה</ion-select-option>
-                <ion-select-option value="OccupationalTherapy" text-right>ריפוי בעיסוק</ion-select-option>
-                <ion-select-option value="Speech Therapy" text-right>קלינאות תקשורת</ion-select-option>
-                <ion-select-option value="social work" text-right>עבודה סוציאלית</ion-select-option>
-              </ion-select>
-              <!--<ion-input type="text" [(ngModel)]="profession" name="Profession" required="required"></ion-input>-->
-        </ion-item>
-        <ion-item>
-                <ion-label text-right>יש לי ניסיון בתחום</ion-label>
-                <ion-checkbox checked="true" type="ion-checkbox" [(ngModel)]="isExperience" name="isExperience" required="required" item-left></ion-checkbox>
-        </ion-item>
-        <ion-item>
-                  <ion-label position="floating" text-right>במידה ויש ניסיון, יש להקליד מס' שנים</ion-label>
-                  <ion-input text-right type="Number" [(ngModel)]="experienceInYears" name="experienceInYears" required="not"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label text-right>עשיתי מבחן פסיפס</ion-label>
-            <ion-checkbox checked="true" type="ion-checkbox" [(ngModel)]="madeAnExam" name="madeAnExam" required="required" item-left></ion-checkbox>
-        </ion-item>
-        
-        <ion-item>
-            <ion-label position="floating" text-right>אם עשית מבחן , אנא הזן את הציון שקיבלת</ion-label>
-            <ion-input text-right type="Number" [(ngModel)]="examGrade" name="examGrade" required="not"></ion-input>
-        </ion-item>
-        <ion-item text-right>
-            <ion-label position="floating" text-right>מספר פלאפון</ion-label>
-            <ion-input type="Number" [(ngModel)]="phoone" name="phone" required="required"></ion-input>
-        </ion-item>
-        <ion-item >
-            <ion-label position="floating" text-right>דואר אלקטרוני</ion-label>
-            <ion-input type="email" [(ngModel)]="emaiil" name="email" required="required"></ion-input>
-        </ion-item>
-        <ion-item >
-            <ion-label position="floating" text-right>סיסמה</ion-label>
-            <ion-input type="password"  [(ngModel)]="password" name="password" required="required"></ion-input>
-        </ion-item>
-        <div padding text-center>
-            <ion-button *ngIf="savechanges" ion-button color="danger" round (click)="submitchange()">save changes</ion-button>
-            <!--show dead button if form is not filded-->
-            <ion-button color="danger" size="full" *ngIf="email||password"  >Save changes</ion-button>
-           
-        </div>
-=======
     <ion-list>
         <ion-item text-right lines="inset">
           <ion-label position="floating">שם מלא</ion-label>
@@ -121,6 +50,5 @@
             <ion-label text-right >תחילת תהליך</ion-label>
         </ion-item>
         <ion-button ion-button color="primary" text-center expand="block" round (click)="submitchange()">שמור</ion-button>
->>>>>>> 3cad537984b88923f13c6737d1c2c9b36e4176af
     </ion-list>
 </ion-content>

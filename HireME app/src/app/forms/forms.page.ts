@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from './../station-service/station.service';
-import { initDomAdapter } from '@angular/platform-browser/src/browser';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { getLocaleDateFormat } from '@angular/common';
 
 
 
@@ -18,6 +17,7 @@ export class FormsPage implements OnInit {
   private fixdData = true;
   private addForm = false;
   private newForm :String;
+  private userName: any;
 
   constructor(private station: StationService ) { }
 
@@ -34,8 +34,11 @@ export class FormsPage implements OnInit {
 
   initData()
   {
+    console.log("initData")
     if(this.station.station.sendDate){
-      this.sendDate = this.station.station.sendDate;
+      this.sendDate = this.station.station.sendDate.data;
+      this.userName = this.station.station.sendDate.how;
+      this.fixdData = true
     }
     if(this.station.station.returnDate){
       this.returnDate = this.station.station.returnDate;
@@ -66,7 +69,8 @@ export class FormsPage implements OnInit {
   }
 
   setRdiuoForms(rdiuoName){
-    console.log(rdiuoName)
+    
+    //this.station.setFile(rdiuoName,getLocaleDateFormat)
   }
   
 }

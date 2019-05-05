@@ -60,8 +60,11 @@ export class LoginPage implements OnInit {
       }else{
         this.firebase.isAuser(this.employeeNum).subscribe((snap) =>{
           if(!snap.empty){
+            snap.docs.forEach((doc) => {
+              this.firebase.user = doc.data().name;
+            })
             this.loading.dismiss()
-            console.log("yes")
+            console.log("yes",this.firebase.user)
             this.router.navigate(['home'])
           }
           else{

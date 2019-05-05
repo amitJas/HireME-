@@ -8,7 +8,7 @@ import { stringify } from '@angular/compiler/src/util';
 export class FirebaseService {
   
   private stations = 6;
-  public currUser: any;
+  public user: any;
   public department: any;
   public firebaseCID: any;
   public firebaseCName: any;
@@ -71,7 +71,7 @@ export class FirebaseService {
     console.log("addStation",station)
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID
-      })
+      },{ merge: true })
     }
   
     setStationFile(station,filde,val){

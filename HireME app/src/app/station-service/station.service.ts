@@ -1,7 +1,7 @@
 import { async } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
-import { timeout } from 'q';
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +47,10 @@ export class StationService {
   setFormSend(fildeName,val){
     console.log('setFile',this.currStationName,fildeName,val)
    }
-   setFile(fildeName,data){
-     this.firebase.setStationFile(this.currStationName,fildeName,data)
+   setFile(fildeName,date){
+     let obj = {data: date , how: this.firebase.user}
+     console.log('obj' , obj)
+     this.firebase.setStationFile(this.currStationName,fildeName,obj)
    }
 
    //this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()

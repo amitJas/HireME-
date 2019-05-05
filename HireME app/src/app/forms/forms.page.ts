@@ -55,7 +55,7 @@ export class FormsPage implements OnInit {
   }
 
   addFrom(){
-    document.createElement( "<ion-item></ion-item>" );
+   
   }
   
   setDate(date,bool){

@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PsifasTestPage implements OnInit {
 
+  public CandidateName:string;
+  public interviewer:string;
+  public date:Date;
+  public grade:DoubleRange;
+  public discription:string;
+  public pass:boolean;
+  
   constructor() { }
 
   ngOnInit() {

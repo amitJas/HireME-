@@ -7,6 +7,9 @@ ion-list{
 
 
 ion-item{
+
+    margin-bottom: -11px;
+    
     ion-label{
         margin-right: 10px;
     }
@@ -14,4 +17,21 @@ ion-item{
     ion-card-title{
         margin: 20px 0px 20px 0px;
     }
+
+    ion-note{
+        margin-right: 10px;
+    }
+}
+
+.note{
+    font-size:  16px;
+    margin: 25px 0px 10px 0px; 
+    color: $haedline-color;
+    margin-right: 10px;
+}
+
+.subNote{
+    font-size:  20px;
+    color: $haedline-color;
+    margin: 28px 12px 0px 0px;
 }

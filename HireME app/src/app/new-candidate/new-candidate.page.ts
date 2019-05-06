@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
-
->>>>>>> 371ccdaef3bfd69fa31d2ffe0b9f6abfa33d6b6a
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 
 @Component({
@@ -11,29 +7,9 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
   styleUrls: ['./new-candidate.page.scss'],
 })
 export class NewCandidatePage implements OnInit {
-<<<<<<< HEAD
-/*public firstname:any;
-public lastname:any;
-public date:Date;
-public id:any;
-public phone:any;
-public email:EmailValidator;
-public password:any;
-public profession: any = {
-  header: 'profession',
-  subHeader: 'מקצוע',
-};
-
-public isExperience:boolean;
-public experienceInYears:Number;
-public madeAnExam:boolean;
-public examGrade:any;
-*/
-=======
 
   
     public newC: object;
->>>>>>> 371ccdaef3bfd69fa31d2ffe0b9f6abfa33d6b6a
     public name: string
     //public lestName: string
     public strtProcess: String;

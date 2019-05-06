@@ -7,33 +7,37 @@
 <ion-content padding>
   <ion-list text-right> 
       <ion-card-title class="note" text-right >בשלב זה יש לשלוח למועמד את הטפסים הבאים</ion-card-title>
-    <ion-item lines="none">       
+    <ion-item >       
       <ion-datetime  [(ngModel)]="sendDate" (ionChange)='setDate(sendDate,true)' display-format="MM/DD/YYYY"></ion-datetime>
       <ion-label text-right >נשלח למועמד בתאריך</ion-label> 
+      <ion-note  *ngIf='send' text-right class="userUp" >עודכן ע"י: {{userNameSend}}</ion-note>
     </ion-item>
-    <ion-note text-right >עודכן ע"י: {{userName}}</ion-note>
-    
     <ion-item>  
         <ion-datetime [(ngModel)]="returnDate" (ionChange)='setDate(returnDate,false)' display-format="MM/DD/YYYY"></ion-datetime>
         <ion-label text-right >חזר מהמועמד בתאריך</ion-label>
+        <ion-note *ngIf='return' text-right class="userUp" >עודכן ע"י: {{userNameReturn}}</ion-note>
     </ion-item>
     <ion-list class="formList"> 
           <div text-right class="subNote">סמן את הטפסים שחזרו</div>
         <ion-item>
             <ion-label text-right>טופס 101</ion-label>
-            <ion-radio slot="start" value="biff" (ionSelect)='setRdiuoForms("101")'></ion-radio>
+            <ion-radio *ngIf='!f101' slot="start" value="biff" (ionSelect)='setRdiuoForms("101")'></ion-radio>
+            <!-- <ion-note *ngIf='return' text-right class="userUp" >עודכן ע"י: {{userNameReturn}}</ion-note> -->
         </ion-item>
         <ion-item>
             <ion-label text-right>חוזה העסקה</ion-label>
             <ion-radio slot="start" value="biff"  (ionSelect)='setRdiuoForms("העסקה")' ></ion-radio>
+            <!-- <ion-note *ngIf='return' text-right class="userUp" >עודכן ע"י: {{userNameReturn}}</ion-note> -->
         </ion-item>
         <ion-item>
             <ion-label  text-right >ויתור סודיות</ion-label>
             <ion-radio slot="start" value="biff" (ionSelect)='setRdiuoForms("סודיות")' ></ion-radio>
+            <!-- <ion-note *ngIf='return' text-right class="userUp" >עודכן ע"י: {{userNameReturn}}</ion-note> -->
         </ion-item>
         <ion-item>
             <ion-label  text-right >אישור בטחוני</ion-label>
-          <ion-radio slot="start" value="biff"  (ionSelect)='setRdiuoForms("ביטחון")' ></ion-radio>
+            <ion-radio slot="start" value="biff"  (ionSelect)='setRdiuoForms("ביטחון")' ></ion-radio>
+            <!-- <ion-note *ngIf='return' text-right class="userUp" >עודכן ע"י: {{userNameReturn}}</ion-note> -->
         </ion-item>
     </ion-list>
     <ion-item lines="none">

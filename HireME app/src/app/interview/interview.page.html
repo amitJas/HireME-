@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-  <div>
     <ion-list text-right>
+        <ion-card-title class="note" text-right >בשלב זה יש למלא את פרטי הראיון האישי</ion-card-title>
         <ion-item text-right>
           <ion-label position="floating">שם מועמד</ion-label>
           <ion-input type="text" [(ngModel)]="CandidateName" name="CandidateName" required="required"></ion-input>
@@ -27,8 +27,7 @@
                 <ion-toggle ng-model="pass" ></ion-toggle>
                 <ion-label text-right >עבר</ion-label>
         </ion-item>
-
-        
     </ion-list>
-  </div>
 </ion-content>
+
+

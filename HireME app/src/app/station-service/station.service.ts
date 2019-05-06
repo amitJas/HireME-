@@ -14,7 +14,9 @@ export class StationService {
   public station: any;
 
   constructor(private firebase: FirebaseService) {
+    //this.currUser = this.firebase.user;
    }
+
 
 
 

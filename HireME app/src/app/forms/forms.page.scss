@@ -8,7 +8,7 @@ ion-list{
 
 ion-item{
 
-    margin-bottom: -11px;
+    
     
     ion-label{
         margin-right: 10px;
@@ -18,11 +18,15 @@ ion-item{
         margin: 20px 0px 20px 0px;
     }
 
-    ion-note{
-        margin-right: 10px;
-    }
+    // ion-note{
+    //     margin-right: 10px;
+    // }
 }
-
+.userUp{
+    position: absolute;
+    bottom: -2px;
+    right: 27px;
+}
 .note{
     font-size:  16px;
     margin: 25px 0px 10px 0px; 

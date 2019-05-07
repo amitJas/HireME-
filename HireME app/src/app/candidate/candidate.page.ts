@@ -22,7 +22,7 @@ export class CandidatePage implements OnInit {
   public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','hr-approval','open-systems'];
   public currCandidat = {};
- 
+  public tempDate;
   
  
 
@@ -34,6 +34,7 @@ export class CandidatePage implements OnInit {
       data.docs.forEach(ref =>{
          this.currCandidat = ref.data()
          this.firebase.firebaseCID = ref.data().id
+         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL')
          })
        })
     

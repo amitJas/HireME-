@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from './../station-service/station.service';
-import { getLocaleDateFormat } from '@angular/common';
+
 
 
 
@@ -97,18 +97,12 @@ export class FormsPage implements OnInit {
           list.appendChild(temp);
     
   }
-  // <ion-item>
-  //           <ion-label  text-right >אישור בטחוני</ion-label>
-  //           <ion-radio [checked]='f104' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-radio>
-  //           <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note>
-  //       </ion-item>
+
   setDate(date,bool){
     if(bool)
       this.station.setFile('sendDate',date) 
     if(!bool)
       this.station.setFile('returnDate',date)
-
-      //this.userName = this.station.currUser;
   }
 
   setRdiuoForms(rdiuoName){

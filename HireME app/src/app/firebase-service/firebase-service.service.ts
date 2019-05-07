@@ -69,16 +69,21 @@ export class FirebaseService {
   addStation(station){
     //console.log("addStation",station)
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
+        progress: 0
       },{ merge: true })
     }
   
     setStationFile(station,filde,val){
       //console.log('setStationFile',station ,filde,val)
-      this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
-        [filde] : val
+      let temp = this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString())
+      temp.set({
+        [filde] : val,
       }, { merge: true })
+      // temp.get().subscribe((snap) =>{
+      //     snap.data().progress += 1;
+      //   })
     }
-  
+
     getStation(station){
       //console.log('getStation',station,this.firebaseCID.toString())
      return this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).get()

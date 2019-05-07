@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StationService } from './../station-service/station.service';
+
+
 
 @Component({
   selector: 'app-interview',
@@ -7,15 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterviewPage implements OnInit {
 
-  public CandidateName:string;
+  public candidateName:string;
   public interviewer:string;
   public date:Date;
   public discription:any;
   public pass:boolean;
   
-  constructor() { }
+  constructor(private station: StationService ) {
+
+   }
 
   ngOnInit() {
+    this.candidateName = this.station.candidateName
+    console.log(this.candidateName);
   }
 
 }

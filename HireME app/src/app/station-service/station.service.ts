@@ -9,12 +9,13 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 export class StationService {
 
   public currUser: any;
-  public currCandidate: any;
+  public candidateName: any;
   public currStationName: any;
   public station: any;
 
   constructor(private firebase: FirebaseService) {
     //this.currUser = this.firebase.user;
+    this.candidateName = this.firebase.firebaseCName
    }
 
 

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, docChanges } from '@angular/fire/firestore';
-import { stringify } from '@angular/compiler/src/util';
 
 
 @Injectable({ providedIn: 'root' })
@@ -38,7 +37,7 @@ export class FirebaseService {
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
     console.log(candidate.strtProcess)
-  this.db.collection(this.department).doc('Candidate').collection('Data').add({
+  this.db.collection(this.department).doc('Candidate').collection('Data').doc(candidate.id.toString()).set({
       name: candidate.name,
       id: candidate.id,
       job: candidate.job,
@@ -46,9 +45,9 @@ export class FirebaseService {
       lisens: candidate.lisens,
       phone: candidate.phone,
       email: candidate.email,
-      progress: 0
+      progress: 0,
+      setingUser: this.user
     })
-    
   }
 
   getCandidateData(){
@@ -68,24 +67,40 @@ export class FirebaseService {
   }
 
   addStation(station){
-    console.log("addStation",station)
+    //console.log("addStation",station)
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
-        id: this.firebaseCID
       },{ merge: true })
     }
   
     setStationFile(station,filde,val){
-      console.log('setStationFile',station ,filde,val)
+      //console.log('setStationFile',station ,filde,val)
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
         [filde] : val
       }, { merge: true })
     }
   
     getStation(station){
-      console.log('getStation',station,this.firebaseCID.toString())
+      //console.log('getStation',station,this.firebaseCID.toString())
      return this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).get()
     }
 
-  
+    deletCandidate(alertData){
+      let sationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
+      this.setDeleteDate(alertData) //save the resun for deleting this canadidt
+      this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delet all candidate date
+      for( let station of sationList)
+        this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).delete() // delet all candidate stations date
+    }
+
+    setDeleteDate(data){
+      console.log('setDeleteDate')
+      this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
+        id: this.firebaseCID.toString(),
+        name: this.firebaseCName,
+        hoWdelete: this.user,
+        when:  new Date().getTime(),
+        cause: data
+      })
+    }
 
 }

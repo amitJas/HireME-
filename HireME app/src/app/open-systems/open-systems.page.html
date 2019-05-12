@@ -1,9 +1,91 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>open-systems</ion-title>
+    <ion-title>רישום במערכת</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-card-title>בשלב זה יש להצע את כל השלבים באים</ion-card-title>
+    <ion-item>
+      <ion-label text-right>קוד כניסה ראשי</ion-label>
+      <ion-checkbox mode='ios'  slot="start" value="biff" (ionFocus)='setRdiuoForms("f101")'></ion-checkbox>
+      <!-- <ion-note *ngIf='f101' text-right class="userUp" >עודכן ע"י: {{set101}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label text-right>מייל קופה</ion-label>
+        <ion-checkbox  mode='ios'  slot="start" value="biff"  (ionFocus)='setRdiuoForms("f102")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f102' text-right class="userUp" >עודכן ע"י: {{set102}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >400AS כניסת</ion-label>
+        <ion-checkbox mode='ios' [checked]='f103' slot="start" value="biff" (ionFocus)='setRdiuoForms("f103")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f103' text-right class="userUp" >עודכן ע"י: {{set103}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >חילנט</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >יומן תורים</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >תוכנת התפתחות הילד</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >החתמת אצבע</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >הוספה למייל קבוצת התחום</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >שלט דלת</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >הוספה לרשימת הטלפונים</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >עותק תעודה לקלסר</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >קבלת פנים</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right >הזמנת חותמת</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+    <ion-item>
+        <ion-label  text-right > 400AS הדרכה ל</ion-label>
+        <ion-checkbox  mode='ios' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f104")' ></ion-checkbox>
+        <!-- <ion-note *ngIf='f104' text-right class="userUp" >עודכן ע"י: {{set104}}  </ion-note> -->
+    </ion-item>
+   
+    <ion-item lines="none">
+      <ion-label  text-right >הערות</ion-label>
+    </ion-item>
+    <ion-item class="moreform">
+      <ion-button small  (click)='addFrom()'>הוסף</ion-button>
+      <ion-textarea text-right [(ngModel)]="newForm" placeholder="רשום הערה"></ion-textarea>
+    </ion-item>
 
+
+  </ion-list>
 </ion-content>

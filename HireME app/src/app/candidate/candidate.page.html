@@ -1,9 +1,14 @@
-<ion-header text-right>
-  <ion-toolbar>
+<ion-header id="header">
+  <ion-toolbar mode='ios'>
     <ion-title>
-      <ion-row >
-        <ion-col >{{department}}<ion-icon id="pathArrow" name="arrow-dropleft"> </ion-icon> {{currCandidat.name}} </ion-col>
-      </ion-row>
+      <ion-row>
+          <ion-col >
+              <ion-icon name="home" float-right (click)='station.navFunction(2)' ></ion-icon>
+          </ion-col>
+          <ion-col>
+              <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
+          </ion-col>
+        </ion-row>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,7 +20,7 @@
           <ion-row> 
             <ion-item lines='none'>
               <ion-card-title class="headers"><h3 >{{currCandidat.name}}</h3></ion-card-title>
-          </ion-item> 
+            </ion-item> 
         </ion-row>
         <ion-row>
           <ion-col><ion-card-title text-right class="candidateID">{{currCandidat.id}}</ion-card-title></ion-col>

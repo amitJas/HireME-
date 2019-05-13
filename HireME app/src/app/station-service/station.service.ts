@@ -1,7 +1,7 @@
 import { async } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
-
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class StationService {
   public currStationName: any;
   public station: any;
 
-  constructor(private firebase: FirebaseService) {
+  constructor(public nav: NavController,private firebase: FirebaseService) {
     //this.currUser = this.firebase.user;
     this.candidateName = this.firebase.firebaseCName
    }
@@ -56,8 +56,38 @@ export class StationService {
      this.firebase.setStationFile(this.currStationName,fildeName,obj)
    }
 
-   //this.db.collection(this.department).doc('Station').collection(station,ref => ref.where('id','==',this.firebaseCID)).get()
-  
-   
+   navFunction(num){
+     console.log("in navfunction")
+    if(num == 1)
+      this.nav.goBack();
+    if(num == 2)
+      this.nav.navigateForward('/home')
+  }
 
+  // createHader(){
+  //   var temp = document.createElement("temp");
+  //   var list = document.getElementById("header");
+  //     temp.innerHTML = "<ion-toolbar mode='ios'> \
+  //                         <ion-title> \
+  //                           <ion-row> \
+  //                             <ion-col>\
+  //                               <ion-icon name='home' float-right (click)='station.navFunction(2)'></ion-icon> \
+  //                             </ion-col> \
+  //                             <ion-col> \
+  //                               <ion-icon float-right name='arrow-round-forward' (click)='station.navFunction(1)'></ion-icon> \
+  //                             </ion-col> \
+  //                           </ion-row> \
+  //                         </ion-title> \
+  //                         </ion-toolbar>"
+  //         list.appendChild(temp);
+  // }
+
+  setRdiuo(rdiuoName){
+    let d = new Date().getTime()
+    console.log(rdiuoName,d) // 
+    //console.log(rdiuoName,Date.setDate(d))
+    this.station.setFile(rdiuoName,new Date().getTime())
+  }
+
+  
 }

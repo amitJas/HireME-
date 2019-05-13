@@ -9,6 +9,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 
 
 
+
 @Component({
   selector: 'app-candidate',
   templateUrl: './candidate.page.html',
@@ -26,10 +27,12 @@ export class CandidatePage implements OnInit {
   
  
 
-  constructor(public firebase: FirebaseService,public home: HomePage, public router:Router,public station:StationService,public loadingCtrl: LoadingController, public alertController: AlertController) { 
+  constructor(private firebase: FirebaseService,public home: HomePage, public router:Router,public station:StationService,public loadingCtrl: LoadingController, public alertController: AlertController) { 
+  
   }
 
   ngOnInit() {
+    //this.station.createHader()
     this.firebase.getCandidateData().subscribe((data) => {
       data.docs.forEach(ref =>{
          this.currCandidat = ref.data()
@@ -102,4 +105,18 @@ export class CandidatePage implements OnInit {
       this.router.navigate(['home']);
     })
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 }

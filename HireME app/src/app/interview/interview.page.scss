@@ -2,7 +2,7 @@ $haedline-color:  rgb(26, 98, 252);
 
 ion-list{
     border-radius: 14px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 
     ion-checkbox{
         margin: 10px 5px -10px 5px;
@@ -12,6 +12,7 @@ ion-list{
 
 ion-item{
     
+    margin-top: 10px;
     ion-label{
         margin-right: 10px;
     }
@@ -22,6 +23,11 @@ ion-item{
 
     ion-note{
         margin-right: 10px;
+    }
+    
+    strong{
+        font-size: 17px;
+        margin-left: 10px;
     }
 }
 .ffff{
@@ -37,4 +43,12 @@ ion-item{
     font-size:  20px;
     color: $haedline-color;
     margin: 28px 12px 0px 0px;
+}
+.userUp{
+    position: absolute;
+    bottom: -2px;
+    right: 27px;
+}
+.interviewerHedar{
+
 }

@@ -22,10 +22,10 @@ export class InterviewPage implements OnInit {
   public message: any
   public discriptionSet = false; saveButton:String 
   public job = 0 ; 
-  //public rdiuo = []
-
+  public setreplacedName:any; replacedName:any
+ 
   constructor(private station: StationService ) {
-
+    
    }
 
   ngOnInit() {
@@ -40,19 +40,22 @@ export class InterviewPage implements OnInit {
     if(this.station.station.interviewer){
       this.interviewerName = this.station.station.interviewer.data
       this.userSetInterviewer = this.station.station.interviewer.how;
-      this.progressCount++
     }
     if(this.station.station.interviewDate){
       this.date = this.station.station.interviewDate.data
       this.userSetDate = this.station.station.interviewDate.how;
-      this.progressCount++
     }
     if(this.station.station.discription){
       this.discriptionSet = !this.discriptionSet
       this.saveButton = 'ערוך'
       this.discription = this.station.station.discription.data
       this.discriptionSets = this.station.station.discription.how;
-      this.progressCount++
+    }else{
+      this.saveButton = 'שמור'
+    }
+    if(this.station.station.replacedName){
+      this.replacedName = this.station.station.replacedName.data
+      this.setreplacedName = this.station.station.replacedName.how
     }
     this.job = this.station.station.job;
   }
@@ -73,7 +76,9 @@ export class InterviewPage implements OnInit {
       }
       this.station.setFile('discription',data)
     }
-      
+    if(num == 4){
+      this.station.setFile('replacedName',data)
+    }
   }
 
   setRdiuoInterview(rdiuoName,num){

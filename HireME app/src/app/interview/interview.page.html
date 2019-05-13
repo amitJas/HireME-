@@ -30,15 +30,19 @@
           <ion-label text-right>תאריך ראיון</ion-label>
           <ion-note *ngIf='interviewerName' text-right class="userUp" >עודכן ע"י: {{ userSetDate }}</ion-note>
         </ion-item>
-        <ion-list >
+        <!-- <ion-list >
             <div text-right class="subNote">עבור משרה</div>
-            <ion-label class='ffff' >מלאה</ion-label>
+            <ion-label class='ffff' >תקן</ion-label>
             <ion-checkbox mode='ios' [checked]='job == 1' (ionFocus)='setRdiuoInterview("job",1)' ></ion-checkbox>
-            <ion-label class='ffff' >חלקית</ion-label>
+            <ion-label class='ffff' >ממלא מקום</ion-label>
             <ion-checkbox mode='ios' [checked]='job == 2' (ionFocus)='setRdiuoInterview("job",2)' ></ion-checkbox>
-            <ion-label class='ffff' >החלפה לחל"ד</ion-label>
-            <ion-checkbox mode='ios' [checked]='job == 3' (ionFocus)='setRdiuoInterview("job",3)' ></ion-checkbox>
-          </ion-list>
+        </ion-list> -->
+        <!-- <ion-item text-right>
+          <ion-input type="text" [(ngModel)]="replacedName" (ionBlur)='setData(replacedName,4)' name="replacedName" required="required"></ion-input>
+          <ion-label> {{replacedName}} </ion-label>
+          <ion-label><strong>עבור</strong></ion-label>
+          <ion-note *ngIf='replacedName' text-right class="userUp" >עודכן ע"י: {{ setreplacedName }}</ion-note>
+        </ion-item> -->
         <ion-item >
             <ion-button small  (click)='setData(discription,3)'>{{saveButton}}</ion-button>
             <ion-label text-right >תקציר הראיון</ion-label>
@@ -48,10 +52,6 @@
             <ion-text *ngIf='discriptionSet' > {{discription}} </ion-text>
             <ion-note *ngIf='discriptionSet' text-right class="userUp" >עודכן ע"י: {{ userSetInterviewer }}</ion-note>
           </ion-item>
-       <ion-item>
-            <ion-toggle ng-model="pass" ></ion-toggle>
-            <ion-label text-right >עבר</ion-label>
-        </ion-item>
     </ion-list>
 </ion-content>
 

@@ -47,6 +47,7 @@ export class FirebaseService {
       email: candidate.email,
       progress: 0,
       setingUser: this.user,
+      standard: candidate.standard,
       stationProgres:[  {name: "interview", progress: 0},
                         {name: "psifas" ,progress: 0},
                         {name: "salary", progress: 0} ,

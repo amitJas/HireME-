@@ -15,28 +15,31 @@
             <ion-input type="number" [(ngModel)]="id" maxlength=10 name="ID" required="required"></ion-input>
         </ion-item >
         <ion-item text-right lines="inset">
-            <ion-label position="floating">משרה</ion-label>
+            <ion-label position="floating">שם משרה </ion-label>
             <ion-input type="text" [(ngModel)]="job" name="job" required="required"></ion-input>
+        </ion-item>
+        <ion-list>
+            <div text-right class="subNote">סוג משרה</div>
+            <ion-label class='ffff' >תקן</ion-label>
+            <ion-checkbox mode='ios' (ionBlur) = 'setR(1)'></ion-checkbox>
+            <ion-label class='ffff' >ממלא מקום</ion-label>
+            <ion-checkbox mode='ios' (ionBlur) = 'setR(2)'></ion-checkbox>
+        </ion-list>
+        <!-- <ion-item>
+        <ion-range min="0" max="100" step="4" [(ngModel)]="saturation" mode="ios" color="secondary">
+            <ion-label range-right>0</ion-label>
+            <ion-label range-left >100%</ion-label>
+        </ion-range>
+            
+        </ion-item> -->
+        <ion-item class="subNote_t" text-right lines="inset" >
+            <ion-label position="floating">עבור</ion-label>
+            <ion-input type="text" [(ngModel)]="standardName" name="standardName" required="required"></ion-input>
         </ion-item>
         <ion-item text-right lines="inset" >
             <ion-label position="floating">מס' רשיון עבודה</ion-label>
             <ion-input type="number" [(ngModel)]="lisens" name="lisens" required="required"></ion-input>
         </ion-item>
-        <!-- <ion-item text-right>
-            <ion-row>
-                <ion-checkbox checked="true" ng-model="myVar" ng-init="myVar = true" >האם יש נסיון?</ion-checkbox>
-                <div ng-if="myVar" >
-                    <ion-label position="floating">צין כמה שנים</ion-label>
-                    <ion-input type="Number" [(ngModel)]="experience" name="Experience" required="not"></ion-input>
-                </div>
-            </ion-row>
-            
-        </ion-item> -->
-        <!-- <ion-item text-right >
-            <ion-checkbox checked="true">עשית בעבר מבחן פסיפס?</ion-checkbox>
-            <ion-label position="floating">אם כן, רשום ציון</ion-label>
-            <ion-input type="Grade" [(ngModel)]="testGraid" name="Grade" required="not"></ion-input>
-        </ion-item> -->
         <ion-item lines="inset">
             <ion-label text-right position="floating">פלאפון</ion-label>
             <ion-input type="tel" [(ngModel)]="phone" name="Phone" required="required"></ion-input>

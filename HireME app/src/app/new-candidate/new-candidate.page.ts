@@ -13,12 +13,12 @@ export class NewCandidatePage implements OnInit {
   
     public newC: object;
     public name: string
-    //public lestName: string
+    public saturation: string
     public strtProcess: String;
     public id: string
     public job: string
-    // public experience: any
-    // public testGraid: any;
+    public standardName: any
+    public standard : any;
     public phone: number
     public email: string
     public lisens: string
@@ -47,9 +47,12 @@ export class NewCandidatePage implements OnInit {
       lisens: this.lisens,
       startdate: this.strtProcess,
       phone: this.phone,
-      email: this.email
+      email: this.email,
+      standard: this.standard,
+      standardName: this.standardName,
+      saturation: this.saturation //job present
     }
-    console.log(this.strtProcess)
+    console.log(candidate)
     let loader = this.presentLoading().then(() => {
       let ok = this.firebase.addNewCandidate(candidate)
       this.loading.dismiss()
@@ -57,4 +60,7 @@ export class NewCandidatePage implements OnInit {
     })
   }
 
+  setR(num){
+    this.standard = num
+  }
 }

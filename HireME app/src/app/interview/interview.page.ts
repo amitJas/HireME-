@@ -21,7 +21,7 @@ export class InterviewPage implements OnInit {
   public interviewDate:any
   public message: any
   public discriptionSet = false; saveButton:String 
-  //public full = false; partly = false ; temporary = false
+  public job = 0 ; 
   //public rdiuo = []
 
   constructor(private station: StationService ) {
@@ -55,6 +55,7 @@ export class InterviewPage implements OnInit {
       this.discriptionSets = this.station.station.discription.how;
       this.progressCount++
     }
+    this.job = this.station.station.job;
   }
 
   setData(data,num){
@@ -76,8 +77,8 @@ export class InterviewPage implements OnInit {
       
   }
 
-  setRdiuoInterview(rdiuoName){
-    this.station.setRdiuo(rdiuoName)
+  setRdiuoInterview(rdiuoName,num){
+    this.station.setRdiuo(rdiuoName,num)
   }
 
 }

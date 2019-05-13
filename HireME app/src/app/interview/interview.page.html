@@ -33,11 +33,11 @@
         <ion-list >
             <div text-right class="subNote">עבור משרה</div>
             <ion-label class='ffff' >מלאה</ion-label>
-            <ion-checkbox mode='ios' [checked]='full' (ionFocus)='setRdiuoInterview("full")' ></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='job == 1' (ionFocus)='setRdiuoInterview("job",1)' ></ion-checkbox>
             <ion-label class='ffff' >חלקית</ion-label>
-            <ion-checkbox mode='ios' [checked]='partly' (ionFocus)='setRdiuoInterview("partly")' ></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='job == 2' (ionFocus)='setRdiuoInterview("job",2)' ></ion-checkbox>
             <ion-label class='ffff' >החלפה לחל"ד</ion-label>
-            <ion-checkbox mode='ios' [checked]='temporary' (ionFocus)='setRdiuoInterview("temporary")' ></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='job == 3' (ionFocus)='setRdiuoInterview("job",3)' ></ion-checkbox>
           </ion-list>
         <ion-item >
             <ion-button small  (click)='setData(discription,3)'>{{saveButton}}</ion-button>
@@ -45,7 +45,7 @@
         </ion-item>
         <ion-item>
             <ion-textarea type="text" text-right *ngIf='!discriptionSet' placeholder="הוסף תקציר" [(ngModel)]="discription" name="discription" ></ion-textarea>
-            <ion-text *ngIf='discriptionSet' text-right > {{discription}} </ion-text>
+            <ion-text *ngIf='discriptionSet' > {{discription}} </ion-text>
             <ion-note *ngIf='discriptionSet' text-right class="userUp" >עודכן ע"י: {{ userSetInterviewer }}</ion-note>
           </ion-item>
        <ion-item>

@@ -50,6 +50,7 @@ export class StationService {
   setFormSend(fildeName,val){
     console.log('setFile',this.currStationName,fildeName,val)
    }
+
    setFile(fildeName,date){
      let obj = {data: date , how: this.firebase.user}
      console.log('obj' , obj)
@@ -82,11 +83,8 @@ export class StationService {
   //         list.appendChild(temp);
   // }
 
-  setRdiuo(rdiuoName){
-    let d = new Date().getTime()
-    console.log(rdiuoName,d) // 
-    //console.log(rdiuoName,Date.setDate(d))
-    this.station.setFile(rdiuoName,new Date().getTime())
+  setRdiuo(rdiuoName,data){
+    this.firebase.setStationFile(this.currStationName,rdiuoName,data)
   }
 
   

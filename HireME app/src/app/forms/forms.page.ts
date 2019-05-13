@@ -107,10 +107,7 @@ export class FormsPage implements OnInit {
 
   setRdiuoForms(rdiuoName){
     let d = new Date().getTime()
-    console.log(rdiuoName,d) // 
-    //console.log(rdiuoName,Date.setDate(d))
-    this.station.setFile(rdiuoName,new Date().getTime())
-    //this.station.setFile(rdiuoName,getLocaleDateFormat)
+    this.station.setRdiuo(rdiuoName,d)
   }
   
 }

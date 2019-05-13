@@ -46,7 +46,14 @@ export class FirebaseService {
       phone: candidate.phone,
       email: candidate.email,
       progress: 0,
-      setingUser: this.user
+      setingUser: this.user,
+      stationProgres:[  {name: "interview", progress: 0},
+                        {name: "psifas" ,progress: 0},
+                        {name: "salary", progress: 0} ,
+                        {name: "forms",progress: 0},
+                        {name: "system",progress: 0}
+                      ]
+                    
     })
   }
 
@@ -108,4 +115,8 @@ export class FirebaseService {
       })
     }
 
+
+    setProgress(){
+
+    }
 }

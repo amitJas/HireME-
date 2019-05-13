@@ -20,7 +20,12 @@ export class CandidatePage implements OnInit {
   public department:any ;
   public candidateNum: string;
   public progress = 34;
-  public candidateaStationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
+  public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 5 },
+                                   {name: "מבחן פסיפס" ,progress: 0,stationNum: 3},
+                                   {name:"הצעת שכר", progress: 0,stationNum: 3} ,
+                                   {name:"חובקן טפסים",progress: 0,stationNum: 3},
+                                   {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 3}
+                                  ];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','hr-approval','open-systems'];
   public currCandidat = {};
   public tempDate;
@@ -36,11 +41,14 @@ export class CandidatePage implements OnInit {
     this.firebase.getCandidateData().subscribe((data) => {
       data.docs.forEach(ref =>{
          this.currCandidat = ref.data()
+         this.candidateaStationList.forEach( (sta,i) => {
+            sta.progress = this.firebase.calculatProgress(ref.data().stationProgres[i].progress,sta.stationNum)
+         })
          this.firebase.firebaseCID = ref.data().id
          this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL')
          })
        })
-    
+       console.log(this.candidateaStationList)
   }
 
   async presentAlertConfirm() {

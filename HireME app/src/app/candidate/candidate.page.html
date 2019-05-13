@@ -41,7 +41,7 @@
       </ion-grid>
     </ion-card-header>
   </ion-card>
-    <ion-card text-right class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i,station)"  >
+    <ion-card text-right class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i,station.name)"  >
         <ion-card-header> 
           <ion-row>
             <ion-col>

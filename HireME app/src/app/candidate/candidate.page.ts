@@ -26,7 +26,7 @@ export class CandidatePage implements OnInit {
                                    {name:"חובקן טפסים",progress: 0,stationNum: 3},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 3}
                                   ];
-  public rouringArrPages = ["interview","psifas-test",'salary','forms','hr-approval','open-systems'];
+  public rouringArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
   public currCandidat = {};
   public tempDate;
   

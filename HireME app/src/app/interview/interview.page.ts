@@ -32,7 +32,6 @@ export class InterviewPage implements OnInit {
     this.candidateName = this.station.candidateName
     console.log(this.candidateName);
     setTimeout( () =>{
-      console.log('this.station', this.station.station)
       this.initInterview()
     },500)
   }

@@ -52,7 +52,8 @@ export class FirebaseService {
                         {name: "salary", progress: 0} ,
                         {name: "forms",progress: 0},
                         {name: "system",progress: 0}
-                      ]        
+                      ]
+                    
     })
   }
 

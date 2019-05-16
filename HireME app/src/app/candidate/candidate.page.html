@@ -38,6 +38,12 @@
           <ion-col><ion-card-title class="candidateLisens">{{tempDate}}</ion-card-title></ion-col>
           <ion-col><ion-card-title class="headers">:תחילת תהליך</ion-card-title></ion-col>
         </ion-row>
+        <ion-row>
+          <ion-button (click)='presentPopover($event)'>
+              <ion-icon name="alert"></ion-icon>
+          </ion-button>
+            
+        </ion-row>
       </ion-grid>
     </ion-card-header>
   </ion-card>

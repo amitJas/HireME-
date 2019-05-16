@@ -1,10 +1,11 @@
+import { PopdataPage } from '../popover/popdata/popdata.page';
 import { StationService } from './../station-service/station.service';
 import { Component, OnInit } from '@angular/core';
 //import { NavController , NavParams } from '@ionic/angular';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController,PopoverController  } from '@ionic/angular';
 
 
 
@@ -32,7 +33,9 @@ export class CandidatePage implements OnInit {
   
  
 
-  constructor(private firebase: FirebaseService,public home: HomePage, public router:Router,public station:StationService,public loadingCtrl: LoadingController, public alertController: AlertController) { 
+  constructor(private firebase: FirebaseService,public home: HomePage, 
+              public router:Router,public station:StationService,public loadingCtrl: LoadingController, 
+              public alertController: AlertController,private pop:PopoverController ) { 
   
   }
 
@@ -114,17 +117,25 @@ export class CandidatePage implements OnInit {
     })
   }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
+  async presentPopover(ev: Event) {
+    const popover = await this.pop.create({
+      component: PopdataPage,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

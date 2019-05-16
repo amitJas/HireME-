@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'salary', loadChildren: './salary/salary.module#SalaryPageModule' },
   { path: 'forms', loadChildren: './forms/forms.module#FormsPageModule' },
   { path: 'hr-approval', loadChildren: './hr-approval/hr-approval.module#HrApprovalPageModule' },
-  { path: 'open-systems', loadChildren: './open-systems/open-systems.module#OpenSystemsPageModule' },
+  { path: 'open-systems', loadChildren: './open-systems/open-systems.module#OpenSystemsPageModule' },  { path: 'popdata', loadChildren: './popover/popdata/popdata.module#PopdataPageModule' },
+
 
 
 ];

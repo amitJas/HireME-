@@ -1,3 +1,4 @@
+import { PopdataPageModule } from './popover/popdata/popdata.module';
 import { HomePage } from './home/home.page';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,8 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { firebaseConfig } from '../environments/environment';
-import { FirebaseService } from './firebase-service/firebase-service.service';
-import { StationService } from './station-service/station.service'
+
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -25,7 +25,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [ ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -37,15 +37,13 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireMessagingModule,
-    //NgbModule.forRoot()
+    PopdataPageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    // FirebaseService,
-    // StationService,
     HomePage,
-  
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

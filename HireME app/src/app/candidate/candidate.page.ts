@@ -120,9 +120,13 @@ export class CandidatePage implements OnInit {
   async presentPopover(ev: Event) {
     const popover = await this.pop.create({
       component: PopdataPage,
+      componentProps: {
+        candidate: this.currCandidat
+      },
       event: ev,
-      translucent: true
+      translucent: true,
     });
+   
     return await popover.present();
   }
 }

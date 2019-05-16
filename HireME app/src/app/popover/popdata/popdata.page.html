@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>popdata</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+<div class='pop-content' padding>
+    <ion-grid>
+        <ion-row> 
+          <ion-item lines='none'>
+            <ion-card-title class="headers"><h3 >{{candidatData.name}}</h3></ion-card-title>
+          </ion-item> 
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-text text-right class="candidateID">{{candidatData.id}}</ion-text></ion-col>
+        <ion-col><ion-title text-right class="headers">:תז</ion-title></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-text class="candidateLisens">{{candidatData.phone}}</ion-text></ion-col>
+        <ion-col> <ion-title class="headers">:פאלפון</ion-title></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-text class="candidateLisens">{{candidatData.lisens}}</ion-text></ion-col>
+        <ion-col><ion-title class="headers">:מס' רשיון</ion-title></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-text class="candidateLisens">{{candidatData}}</ion-text></ion-col>
+        <ion-col><ion-title class="headers">:תחילת תהליך</ion-title></ion-col>
+      </ion-row>
+  </ion-grid>
+</div>

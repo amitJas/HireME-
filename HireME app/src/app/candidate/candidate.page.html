@@ -23,16 +23,19 @@
             </ion-item> 
         </ion-row>
         <ion-row>
-          <ion-col><ion-card-title text-right class="candidateID">{{currCandidat.id}}</ion-card-title></ion-col>
-          <ion-col><ion-card-title text-right class="headers">:תז</ion-card-title></ion-col>
-        </ion-row>
-        <ion-row>
           <ion-col><ion-card-title class="candidateLisens">{{currCandidat.phone}}</ion-card-title></ion-col>
           <ion-col> <ion-card-title class="headers">:פאלפון</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col><ion-card-title class="candidateLisens">{{currCandidat.lisens}}</ion-card-title></ion-col>
-          <ion-col><ion-card-title class="headers">:מס' רשיון</ion-card-title></ion-col>
+          <ion-col><ion-text text-right class="candidateID">{{currCandidat.email}}</ion-text></ion-col>
+          <ion-col><ion-card-title text-right class="headers">:מייל</ion-card-title></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-card-title *ngIf='currCandidat.standard == 1' class="candidateLisens">תקן</ion-card-title>
+            <ion-card-title *ngIf='currCandidat.standard == 2' class="candidateLisens">מ"מ</ion-card-title>
+          </ion-col>
+          <ion-col><ion-card-title class="headers">:סוג משרה</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
           <ion-col><ion-card-title class="candidateLisens">{{tempDate}}</ion-card-title></ion-col>

@@ -1,38 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title text-center>מבחן פסיפס</ion-title>
-  </ion-toolbar>
+  <ion-toolbar mode='ios'>
+      <ion-title>
+        <ion-row>
+            <ion-col >
+                <ion-icon name="home" float-right (click)='station.navFunction(2)' ></ion-icon>
+            </ion-col>
+            <ion-col>
+                <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
+            </ion-col>
+          </ion-row>
+      </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
     <div>
       <ion-list text-right>
-                  <ion-item text-right>
-                            <ion-label position="floating">todo automatic-שם מועמד</ion-label>
-                            <ion-input type="text" [(ngModel)]="CandidateName" name="CandidateName" required="required"></ion-input>
-                  </ion-item>
-                  <ion-item text-right>
-                            <ion-label position="floating">מי קבע את התאריך</ion-label>
-                            <ion-input type="text" [(ngModel)]="interviewer" name="interviewer" required="required"></ion-input>
-                  </ion-item>
-                  <ion-item text-right> 
-                          <ion-label text-right>תאריך מבחן</ion-label>
-                          <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date" name="date" required="required"></ion-datetime>
-                  </ion-item>
-                  <ion-item text-right>
-                            <ion-label position="floating">ציון</ion-label>
-                            <ion-input type="text" [(ngModel)]="grade" name="grade" required="required"></ion-input>
-                    </ion-item>
-                  <ion-item text-right>
-                            <ion-label position="floating">דף תוצאה - הופך ללינק - TODO</ion-label>
-                            <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
-                  </ion-item>   
-                  <ion-item>
-                            <ion-toggle ng-model="pass" ></ion-toggle>
-                            <ion-label text-right >עבר</ion-label>
-                  </ion-item>
-
-
+        <ion-item text-right class='interviewerHedar'>
+          <ion-label> {{candidate.name}} </ion-label>
+          <ion-label > <strong>ראיון עבור</strong> </ion-label>
+        </ion-item>
+        <ion-item text-right> 
+          <ion-label text-right>:זומן לתאריך</ion-label>
+          <ion-datetime display-format="DD/MM/YYYY"  [(ngModel)]="testDate" name="date" required="required"></ion-datetime>
+        </ion-item>
+        <ion-item text-right>
+          <ion-label position="floating">ציון</ion-label>
+          <ion-input type="text" [(ngModel)]="grade" name="grade" required="required"></ion-input>
+        </ion-item>
+        <ion-item text-right>
+          <ion-label position="floating">דף תוצאה - הופך ללינק - TODO</ion-label>
+          <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
+        </ion-item>   
+        <ion-item>
+          <ion-toggle ng-model="pass" ></ion-toggle>
+          <ion-label text-right >עבר</ion-label>
+        </ion-item>
       </ion-list>
   </div>
 </ion-content>

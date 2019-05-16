@@ -1,4 +1,6 @@
+import { StationService } from './../station-service/station.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-psifas-test',
@@ -7,16 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PsifasTestPage implements OnInit {
 
-  public CandidateName:string;
+  public candidateName:string;
   public interviewer:string;
-  public date:Date;
+  public testDate:Date;
   public grade:DoubleRange;
   public discription:string;
   public pass:boolean;
+  public candidate = null
   
-  constructor() { }
+  constructor(private station: StationService) { }
 
   ngOnInit() {
+    this.candidate = this.station.candidate;
+    console.log(this.candidate )
   }
 
 }

@@ -20,6 +20,7 @@ export class CandidatePage implements OnInit {
 
   public department:any ;
   public candidateNum: string;
+  private standard = 0;
   public progress = 34;
   public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 5 },
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 3},
@@ -44,6 +45,7 @@ export class CandidatePage implements OnInit {
     this.firebase.getCandidateData().subscribe((data) => {
       data.docs.forEach(ref =>{
          this.currCandidat = ref.data()
+         this.station.candidate = ref.data()
          this.candidateaStationList.forEach( (sta,i) => {
             sta.progress = this.firebase.calculatProgress(ref.data().stationProgres[i].progress,sta.stationNum)
          })
@@ -51,7 +53,6 @@ export class CandidatePage implements OnInit {
          this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL')
          })
        })
-       console.log(this.candidateaStationList)
   }
 
   async presentAlertConfirm() {

@@ -12,6 +12,7 @@ export class StationService {
   public candidateName: any;
   public currStationName: any;
   public station: any;
+  public candidate = null
 
   constructor(public nav: NavController,private firebase: FirebaseService) {
     //this.currUser = this.firebase.user;

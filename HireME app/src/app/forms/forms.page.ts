@@ -20,12 +20,16 @@ export class FormsPage implements OnInit {
   private send = false;
   private return = false;
   private addForm = false ; newForm = String;
-  private f101 = false; 
-  private f102 = false; 
-  private f103 = false; 
-  private f104 = false;
-  private set101 = String; set102 = String; set103 = String; set104 = String;
-  
+
+  private f_1 = false; f_2 = false; f_3 = false; f_4= false ;f_5 = false ; f_6 = false; f_7 = false
+  private f_8 = false; f_9 = false; f_10 = false; f_11= false ;f_12 = false ; f_13 = false; f_14 = false
+
+  private setf_1 = String; setf_2 = String; setf_3 = String; setf_4 = String; setf_5 = String; setf_6 = String; setf_7 = String;
+  private setf_8 = String; setf_9 = String; setf_10 = String; setf_11 = String; setf_12 = String; setf_13 = String; setf_14 = String;
+
+  private user :any; 
+  private form:any;
+  private forms = 14
 
 
   constructor(private station: StationService ) { }
@@ -43,7 +47,32 @@ export class FormsPage implements OnInit {
 
   initData()
   {
-    console.log("initData")
+    // console.log("initData")
+    // let formNum = 1
+    // this.form = 'f_' + formNum.toString()
+    // this.user = 'setf_' +  formNum.toString() 
+    // var temp = document.createElement("temp");
+    // var list = document.getElementById("formList");
+
+    // for(let i  of this.forms ){
+    //   console.log("form, user ",this.form,this.user)
+    //   temp.innerHTML = "<ion-item> \
+    //       <ion-label text-right>" + this.forms[formNum - 1] + "</ion-label> \
+    //       <ion-checkbox mode='ios' [checked]= \" "+ this.form + "\"\ \"slot= \"start\"\ value='biff' (ionFocus)='setRdiuoForms(" + this.form + ")></ion-checkbox> \
+    //       <ion-note *ngIf= " + this.form  + " text-right class='userUp' >עודכן עי: {{ " +  this.user   +" }}  </ion-note></ion-item>"
+    //       list.appendChild(temp.cloneNode(true));
+
+    //       this.form = 'f_' + formNum.toString()
+    //       this.user = 'setf_' +  formNum.toString() 
+    //       formNum++
+
+    // }
+
+    
+    let formNum = 1
+    this.form = 'f_' + formNum.toString()
+    this.user = 'setf_' +  formNum.toString() 
+    
     if(this.station.station.sendDate){ 
       this.sendDate = this.station.station.sendDate.data;
       this.userNameSend = this.station.station.sendDate.how;
@@ -52,23 +81,35 @@ export class FormsPage implements OnInit {
       this.returnDate = this.station.station.returnDate.data;
       this.userNameReturn = this.station.station.returnDate.how;
     }
-    if(this.station.station.f101){ 
-      this.set101 = this.station.station.f101.how;
-      this.f101 = true; 
-      console.log("-----------",this.set101)
+    for(let i  = 0 ; i< 14; i++){
+
+      console.log("initData")
+      this.form = 'f_' + formNum.toString()
+      this.user = 'setf_' +  formNum.toString() 
+
+      console.log( this.form,this.user)
+      if(this.station.station[this.form]){ 
+        this[this.user] = this.station.station[this.form].how;
+        this[this.form] = true; 
+      }
+      console.log("initData",[this.user],  this.station.station[this.form].how ,this.form)
+      formNum += 1
+
     }
-    if(this.station.station.f102){ 
-      this.set102 = this.station.station.f102.how;
-      this.f102 = true; 
-    }
-    if(this.station.station.f103){ 
-      this.set103 = this.station.station.f103.how;
-      this.f103 = true; 
-    }
-    if(this.station.station.f104){ 
-      this.set104 = this.station.station.f104.how;
-      this.f104 = true; 
-    }
+    // if(this.station.station.f_2){ 
+    //   this.setf_2 = this.station.station.f_2.how;
+    //   this.f_2 = true; 
+    // }
+    // if(this.station.station.f_3){ 
+    //   this.setf_3 = this.station.station.f_3.how;
+    //   this.f_3 = true; 
+    // }
+    // if(this.station.station.){ 
+    //   this.setf_4 = this.station.station.f_4.how;
+    //   this.f_4 = true; 
+    // }
+   
+  
   }
   // setData(sendDate){
   //   console.log("in setData",sendDate)
@@ -106,6 +147,7 @@ export class FormsPage implements OnInit {
   }
 
   setRdiuoForms(rdiuoName){
+    console.log('setRdiuoForms',rdiuoName)
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
   }

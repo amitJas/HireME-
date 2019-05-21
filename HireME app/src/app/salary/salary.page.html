@@ -12,25 +12,61 @@
       </ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content padding>
-    <div>
-      <ion-list text-right>
-          <ion-item text-right>
-                 <ion-label position="floating">todo automatic-שם מועמד</ion-label>
-                <ion-input type="text" [(ngModel)]="CandidateName" name="CandidateName" required="required"></ion-input>
-          </ion-item>
-          <ion-item>
-                    <ion-toggle ng-model="allfilesaccepted" ></ion-toggle>
-                    <ion-label text-right>התקבלו כל הקבצים</ion-label>
-         </ion-item>
 
+<ion-content padding>
+      <ion-list text-right>
+          <ion-card-title class="note" text-center >בשלב זה יש לשלוח למועמד הצעת שכר</ion-card-title>
+          <ion-item text-right>
+            <ion-label> {{station.candidateName}} </ion-label>
+            <ion-label><strong>הצעה עבור</strong></ion-label>
+          </ion-item>
+            <ion-list>
+              <div text-right class="subNote">:סמן כי התקבלו הקבצים</div>
+              <ion-item>
+                  <ion-label text-right>תעודת מקצוע</ion-label>
+                  <ion-checkbox 
+                      mode='ios' 
+                      [checked]='certificate' 
+                      slot="start" value="biff" 
+                      (ionFocus)='setRdiuoForms("certificate")'>
+                  </ion-checkbox>
+              </ion-item>
+              <ion-item>
+                  <ion-label text-right>קורות חיים</ion-label>
+                  <ion-checkbox 
+                      mode='ios' 
+                      [checked]='cv' 
+                      slot="start" value="biff" 
+                      (ionFocus)='setRdiuoForms("cv")'>
+                  </ion-checkbox>
+              </ion-item>
+              <ion-item>
+                  <ion-label text-right>ותק תעסוקתי</ion-label>
+                  <ion-checkbox 
+                      mode='ios' 
+                      [checked]='certificate' 
+                      slot="start" value="biff" 
+                      (ionFocus)='setRdiuoForms("seniority")'>
+                  </ion-checkbox>
+              </ion-item>
+              <ion-item>
+                  <ion-label text-right>ותק צבאי/שירות לאומי</ion-label>
+                  <ion-checkbox 
+                      mode='ios' 
+                      [checked]='certificate' 
+                      slot="start" value="biff" 
+                      (ionFocus)='setRdiuoForms("army")'>
+                  </ion-checkbox>
+              </ion-item>
+            </ion-list>     
           <ion-item text-right> 
-                  <ion-label text-right>תאריך שליחה למ"א</ion-label>
-                  <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date1" name="date1" required="required"></ion-datetime>
+              <ion-datetime display-format="DD/MM/YYYY"  [(ngModel)]="hrSendDate" (ionFocus)='saveSalary([hrSendDate],1)'>
+              </ion-datetime>
+              <ion-label text-right>תאריך שליחה למ"א</ion-label>
           </ion-item>
           <ion-item text-right> 
-                  <ion-label text-right>תאריך קבלה למ"א</ion-label>
-                  <ion-datetime display-format="DD/MM/YYYY" type="date" [(ngModel)]="date2" name="date2" required="required"></ion-datetime>
+              <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="hrReturnDate" required="required"></ion-datetime>
+              <ion-label text-right>תאריך קבלה ממ"א</ion-label>
           </ion-item>
           <ion-item text-right> 
                   <ion-label text-right>תאריך שליחה למועמד</ion-label>
@@ -48,5 +84,4 @@
 
 
       </ion-list>
-  </div>
   </ion-content>

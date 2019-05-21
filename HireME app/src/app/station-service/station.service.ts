@@ -48,9 +48,9 @@ export class StationService {
     return this.station
    }
 
-  setFormSend(fildeName,val){
-    console.log('setFile',this.currStationName,fildeName,val)
-   }
+  // setFormSend(fildeName,val){
+  //   console.log('setFile',this.currStationName,fildeName,val)
+  //  }
 
    setFile(fildeName,date){
      let obj = {data: date , how: this.firebase.user}

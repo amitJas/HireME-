@@ -82,11 +82,12 @@ export class FirebaseService {
     }
   
     setStationFile(station,filde,val){
-      //console.log('setStationFile',station ,filde,val)
+      console.log('setStationFile',station ,filde,val)
       let temp = this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString())
       temp.set({
         [filde] : val,
       }, { merge: true })
+      
       // temp.get().subscribe((snap) =>{
       //     snap.data().progress += 1;
       //   })

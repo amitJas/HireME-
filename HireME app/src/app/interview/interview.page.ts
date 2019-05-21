@@ -14,13 +14,12 @@ export class InterviewPage implements OnInit {
   public candidateName:string;
   public interviewer:string;
   public date:any ; userSetDate:any;
-  public discription:String ; discriptionSets: any;
-  //public pass:boolean;
+  public discription:String ; discriptionSetUser: any;
   public interviewerName:any
-  public userSetInterviewer = String
+  public userSetInterviewer = null;userSet = null
   public interviewDate:any
   public message: any
-  public discriptionSet = false; saveButton:String 
+  public discriptionSet = false; saveButton = 'שמור' 
   public job = 0 ; 
   public setreplacedName:any; replacedName:any
  
@@ -49,7 +48,7 @@ export class InterviewPage implements OnInit {
       this.discriptionSet = !this.discriptionSet
       this.saveButton = 'ערוך'
       this.discription = this.station.station.discription.data
-      this.discriptionSets = this.station.station.discription.how;
+      this.discriptionSetUser = this.station.station.discription.how;
     }else{
       this.saveButton = 'שמור'
     }

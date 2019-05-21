@@ -11,9 +11,10 @@ export class PsifasTestPage implements OnInit {
 
   public candidateName:string;
   public interviewer:string;
-  public testDate:Date;
-  public grade:DoubleRange;
-  public discription:string;
+  public test:any
+  public grade: any;
+  public userSetTest:string;
+  public userSetGrade:string;
   public pass:boolean;
   public candidate = null
   
@@ -21,7 +22,29 @@ export class PsifasTestPage implements OnInit {
 
   ngOnInit() {
     this.candidate = this.station.candidate;
-    console.log(this.candidate )
+    setTimeout( () =>{
+      this.initPsifas()
+    },500)
   }
 
+  initPsifas(){
+    if(this.station.station.test){
+      this.test = this.station.station.test.data
+      this.userSetTest = this.station.station.test.how
+    }
+    if(this.station.station.grade){
+      this.grade = this.station.station.grade.data
+      this.userSetGrade = this.station.station.grade.how
+    }
+
+  }
+
+  savePsifas(data, num){
+    console.log(data, num)
+    if(num == 1)
+      this.station.setFile('test',data)
+    if(num == 2 )
+      this.station.setFile('grade',data)
+
+  }
 }

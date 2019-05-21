@@ -14,28 +14,33 @@
 </ion-header>
 
 <ion-content padding>
-    <div>
       <ion-list text-right>
         <ion-item text-right class='interviewerHedar'>
-          <ion-label> {{candidate.name}} </ion-label>
-          <ion-label > <strong>ראיון עבור</strong> </ion-label>
+          <ion-label> {{station.candidateName}} </ion-label>
+          <ion-label > <strong>מבחן עבור</strong> </ion-label>
         </ion-item>
         <ion-item text-right> 
+          <ion-datetime display-format="DD/MM/YYYY"  
+                        [(ngModel)]="test" 
+                        required="required"
+                        (ionFocus) = 'savePsifas(test,1)'></ion-datetime>
           <ion-label text-right>:זומן לתאריך</ion-label>
-          <ion-datetime display-format="DD/MM/YYYY"  [(ngModel)]="testDate" name="date" required="required"></ion-datetime>
+          <ion-note *ngIf='userSetTest' text-right class="userUp" >עודכן ע"י: {{ userSetTest }}</ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-input  [(ngModel)]="grade" 
+                      (ionBlur)='savePsifas(grade,2)'
+                      float-center ></ion-input>
+          <ion-label  text-right>:ציון</ion-label>
+          <ion-note *ngIf='userSetGrade' text-right class="userUp" >עודכן ע"י: {{ userSetGrade }}</ion-note>
         </ion-item>
         <ion-item text-right>
-          <ion-label position="floating">ציון</ion-label>
-          <ion-input type="text" [(ngModel)]="grade" name="grade" required="required"></ion-input>
-        </ion-item>
-        <ion-item text-right>
-          <ion-label position="floating">דף תוצאה - הופך ללינק - TODO</ion-label>
-          <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input>
+          <ion-label>הוסף מסמך</ion-label>
+          <!-- <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input> -->
         </ion-item>   
         <ion-item>
-          <ion-toggle ng-model="pass" ></ion-toggle>
-          <ion-label text-right >עבר</ion-label>
+          <ion-toggle [(ngModel)]="pass"></ion-toggle>
+          <ion-label text-right >?האם עבר</ion-label>
         </ion-item>
       </ion-list>
-  </div>
 </ion-content>

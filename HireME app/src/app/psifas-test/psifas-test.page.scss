@@ -2,14 +2,13 @@ $haedline-color:  rgb(26, 98, 252);
 
 ion-list{
     border-radius: 14px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 
 ion-item{
-
-    margin-bottom: 8%;//-11px;
     
+    margin-top: 10px;
     ion-label{
         margin-right: 10px;
     }
@@ -21,17 +20,35 @@ ion-item{
     ion-note{
         margin-right: 10px;
     }
-}
+    
+    strong{
+        font-size: 17px;
+        margin-left: 10px;
+    }
 
+    ion-text{
+        float: right;
+    }
+}
+.ffff{
+    margin: 0px 10px 0px 16px;
+}
 .note{
     font-size:  16px;
-    margin: 25px 0px 10px 0px; 
+    margin: 25px 20px 10px 0px; 
     color: $haedline-color;
-    margin-right: 10px;
 }
 
 .subNote{
     font-size:  20px;
     color: $haedline-color;
     margin: 28px 12px 0px 0px;
+}
+.userUp{
+    position: absolute;
+    bottom: -2px;
+    right: 27px;
+}
+.interviewerHedar{
+
 }

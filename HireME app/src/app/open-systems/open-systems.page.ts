@@ -1,4 +1,6 @@
+import { StationService } from './../station-service/station.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-open-systems',
@@ -11,5 +13,10 @@ export class OpenSystemsPage implements OnInit {
 
   ngOnInit() {
   }
+
+  initSystem(){
+    
+  }
+
 
 }

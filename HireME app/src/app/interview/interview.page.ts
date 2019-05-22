@@ -36,27 +36,33 @@ export class InterviewPage implements OnInit {
   }
 
   initInterview(){
+    let progress = 0
+    
     if(this.station.station.interviewer){
       this.interviewerName = this.station.station.interviewer.data
       this.userSetInterviewer = this.station.station.interviewer.how;
+      progress++
     }
     if(this.station.station.interviewDate){
       this.date = this.station.station.interviewDate.data
       this.userSetDate = this.station.station.interviewDate.how;
+      progress++
     }
     if(this.station.station.discription){
       this.discriptionSet = !this.discriptionSet
       this.saveButton = 'ערוך'
       this.discription = this.station.station.discription.data
       this.discriptionSetUser = this.station.station.discription.how;
+      progress++
     }else{
       this.saveButton = 'שמור'
     }
     if(this.station.station.replacedName){
       this.replacedName = this.station.station.replacedName.data
       this.setreplacedName = this.station.station.replacedName.how
+      progress++
     }
-    this.job = this.station.station.job;
+    this.station.calculateStationProgress(progress)
   }
 
   setData(data,num){

@@ -28,15 +28,18 @@ export class PsifasTestPage implements OnInit {
   }
 
   initPsifas(){
+    let pro = 0
     if(this.station.station.test){
       this.test = this.station.station.test.data
       this.userSetTest = this.station.station.test.how
+      pro++
     }
     if(this.station.station.grade){
       this.grade = this.station.station.grade.data
       this.userSetGrade = this.station.station.grade.how
+      pro++
     }
-
+    this.station.calculateStationProgress(pro)
   }
 
   savePsifas(data, num){

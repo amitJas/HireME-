@@ -38,7 +38,6 @@ export class SalaryPage implements OnInit {
       this.hrSendDate = corrStation.hrSendDate.data
       this.userHrSend = corrStation.hrSendDate.how
       progress++
-      console.log('this.hrSendDate',this.hrSendDate,this.userHrSend)
     }
     if(this.station.station.hrReturnDate){
       this.hrReturnDate = corrStation.hrReturnDate.data
@@ -78,7 +77,7 @@ export class SalaryPage implements OnInit {
 
 
   setRdiuoForms(rdiuoName){
-    console.log('setRdiuoForms',rdiuoName)
+    //console.log('setRdiuoForms',rdiuoName)
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
   }

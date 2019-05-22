@@ -52,8 +52,8 @@
           <ion-row>
             <ion-col>
               <ion-card-title class="stationName">{{station.name}}
-                <ion-card-title float-left *ngIf='!finisStation' >{{station.progress}}%</ion-card-title>
-                <ion-card-title float-left *ngIf='finisStation' >
+                <ion-card-title float-left *ngIf='!station.finish' >{{station.progress}}%</ion-card-title>
+                <ion-card-title float-left *ngIf='station.finish' >
                     <ion-icon id='checkmark' name="checkmark"></ion-icon>
                 </ion-card-title>
               </ion-card-title>

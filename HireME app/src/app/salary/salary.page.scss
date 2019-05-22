@@ -17,9 +17,6 @@ ion-item{
         margin: 20px 0px 20px 0px;
     }
 
-    // ion-note{
-    //     margin-right: 10px;
-    // }
 }
 
 .note{
@@ -33,4 +30,10 @@ ion-item{
     font-size:  20px;
     color: $haedline-color;
     margin: 28px 12px 0px 0px;
+}
+
+.userUp{
+    position: absolute;
+    bottom: -2px;
+    right: 27px;
 }

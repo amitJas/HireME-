@@ -48,12 +48,12 @@ export class FirebaseService {
       progress: 0,
       setingUser: this.user,
       standard: candidate.standard,
-      stationProgres:[  {name: "interview", progress: 0},
-                        {name: "psifas" ,progress: 0},
-                        {name: "salary", progress: 0} ,
-                        {name: "forms",progress: 0},
-                        {name: "system",progress: 0}
-                      ]
+      // stationProgres:[  {name: "interview", progress: 0},
+      //                   {name: "psifas" ,progress: 0},
+      //                   {name: "salary", progress: 0} ,
+      //                   {name: "forms",progress: 0},
+      //                   {name: "system",progress: 0}
+      //                 ]
                     
     })
   }
@@ -118,7 +118,11 @@ export class FirebaseService {
     }
 
 
-    setProgress(){
+    setPrograss(station,num){
+      console.log('setPrograss',station,num)
+      this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).set({
+        [station] : num
+      }, { merge: true })
 
     }
 }

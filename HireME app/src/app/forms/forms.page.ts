@@ -81,7 +81,7 @@ export class FormsPage implements OnInit {
       this.returnDate = this.station.station.returnDate.data;
       this.userNameReturn = this.station.station.returnDate.how;
     }
-    for(let i  = 0 ; i< 14; i++){
+    while(formNum < 15 ){
 
       console.log("initData")
       this.form = 'f_' + formNum.toString()
@@ -93,7 +93,7 @@ export class FormsPage implements OnInit {
         this[this.form] = true; 
       }
       console.log("initData",[this.user],  this.station.station[this.form].how ,this.form)
-      formNum += 1
+      formNum++
 
     }
     // if(this.station.station.f_2){ 

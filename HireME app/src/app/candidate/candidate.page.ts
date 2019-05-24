@@ -21,7 +21,7 @@ export class CandidatePage implements OnInit {
   public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 3, finish: false},
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 2, finish: false},
                                    {name:"הצעת שכר", progress: 0,stationNum: 8, finish: false } ,
-                                   {name:"חובקן טפסים",progress: 0,stationNum: 17, finish: false},
+                                   {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
@@ -38,23 +38,31 @@ export class CandidatePage implements OnInit {
   }
 
   ngOnInit() {
+    let countTemp = 0
     //this.station.createHader()
     this.firebase.getCandidateData().subscribe((data) => {
       data.docs.forEach(ref =>{
-         this.currCandidat = ref.data() // all candidate date
-         this.station.candidate = ref.data() // inshlize the candate in the station service
-         this.candidateaStationList.forEach( (sta,i) => { //all the station object
-            if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
-              sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
-            if(sta.progress == 100) { // the candidate finish the station
-              sta.finish = true 
-              ref.data().progress++
-            }
-         })
-         this.firebase.firebaseCID = ref.data().id
-         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL')
-         })
-       })
+
+        this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
+        this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
+        this.currCandidat = ref.data() // all candidate date
+        this.station.candidate = ref.data() // inshlize the candate in the station service
+
+        this.candidateaStationList.forEach( (sta,i) => { //all the station object
+
+          if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
+            sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
+          if(sta.progress == 100) { // the candidate finish the station
+            sta.finish = true 
+            console.log('countTemp',countTemp)
+            countTemp++
+           
+          }
+        })
+        this.firebase.setCandidateProgress(countTemp)
+      })
+    })
+    
   }
 
   async presentAlertConfirm() {

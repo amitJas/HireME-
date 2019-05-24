@@ -30,71 +30,71 @@
           <div text-right class="subNote">סמן את הטפסים שחזרו</div>
         <ion-item>
             <ion-label text-right>טופס 101</ion-label>
-            <ion-checkbox mode='ios' [checked]='f_1' slot="start" value="biff" (ionFocus)='setRdiuoForms("f_1")'></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='radioArr[0]' slot="start" value="biff" (ionFocus)='setRdiuoForms("f_1")'></ion-checkbox>
         </ion-item>
         <ion-item>
             <ion-label text-right>פרטים אישיים - עובד חדש</ion-label>
-            <ion-checkbox mode='ios' [checked]='f_2' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_2")' ></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='radioArr[1]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_2")' ></ion-checkbox>
             <!-- <ion-note *ngIf='f_2' text-right class="userUp" >עודכן ע"י: {{setf_2}}  </ion-note> -->
         </ion-item>
         <ion-item>
             <ion-label  text-right >הצהרת בריאות</ion-label>
-            <ion-checkbox mode='ios' [checked]='f_3' slot="start" value="biff" (ionFocus)='setRdiuoForms("f_3")' ></ion-checkbox>
+            <ion-checkbox mode='ios' [checked]='radioArr[2]' slot="start" value="biff" (ionFocus)='setRdiuoForms("f_3")' ></ion-checkbox>
             <!-- <ion-note *ngIf='f_3' text-right class="userUp" >עודכן ע"י: {{setf_3}}  </ion-note> -->
         </ion-item>
         <ion-item>
             <ion-label  text-right >שמירת סודיות</ion-label>
-            <ion-checkbox  mode='ios' [checked]='f_4' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_4")' ></ion-checkbox>
+            <ion-checkbox  mode='ios' [checked]='radioArr[3]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_4")' ></ion-checkbox>
             <!-- <ion-note *ngIf='f_4' text-right class="userUp" >עודכן ע"י: {{setf_4}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >ניגוד עניינים</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_5' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_5")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[4]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_5")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_5' text-right class="userUp" >עודכן ע"י: {{setf_5}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >שעת חירום</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_6' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_6")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[5]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_6")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_6' text-right class="userUp" >עודכן ע"י: {{setf_6}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >קצובת נסיעה</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_7' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_7")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[6]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_7")' ></ion-checkbox>
           <!-- <ion-note *ngIf='setf_7' text-right class="userUp" >עודכן ע"י: {{setf_7}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >הצטרפות לפנסיה</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_8' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_8")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[7]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_8")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_' text-right class="userUp" >עודכן ע"י: {{setf_8}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >הצטרפות קרן השתלמות</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_9' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_9")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[8]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_9")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_9' text-right class="userUp" >עודכן ע"י: {{setf_9}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >הצטרפות לביטוח מנהלים</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_10' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_10")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[9]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_10")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_10' text-right class="userUp" >עודכן ע"י: {{setf_10}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >ביטוח בריאות קבוצתי</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_11' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_11")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[10]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_11")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_11' text-right class="userUp" >עודכן ע"י: {{setf_11}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >כרטיס עובד </ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_12' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_12")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[11]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_12")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_12' text-right class="userUp" >עודכן ע"י: {{setf_12}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >ימי מנוחה לזכאים</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_13' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_13")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[12]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_13")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_13' text-right class="userUp" >עודכן ע"י: {{setf_13}}  </ion-note> -->
         </ion-item>
         <ion-item>
           <ion-label  text-right >שאלון לעובד</ion-label>
-          <ion-checkbox  mode='ios' [checked]='f_14' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_14")' ></ion-checkbox>
+          <ion-checkbox  mode='ios' [checked]='radioArr[13]' slot="start" value="biff"  (ionFocus)='setRdiuoForms("f_14")' ></ion-checkbox>
           <!-- <ion-note *ngIf='f_14' text-right class="userUp" >עודכן ע"י: {{setf_14}}  </ion-note> -->
         </ion-item>
     </ion-list>

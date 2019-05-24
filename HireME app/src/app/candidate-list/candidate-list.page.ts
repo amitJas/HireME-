@@ -11,9 +11,8 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 export class CandidateListPage implements OnInit {
 
   public department:any
-  public allCandidates: any//["עמית","נדב","נועם","ינאי"];
+  public allCandidates: any
   public testProcess = ["54","80","66","10"];
-  //public allCandidates = [];
   public candidateProgress: any;
 
   constructor(private firebase: FirebaseService, public router: Router) { 

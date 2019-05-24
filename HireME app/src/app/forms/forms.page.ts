@@ -21,8 +21,8 @@ export class FormsPage implements OnInit {
   private return = false;
   private addForm = false ; newForm = String;
 
-  private f_1 = false; f_2 = false; f_3 = false; f_4= false ;f_5 = false ; f_6 = false; f_7 = false
-  private f_8 = false; f_9 = false; f_10 = false; f_11= false ;f_12 = false ; f_13 = false; f_14 = false
+  public radioArr = [ false,false,false,false,false,false,false,
+                      false,false,false,false,false,false,false ]
 
   // private setf_1 = String; setf_2 = String; setf_3 = String; setf_4 = String; setf_5 = String; setf_6 = String; setf_7 = String;
   // private setf_8 = String; setf_9 = String; setf_10 = String; setf_11 = String; setf_12 = String; setf_13 = String; setf_14 = String;
@@ -42,27 +42,33 @@ export class FormsPage implements OnInit {
   }
 
   initData(){
-    let formNum = 1
-    
+    let formNum = 0
+    let progress = 0
+    const NUM_OF_FORMS = 15
+
     if(this.station.station.sendDate){ 
       this.sendDate = this.station.station.sendDate.data;
       this.userNameSend = this.station.station.sendDate.how;
+      progress++
     }
     if(this.station.station.returnDate){
       this.returnDate = this.station.station.returnDate.data;
       this.userNameReturn = this.station.station.returnDate.how;
+      progress++
     }
 
-    while(formNum < 15 ){ // checks all the radio baten
+    while(formNum < NUM_OF_FORMS ){ // checks all the radio baten
 
-      this.form = 'f_' + formNum.toString()
-      this.user = 'setf_' +  formNum.toString() 
+      this.form = 'f_' + (formNum + 1).toString()
+      //this.user = 'setf_' +  formNum.toString() 
 
-      if(this.station.station[this.form])
-        this[this.form] = true; 
-
+      if(this.station.station[this.form]){
+        this.radioArr[formNum]  = true
+        progress++
+      }
       formNum++
     }
+    this.station.calculateStationProgress(progress)
   }
 
   moreForms(){

@@ -6,7 +6,7 @@ import { AngularFirestore, docChanges } from '@angular/fire/firestore';
 
 export class FirebaseService {
   
-  private stations = 6;
+  private stations = 5;
   public user: any;
   public department: any;
   public firebaseCID: any;
@@ -36,7 +36,7 @@ export class FirebaseService {
 
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
-    console.log(candidate.strtProcess)
+    //console.log(candidate.strtProcess)
   this.db.collection(this.department).doc('Candidate').collection('Data').doc(candidate.id.toString()).set({
       name: candidate.name,
       id: candidate.id,
@@ -48,13 +48,6 @@ export class FirebaseService {
       progress: 0,
       setingUser: this.user,
       standard: candidate.standard,
-      // stationProgres:[  {name: "interview", progress: 0},
-      //                   {name: "psifas" ,progress: 0},
-      //                   {name: "salary", progress: 0} ,
-      //                   {name: "forms",progress: 0},
-      //                   {name: "system",progress: 0}
-      //                 ]
-                    
     })
   }
 
@@ -75,22 +68,16 @@ export class FirebaseService {
   }
 
   addStation(station){
-    //console.log("addStation",station)
       this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).set({
-        progress: 0
       },{ merge: true })
     }
   
     setStationFile(station,filde,val){
-      console.log('setStationFile',station ,filde,val)
+      //console.log('setStationFile',station ,filde,val)
       let temp = this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString())
       temp.set({
         [filde] : val,
       }, { merge: true })
-      
-      // temp.get().subscribe((snap) =>{
-      //     snap.data().progress += 1;
-      //   })
     }
 
     getStation(station){
@@ -107,7 +94,7 @@ export class FirebaseService {
     }
 
     setDeleteDate(data){
-      console.log('setDeleteDate')
+      //console.log('setDeleteDate')
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,
@@ -117,12 +104,19 @@ export class FirebaseService {
       })
     }
 
-
-    setPrograss(station,num){
-      console.log('setPrograss',station,num)
+    setStationPrograss(station,num){
+      //console.log('setPrograss',station,num)
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).set({
         [station] : num
       }, { merge: true })
-
     }
+
+    setCandidateProgress(num){
+      console.log('setCandidateProgress',num)
+      let temp = this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString())
+      temp.set({
+        progress : num,
+      },{ merge: true })
+    }
+  
 }

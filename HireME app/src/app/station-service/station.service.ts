@@ -66,8 +66,8 @@ export class StationService {
   }
 
   calculateStationProgress(num){
-    console.log('calculateStationProgresst',this.currStationName,num)
-    this.firebase.setPrograss(this.currStationName,num)
+    //console.log('calculateStationProgresst',this.currStationName,num)
+    this.firebase.setStationPrograss(this.currStationName,num)
   }
   
 }

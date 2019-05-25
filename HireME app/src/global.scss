@@ -14,7 +14,7 @@
 
 ion-content{
     //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
-    --background: url('./assets/pics/background.png');
+    --background: url('./assets/pics/background360x640.png');
 }
 
 ion-card{
@@ -28,6 +28,6 @@ ion-card{
 
     ion-content{
         //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
-        --background: url('./assets/pics/backIphone.png');
+        --background: url('./assets/pics/background375x667.png');
     }
 }

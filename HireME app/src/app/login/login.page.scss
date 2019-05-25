@@ -1,8 +1,7 @@
 
 
     ion-content{
-        --background: url('../../assets/pics/backgroundLogin.png');
-        background-size: 100%;
+        --background: url('../../assets/pics/backgroundLogo360x640.png');
     }
 
     .passwordBox{
@@ -19,13 +18,13 @@
        
     }
 
-    // @media only screen and (max-width: 375px ){
+    @media only screen and (max-width: 375px ){
 
-    //     ion-content{
-    //         //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
-    //         --background: url('./assets/pics/backlogoIphone.png');
-    //     }
-    // }
+        ion-content{
+            //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+            --background: url('../../assets/pics/backgroundLogo375x667.png');
+        }
+    }
 
 
 

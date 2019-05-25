@@ -27,16 +27,15 @@ export class FormsPage implements OnInit {
   // private setf_1 = String; setf_2 = String; setf_3 = String; setf_4 = String; setf_5 = String; setf_6 = String; setf_7 = String;
   // private setf_8 = String; setf_9 = String; setf_10 = String; setf_11 = String; setf_12 = String; setf_13 = String; setf_14 = String;
 
-  private user :any; 
-  private form:any;
-  private forms = 14
+  public user :any; 
+  public form:any;
 
 
-  constructor(private station: StationService ) { }
+
+  constructor(public station: StationService ) { }
 
   ngOnInit() {
     setTimeout( () =>{
-      console.log('this.station', this.station.station)
       this.initData()
     },500)
   }

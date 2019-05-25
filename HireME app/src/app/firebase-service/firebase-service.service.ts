@@ -47,7 +47,7 @@ export class FirebaseService {
       email: candidate.email,
       progress: 0,
       setingUser: this.user,
-      standard: candidate.standard,
+      standard: candidate.standard, //מ"מ => 2 תקן =>1 
     })
   }
 

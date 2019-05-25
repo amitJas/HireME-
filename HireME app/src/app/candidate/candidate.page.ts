@@ -53,10 +53,8 @@ export class CandidatePage implements OnInit {
           if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
             sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
           if(sta.progress == 100) { // the candidate finish the station
-            sta.finish = true 
-            console.log('countTemp',countTemp)
+            sta.finish = true
             countTemp++
-           
           }
         })
         this.firebase.setCandidateProgress(countTemp)
@@ -75,12 +73,10 @@ export class CandidatePage implements OnInit {
           text: 'לא',
           role: 'cancel',
           handler: (blah) => {
-            console.log('אל תמחק');
           }
         }, {
           text: 'כן',
           handler: () => {
-            console.log('מחק אותי');
             this.presentAlertInput()
           }
         }
@@ -105,7 +101,6 @@ export class CandidatePage implements OnInit {
           role: 'save',
           cssClass: 'secondary',
           handler: (data) => {
-            console.log('שמור סיבה',data.cause);
             this.firebase.deletCandidate(data.cause)
           }
         }

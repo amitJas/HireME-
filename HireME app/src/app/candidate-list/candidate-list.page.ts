@@ -18,14 +18,12 @@ export class CandidateListPage implements OnInit {
   constructor(private firebase: FirebaseService, public router: Router) { 
     this.allCandidates = this.firebase.getAllCandidate();
     this.department = this.firebase.department;
-    console.log("all names",this.allCandidates);
   }
 
   ngOnInit() {
   }
 
   goToCandidate(candidate){
-    console.log(candidate)
     this.firebase.firebaseCName = candidate.name;
     this.router.navigate(['candidate']);
   }

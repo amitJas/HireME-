@@ -12,6 +12,12 @@ log.txt
 .vscode/
 npm-debug.log*
 
+firebase.json
+ionic.config.json
+hosting.d3d3.cache
+config.xml
+.firebaserc
+resources/
 environments/
 .idea/
 .ionic/

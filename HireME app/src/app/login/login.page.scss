@@ -1,8 +1,8 @@
 
 
     ion-content{
-        --background: url('../../assets/pics/back+logo2.png');
-        //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+        --background: url('../../assets/pics/backgroundLogin.png');
+        background-size: 100%;
     }
 
     .passwordBox{
@@ -19,12 +19,13 @@
        
     }
 
-    .loginBox{
-        --ion-background-color: url('../../assets/pics/back+logo2.png');  
-    }
+    // @media only screen and (max-width: 375px ){
 
-    
-
+    //     ion-content{
+    //         //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+    //         --background: url('./assets/pics/backlogoIphone.png');
+    //     }
+    // }
 
 
 

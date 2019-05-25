@@ -14,7 +14,7 @@
 
 ion-content{
     //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
-    --background: url('./assets/pics/back2.png');
+    --background: url('./assets/pics/background.png');
 }
 
 ion-card{
@@ -22,4 +22,12 @@ ion-card{
     --color: rgb(26, 98, 252);
     margin-bottom: 15px;
  
+}
+
+@media only screen and (min-width: 375px ){
+
+    ion-content{
+        //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
+        --background: url('./assets/pics/backIphone.png');
+    }
 }

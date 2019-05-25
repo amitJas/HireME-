@@ -19,11 +19,13 @@ export class SalaryPage implements OnInit {
   public userCanddiateSend: any
   public candidateReturnDate: any
   public userCanddiateReturn: any
-  //public progress = 0
+  public candidateName: any
 
-  constructor(private station:StationService) { }
+  constructor(public station:StationService) { }
 
   ngOnInit() {
+
+    this.candidateName = this.station.candidateName
     setTimeout( () =>{
       this.initSalary()
     },500)

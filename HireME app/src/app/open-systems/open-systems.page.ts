@@ -14,7 +14,7 @@ export class OpenSystemsPage implements OnInit {
                       false,false,false,false,false,false,false ]
 
   // public userArr = []
-  constructor(private station:StationService) { }
+  constructor(public station:StationService) { }
 
   ngOnInit() {
     setTimeout(() => {

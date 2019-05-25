@@ -23,7 +23,7 @@ export class InterviewPage implements OnInit {
   public job = 0 ; 
   public setreplacedName:any; replacedName:any
  
-  constructor(private station: StationService ) {
+  constructor(public station: StationService ) {
     
    }
 

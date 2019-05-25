@@ -18,7 +18,7 @@ export class PsifasTestPage implements OnInit {
   public pass:boolean;
   public candidate = null
   
-  constructor(private station: StationService) { }
+  constructor(public station: StationService) { }
 
   ngOnInit() {
     this.candidate = this.station.candidate;

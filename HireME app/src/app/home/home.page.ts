@@ -16,14 +16,15 @@ export class HomePage implements OnInit {
   constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
-   this.user_dep = this.firebase.userDep
+    if()
+    this.user_dep = this.firebase.userDep
   }
 
  
   //
   moveToDepartmentCandidate(department){
     this.firebase.department = department;
-    this.departmentIndex = department;
+    // this.departmentIndex = department;
     this.router.navigate(['candidate-list']);
   }
 }

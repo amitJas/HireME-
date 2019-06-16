@@ -62,6 +62,7 @@ export class LoginPage implements OnInit {
           if(!snap.empty){
             snap.docs.forEach((doc) => {
               this.firebase.user = doc.data().name;
+              //doc.data().
               this.firebase.userDep = doc.data().department
             })
             this.loading.dismiss()

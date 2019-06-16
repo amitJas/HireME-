@@ -8,6 +8,7 @@ export class FirebaseService {
   
   private stations = 5;
   public user: any;
+  public userDep: any;
   public department: any;
   public firebaseCID: any;
   public firebaseCName: any;

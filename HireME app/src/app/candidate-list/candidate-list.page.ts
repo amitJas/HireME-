@@ -16,11 +16,12 @@ export class CandidateListPage implements OnInit {
   public candidateProgress: any;
 
   constructor(private firebase: FirebaseService, public router: Router) { 
-    this.allCandidates = this.firebase.getAllCandidate();
-    this.department = this.firebase.department;
+    
   }
 
   ngOnInit() {
+    this.allCandidates = this.firebase.getAllCandidate();
+    this.department = this.firebase.department;
   }
 
   goToCandidate(candidate){

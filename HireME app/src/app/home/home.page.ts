@@ -12,10 +12,11 @@ export class HomePage implements OnInit {
 
   public departmentIndex: any;
   public departmentArr = ["אדמינסטרציה","קלינאות תקשורת","ריפוי בעיסוק","פיזוטרפיה","רפואה","פסיכולוגיה","עבודה סוציאלית"]
-  
+  public user_dep = null
   constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
+   this.user_dep = this.firebase.userDep
   }
 
  

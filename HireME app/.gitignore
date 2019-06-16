@@ -12,6 +12,7 @@ log.txt
 .vscode/
 npm-debug.log*
 
+security-service/
 firebase.json
 hosting.d3d3.cache
 config.xml

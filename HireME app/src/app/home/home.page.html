@@ -2,10 +2,13 @@
 <ion-content text-center padding >
   <div class="contaener">
       <ion-card class="cardBox" *ngFor="let department of departmentArr;"  (click) ="moveToDepartmentCandidate(department)">
-          <ion-card-header class="departmentCard"> 
+          <ion-card-header class="departmentCard"
+            > 
             <ion-row>
               <ion-col>
-                <ion-card-title>{{department}}</ion-card-title>
+                <ion-card-title 
+                  [ngStyle]="{'opacity': user_dep != null ?  (user_dep != department ? 0.2 : 1) : 1}">
+                  {{department}}</ion-card-title>
               </ion-col>
             </ion-row>
           </ion-card-header>

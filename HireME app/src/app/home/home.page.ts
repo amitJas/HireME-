@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
-    if()
+
     this.user_dep = this.firebase.userDep
   }
 

@@ -11,7 +11,7 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class LoginPage implements OnInit {
 
-  public employeeNum: number;
+  public input: number;
   public loading;
 
   constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
@@ -54,11 +54,11 @@ export class LoginPage implements OnInit {
 
   submitLogin(){
     let loader = this.presentLoading().then(() => {
-      if(!this.employeeNum || this.isANmber(this.employeeNum) == false){
+      if(!this.input || this.isANmber(this.input) == false){
         this.loading.dismiss()
         this.presentEmptyFildAlert();
       }else{
-        this.firebase.isAuser(this.employeeNum).subscribe((snap) =>{
+        this.firebase.isAuser(this.input).subscribe((snap) =>{
           if(!snap.empty){
             snap.docs.forEach((doc) => {
               this.firebase.user = doc.data().name;

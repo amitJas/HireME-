@@ -37,7 +37,10 @@ export class NewCandidatePage implements OnInit {
     });
     return await this.loading.present();
   }
-
+  setR(num){
+    console.log('in setR',num)
+    this.standard = num
+  }
   
   submitchange(){
     let candidate ={
@@ -60,7 +63,5 @@ export class NewCandidatePage implements OnInit {
     })
   }
 
-  setR(num){
-    this.standard = num
-  }
+  
 }

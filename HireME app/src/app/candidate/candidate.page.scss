@@ -35,6 +35,7 @@ h3{
 
 #alert{
    --ion-margin-top: 5px;
+   font-size: 23px;
 }
 
 #checkmark{
@@ -49,6 +50,13 @@ ion-button{
     text-align: center;
 }
 
-ion-icon{
-    --background: white;
+ion-toolbar{
+    ion-icon{
+        font-size: 23px;
+        margin: 7px 20px 0px 0px;
+    }
 }
+
+#home{
+    margin-left: 168px;
+ }

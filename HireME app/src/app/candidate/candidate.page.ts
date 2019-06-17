@@ -18,7 +18,7 @@ export class CandidatePage implements OnInit {
   public candidateNum: string;
   private standard = 0;
   public progress = 34;
-  public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 3, finish: false},
+  public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 2, finish: false},
                                    {name:"הצעת שכר", progress: 0,stationNum: 8, finish: false } ,
                                    {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
@@ -38,48 +38,19 @@ export class CandidatePage implements OnInit {
   }
 
   ngOnInit() {
-    // let countTemp = 0
-    // //this.station.createHader()
-    // this.firebase.getCandidateData().subscribe((data) => {
-    //   data.docs.forEach(ref =>{
-
-    //     this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
-    //     this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
-    //     this.currCandidat = ref.data() // all candidate date
-    //     this.station.candidate = ref.data() // inshlize the candate in the station service
-
-    //     this.candidateaStationList.forEach( (sta,i) => { //all the station object
-
-    //       if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
-    //         sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
-    //       if(sta.progress == 100) { // the candidate finish the station
-    //         sta.finish = true
-    //         countTemp++
-    //       }
-    //     })
-    //     this.firebase.setCandidateProgress(countTemp)
-    //   })
-    // })
-    setTimeout(() => {
-      this.initCandidateDate()
-    }, 1000);
-      
- 
-    
+    this.firebase.getCandidateData().subscribe((doc) => {
+      this.initCandidateDate(doc)
+    })
   }
 
-
-  initCandidateDate(){
+initCandidateDate(obs){
     let countTemp = 0
-    this.firebase.getCandidateData().subscribe((data) => {
-      data.docs.forEach(ref =>{
-
+    obs.docs.forEach(ref =>{
+        this.currCandidat = ref.data() // all candidate date
         this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
-        this.currCandidat = ref.data() // all candidate date
         this.station.candidate = ref.data() // inshlize the candate in the station service
         this.candidateaStationList.forEach( (sta,i) => { //all the station object
-
           if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
             sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
           if(sta.progress == 100) { // the candidate finish the station
@@ -89,7 +60,7 @@ export class CandidatePage implements OnInit {
         })
         this.firebase.setCandidateProgress(countTemp)
       })
-    })
+  
   }
 
   async presentAlertConfirm() {

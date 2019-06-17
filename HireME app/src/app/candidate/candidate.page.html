@@ -1,15 +1,7 @@
 <ion-header id="header">
   <ion-toolbar mode='ios'>
-    <ion-title>
-      <ion-row>
-          <ion-col >
-              <ion-icon name="home" float-right (click)='station.navFunction(2)' ></ion-icon>
-          </ion-col>
-          <ion-col>
-              <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
-          </ion-col>
-        </ion-row>
-    </ion-title>
+      <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
+      <ion-icon float-center mode='ios' id='home' name="home" (click)='station.navFunction(2)'></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -42,7 +34,7 @@
           <ion-col><ion-card-title class="headers">:תחילת תהליך</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
-        <ion-icon id='alert' name="alert" (click)='presentPopover($event)' ></ion-icon>
+          <ion-icon id='alert' name="alert" (click)='presentPopover($event)' ></ion-icon>
         </ion-row>
       </ion-grid>
     </ion-card-header>

@@ -18,20 +18,13 @@
             <ion-label position="floating">שם משרה </ion-label>
             <ion-input type="text" [(ngModel)]="job" name="job" required="required"></ion-input>
         </ion-item>
-        <ion-list>
+        <ion-list float-right>
             <div text-right class="subNote">סוג משרה</div>
             <ion-label class='ffff' >תקן</ion-label>
             <ion-checkbox mode='ios' (ionBlur) = 'setR(1)'></ion-checkbox>
             <ion-label class='ffff' >ממלא מקום</ion-label>
             <ion-checkbox mode='ios' (ionBlur) = 'setR(2)'></ion-checkbox>
         </ion-list>
-        <!-- <ion-item>
-        <ion-range min="0" max="100" step="4" [(ngModel)]="saturation" mode="ios" color="secondary">
-            <ion-label range-right>0</ion-label>
-            <ion-label range-left >100%</ion-label>
-        </ion-range>
-            
-        </ion-item> -->
         <ion-item class="subNote_t" text-right lines="inset" >
             <ion-label position="floating">עבור</ion-label>
             <ion-input type="text" [(ngModel)]="standardName" name="standardName" required="required"></ion-input>

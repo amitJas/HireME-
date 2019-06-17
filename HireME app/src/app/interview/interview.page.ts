@@ -22,7 +22,10 @@ export class InterviewPage implements OnInit {
   public discriptionSet = false; saveButton = 'שמור' 
   public job = 0 ; 
   public setreplacedName:any; replacedName:any
- 
+  public suitable = 0
+
+
+
   constructor(public station: StationService ) {
     
    }
@@ -62,6 +65,8 @@ export class InterviewPage implements OnInit {
       this.setreplacedName = this.station.station.replacedName.how
       progress++
     }
+    this.station.station.suitable ? (this.suitable = this.station.station.suitable.data,progress++) : false
+    
     this.station.calculateStationProgress(progress)
   }
 
@@ -84,10 +89,19 @@ export class InterviewPage implements OnInit {
     if(num == 4){
       this.station.setFile('replacedName',data)
     }
+    num == 5 ? this.station.setFile('suitable',data) : null
   }
 
-  setRdiuoInterview(rdiuoName,num){
-    this.station.setRdiuo(rdiuoName,num)
+  // setRdiuoInterview(rdiuoName,num){
+  //   this.station.setRdiuo(rdiuoName,num)
+  // }
+
+  setRdiuoForms(rdiuoName){
+    //console.log('setRdiuoForms',rdiuoName)
+    let d = new Date().getTime()
+    this.station.setRdiuo(rdiuoName,d)
   }
+
+
 
 }

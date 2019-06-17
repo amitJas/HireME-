@@ -1,5 +1,6 @@
+import { SecurityService } from './../security-service/security.service';
 import { Injectable } from '@angular/core';
-import { AngularFirestore, docChanges } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Injectable({ providedIn: 'root' })
@@ -9,15 +10,16 @@ export class FirebaseService {
   private stations = 5;
   public user: any;
   public userDep: any;
+  public admin: any;
   public department: any;
   public firebaseCID: any;
   public firebaseCName: any;
   
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore,private ss: SecurityService) { }
 
   //chkein the user
-  isAuser(employeeNum){
-    return this.db.collection('Users',ref => ref.where('employeeNum','==',employeeNum)).get()
+  isAuser(input){
+     return this.db.collection('Users',ref => ref.where('employeeNum','==', input.toString() )).get()
   }
 
  

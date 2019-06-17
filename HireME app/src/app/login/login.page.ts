@@ -54,26 +54,20 @@ export class LoginPage implements OnInit {
 
   submitLogin(){
     let loader = this.presentLoading().then(() => {
-      if(!this.input || this.isANmber(this.input) == false){
-        this.loading.dismiss()
-        this.presentEmptyFildAlert();
-      }else{
         this.firebase.isAuser(this.input).subscribe((snap) =>{
           if(!snap.empty){
             snap.docs.forEach((doc) => {
               this.firebase.user = doc.data().name;
-              //doc.data().
-              this.firebase.userDep = doc.data().department
+              doc.data().admin ? this.firebase.admin = true : this.firebase.userDep = doc.data().department
             })
             this.loading.dismiss()
             console.log("yes",this.firebase.user)
             this.router.navigate(['home'])
           }
           else{
-            console.log("no")
+            console.log("no" , snap)
           }
         })
-      }
-    });
-  }
+      })  
+    }
 }

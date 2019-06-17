@@ -13,18 +13,20 @@ export class HomePage implements OnInit {
   public departmentIndex: any;
   public departmentArr = ["אדמינסטרציה","קלינאות תקשורת","ריפוי בעיסוק","פיזוטרפיה","רפואה","פסיכולוגיה","עבודה סוציאלית"]
   public user_dep = null
+  public admin = false
   constructor(private router: Router, private firebase:FirebaseService, public nav: NavController) { }
 
   ngOnInit() {
 
     this.user_dep = this.firebase.userDep
+    this.admin = this.firebase.admin 
+    
   }
 
  
   //
   moveToDepartmentCandidate(department){
-    this.firebase.department = department;
-    // this.departmentIndex = department;
-    this.router.navigate(['candidate-list']);
+    if(this.user_dep == department  || this.admin )
+        this.router.navigate(['candidate-list']);
   }
 }

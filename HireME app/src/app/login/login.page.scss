@@ -2,6 +2,7 @@
 
     ion-content{
         --background: url('../../assets/pics/backgroundLogo360x640.png');
+        
     }
 
     .passwordBox{
@@ -15,8 +16,13 @@
     }
     .submit{
         margin-top: 150px;
-       
     }
+
+    .ion-alert{
+        --ion-background-color: red;
+    }
+
+
 
     @media only screen and (max-width: 375px ){
 
@@ -26,7 +32,5 @@
         }
     }
 
-
-
-
+   
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController,ModalController  } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 
@@ -11,10 +11,12 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class LoginPage implements OnInit {
 
-  public input: number;
-  public loading;
+  
+  public loading: any;
+  public input = null
 
-  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
+  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService
+    ,public modalController: ModalController){}
   
   ngOnInit() {
     
@@ -34,19 +36,21 @@ export class LoginPage implements OnInit {
   // //alert icon
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'סיסמה שגויה',
-      buttons: ['OK']
+      header: ' סיסמה שגויה, אנא נסה שנית    ',
+      mode: 'ios',
+      buttons: ['הבנתי']
+     
 
     });
 
-    await alert.present();
+     alert.present();
   }
   
-
   async presentEmptyFildAlert() {
     const alert = await this.alertController.create({
-      header: 'אנא מלא את שדה הסיסמה',
-      buttons: ['OK']
+      header: 'אנא מלא את השדות הנדרשים',
+      mode: 'ios',
+      buttons: ['הבנתי']
     });
 
     await alert.present();
@@ -54,6 +58,10 @@ export class LoginPage implements OnInit {
 
   submitLogin(){
     let loader = this.presentLoading().then(() => {
+      if(!this.input ){
+        this.loading.dismiss()
+        this.presentEmptyFildAlert()
+      }else{
         this.firebase.isAuser(this.input).subscribe((snap) =>{
           if(!snap.empty){
             snap.docs.forEach((doc) => {
@@ -61,13 +69,14 @@ export class LoginPage implements OnInit {
               doc.data().admin ? this.firebase.admin = true : this.firebase.userDep = doc.data().department
             })
             this.loading.dismiss()
-            console.log("yes",this.firebase.user)
             this.router.navigate(['home'])
           }
           else{
-            console.log("no" , snap)
+            this.loading.dismiss()
+            this.presentAlert()
           }
         })
-      })  
-    }
+      }
+    });
+  }
 }

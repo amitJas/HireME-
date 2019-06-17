@@ -1,4 +1,4 @@
-import { SecurityService } from './../security-service/security.service';
+
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -15,7 +15,7 @@ export class FirebaseService {
   public firebaseCID: any;
   public firebaseCName: any;
   
-  constructor(private db: AngularFirestore,private ss: SecurityService) { }
+  constructor(private db: AngularFirestore) { }
 
   //chkein the user
   isAuser(input){

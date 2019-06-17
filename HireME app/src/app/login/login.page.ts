@@ -39,8 +39,6 @@ export class LoginPage implements OnInit {
       header: ' סיסמה שגויה, אנא נסה שנית    ',
       mode: 'ios',
       buttons: ['הבנתי']
-     
-
     });
 
      alert.present();

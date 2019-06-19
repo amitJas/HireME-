@@ -1,20 +1,13 @@
-<ion-header>
+<ion-header id="header">
   <ion-toolbar mode='ios'>
-      <ion-title>
-        <ion-row>
-            <ion-col >
-                <ion-icon name="home" float-right (click)='station.navFunction(2)' ></ion-icon>
-            </ion-col>
-            <ion-col>
-                <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
-            </ion-col>
-          </ion-row>
-      </ion-title>
-    </ion-toolbar>
+      <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
+      <ion-icon float-center mode='ios' id='home' name="home" (click)='station.navFunction(2)'></ion-icon>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
       <ion-list text-right>
+          <ion-card-title class="note" text-center >בשלב זה המועמד הולך עצמאית למבחן פסיפס</ion-card-title>
         <ion-item text-right class='interviewerHedar'>
           <ion-label> {{station.candidateName}} </ion-label>
           <ion-label > <strong>מבחן עבור</strong> </ion-label>

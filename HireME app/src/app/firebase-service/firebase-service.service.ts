@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { EmailComposer  } from '@ionic-native/email-composer/ngx';
 
 @Injectable({ providedIn: 'root' })
 
@@ -15,7 +15,7 @@ export class FirebaseService {
   public firebaseCID: any;
   public firebaseCName: any;
   
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore,private email: EmailComposer) { }
 
   //chkein the user
   isAuser(input){
@@ -97,7 +97,8 @@ export class FirebaseService {
     }
 
     setDeleteDate(data){
-      //console.log('setDeleteDate')
+      console.log('setDeleteDate')
+      this.sendEmail()
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,
@@ -106,6 +107,42 @@ export class FirebaseService {
         cause: data
       })
     }
+
+    sendEmail(){
+      let email = {
+        to: 'katanamit7@gmail.com',
+        cc: 'amit.jascourt@gmail.com',
+       // bcc: ['john@doe.com'john@doe.com', 'jane@doe.com'jane@doe.com'],
+        // attachments: [
+        //   'file://img/logo.png',
+        //   'res://icon.png',
+        //   'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+        //   'file://README.pdf'
+        // ],
+        subject: 'Cordova Icons',
+        body: 'How are you? Nice greetings from Leipzig',
+        isHtml: true
+      }
+      
+      // Send a text message using default options
+      this.email.open(email);
+      
+    }
+
+    createmail(){
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     setStationPrograss(station,num){
       //console.log('setPrograss',station,num)

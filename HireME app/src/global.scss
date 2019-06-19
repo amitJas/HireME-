@@ -11,6 +11,7 @@
 @import '~@ionic/angular/css/flex-utils.css';
 @import "theme/variables";
 
+$haedline-color:  rgb(26, 98, 252);
 
 ion-content{
     //--ion-background-color: radial-gradient(circle, rgba(255, 254, 254, 0.3), rgba(247, 155, 34, 0.3),  rgba(30, 124, 247, 0.3));
@@ -23,6 +24,51 @@ ion-card{
     margin-bottom: 15px;
  
 }
+
+.userUp{
+    position: absolute;
+    bottom: -2px;
+    right: 27px;
+}
+
+
+
+ion-toolbar{
+    ion-icon{
+        font-size: 23px;
+        margin: 7px 20px 0px 0px;
+    }
+}
+
+#home{
+    margin-left: 168px;
+ }
+
+.ffff{
+    margin: 0px 10px 0px 16px;
+}
+.note{
+    font-size:  18px;
+    margin: 25px 6px 25px 6px; 
+    color: $haedline-color;
+}
+
+.subNote{
+    font-size:  20px;
+    color: $haedline-color;
+    margin: 28px 12px 0px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (min-width: 375px ){
 

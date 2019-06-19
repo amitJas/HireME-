@@ -20,6 +20,7 @@ export class SalaryPage implements OnInit {
   public candidateReturnDate: any
   public userCanddiateReturn: any
   public candidateName: any
+  public answer = false
 
   constructor(public station:StationService) { }
 
@@ -61,12 +62,14 @@ export class SalaryPage implements OnInit {
     corrStation.cv ? (this.setCv = true , progress++ ) : this.setCv = false
     corrStation.seniority ? (this.setSeniority = true , progress++ ) : this.setSeniority = false
     corrStation.army ? (this.setArmy = true , progress++ ): this.setArmy = false
+    corrStation.answer ? (this.answer = true , progress++ ): this.answer = false
 
     this.station.calculateStationProgress(progress)
   }
 
 
   saveSalary(data, num){
+    console.log('saveSalary',num)
     if(num == 1)
         this.station.setFile('hrSendDate',data)
     if(num == 2 )
@@ -75,6 +78,7 @@ export class SalaryPage implements OnInit {
       this.station.setFile('candidateSendDate',data)
     if(num == 4 )
       this.station.setFile('candidateReturnDate',data)
+    num == 5 ? this.station.setFile('answer',true) : null
   }
 
 

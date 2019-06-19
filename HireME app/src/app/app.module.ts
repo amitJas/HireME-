@@ -1,3 +1,4 @@
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { PopdataPageModule } from './popover/popdata/popdata.module';
 import { HomePage } from './home/home.page';
 import { NgModule } from '@angular/core';
@@ -43,7 +44,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     StatusBar,
     SplashScreen,
     HomePage,
-    
+    EmailComposer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

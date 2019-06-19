@@ -3,6 +3,7 @@ $haedline-color:  rgb(26, 98, 252);
 ion-list{
     border-radius: 14px;
     padding-bottom: 30px;
+    height: -webkit-fill-available;
 }
 
 
@@ -29,26 +30,4 @@ ion-item{
     ion-text{
         float: right;
     }
-}
-.ffff{
-    margin: 0px 10px 0px 16px;
-}
-.note{
-    font-size:  16px;
-    margin: 25px 20px 10px 0px; 
-    color: $haedline-color;
-}
-
-.subNote{
-    font-size:  20px;
-    color: $haedline-color;
-    margin: 28px 12px 0px 0px;
-}
-.userUp{
-    position: absolute;
-    bottom: -2px;
-    right: 27px;
-}
-.interviewerHedar{
-
 }

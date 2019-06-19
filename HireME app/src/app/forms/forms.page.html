@@ -15,14 +15,14 @@
 
 <ion-content padding>
   <ion-list text-right> 
-      <ion-card-title class="note" text-right >בשלב זה יש לשלוח למועמד את הטפסים הבאים</ion-card-title>
+      <ion-card-title class="note" text-right > יש לשלוח למועמד את הטפסים הבאים</ion-card-title>
     <ion-item >       
-      <ion-datetime  [(ngModel)]="sendDate" (ionFocus)='setDate(sendDate,true)' display-format="DD/MM/YYYY"></ion-datetime>
+      <ion-datetime  [(ngModel)]="sendDate" (ionFocus)='setDate(sendDate,1)' display-format="DD/MM/YYYY"></ion-datetime>
       <ion-label text-right >נשלח למועמד בתאריך</ion-label> 
       <ion-note  *ngIf='sendDate' text-right class="userUp" >עודכן ע"י: {{userNameSend}}</ion-note>
     </ion-item>
     <ion-item>  
-        <ion-datetime [(ngModel)]="returnDate" (ionFocus)='setDate(returnDate,false)' display-format="DD/MM/YYYY"></ion-datetime>
+        <ion-datetime [(ngModel)]="returnDate" (ionFocus)='setDate(returnDate,2)' display-format="DD/MM/YYYY"></ion-datetime>
         <ion-label text-right >חזר מהמועמד בתאריך</ion-label>
         <ion-note *ngIf='returnDate' text-right class="userUp" >עודכן ע"י: {{ userNameReturn }}</ion-note>
     </ion-item>
@@ -105,9 +105,12 @@
       <ion-button small  (click)='addFrom()'>הוסף</ion-button>
       <ion-textarea text-right [(ngModel)]="newForm" placeholder="שם הטופס"></ion-textarea>
     </ion-item>
-    <ion-item lines="none">
-        <ion-toggle ></ion-toggle>
-        <ion-label  text-right>אישור משאבי אנוש</ion-label>
+    <ion-item lines="none" >
+        <ion-toggle צםגק='ios'
+        [(NgModel)] = 'hrOK'
+        (ionChange)='setDate(hrOK,3)'
+        [checked] = hrOK></ion-toggle>
+        <ion-label  text-right>?אושר ע"י משאבי אנוש</ion-label>
     </ion-item>  
   </ion-list>
 </ion-content>

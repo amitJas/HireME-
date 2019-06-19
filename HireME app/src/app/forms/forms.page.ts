@@ -24,11 +24,13 @@ export class FormsPage implements OnInit {
   public radioArr = [ false,false,false,false,false,false,false,
                       false,false,false,false,false,false,false ]
 
+  public radioArrSets = []
   // private setf_1 = String; setf_2 = String; setf_3 = String; setf_4 = String; setf_5 = String; setf_6 = String; setf_7 = String;
   // private setf_8 = String; setf_9 = String; setf_10 = String; setf_11 = String; setf_12 = String; setf_13 = String; setf_14 = String;
 
   public user :any; 
   public form:any;
+  public hrOK = false
 
 
 
@@ -67,6 +69,9 @@ export class FormsPage implements OnInit {
       }
       formNum++
     }
+
+    this.hrOK ? (this.hrOK = true,progress++) : this.hrOK = false
+    
     this.station.calculateStationProgress(progress)
   }
 
@@ -85,11 +90,11 @@ export class FormsPage implements OnInit {
           list.appendChild(temp); 
   }
 
-  setDate(date,bool){
-    if(bool)
-      this.station.setFile('sendDate',date) 
-    if(!bool)
-      this.station.setFile('returnDate',date)
+  setDate(date,num){
+    num == 1 ? this.station.setFile('sendDate',date) : null
+    num == 1 ? this.station.setFile('returnDate',date) : null
+    num == 1 ? this.station.setFile('sendDate',true) : null
+   
   }
 
   setRdiuoForms(rdiuoName){

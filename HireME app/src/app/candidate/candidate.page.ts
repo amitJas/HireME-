@@ -5,6 +5,7 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
 import { LoadingController, AlertController,PopoverController  } from '@ionic/angular';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -28,13 +29,11 @@ export class CandidatePage implements OnInit {
   public currCandidat = null
   public tempDate;
   public finisStation = false
-  
- 
 
   constructor(private firebase: FirebaseService,public home: HomePage, 
               public router:Router,public station:StationService,public loadingCtrl: LoadingController, 
               public alertController: AlertController,private pop:PopoverController ) { 
-  
+              
   }
 
   ngOnInit() {

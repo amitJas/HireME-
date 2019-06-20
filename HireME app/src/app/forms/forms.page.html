@@ -1,17 +1,9 @@
-<ion-header>
-  <ion-toolbar mode='ios'>
-      <ion-title>
-        <ion-row>
-            <ion-col >
-                <ion-icon name="home" float-right (click)='station.navFunction(2)' ></ion-icon>
-            </ion-col>
-            <ion-col>
-                <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
-            </ion-col>
-          </ion-row>
-      </ion-title>
+<ion-header id="header">
+    <ion-toolbar mode='ios'>
+        <ion-icon float-right name="arrow-round-forward" (click)='station.navFunction(1)' ></ion-icon>
+        <ion-icon float-center mode='ios' id='home' name="home" (click)='station.navFunction(2)'></ion-icon>
     </ion-toolbar>
-</ion-header>
+  </ion-header>
 
 <ion-content padding>
   <ion-list text-right> 
@@ -106,10 +98,10 @@
       <ion-textarea text-right [(ngModel)]="newForm" placeholder="שם הטופס"></ion-textarea>
     </ion-item>
     <ion-item lines="none" >
-        <ion-toggle צםגק='ios'
-        [(NgModel)] = 'hrOK'
-        (ionChange)='setDate(hrOK,3)'
-        [checked] = hrOK></ion-toggle>
+        <ion-toggle mode='ios' 
+        [(ngModel)]="hrOK" 
+        (ionChange)='saveSalary(hrOK,3)'
+        [checked]='hrOK' ></ion-toggle>  
         <ion-label  text-right>?אושר ע"י משאבי אנוש</ion-label>
     </ion-item>  
   </ion-list>

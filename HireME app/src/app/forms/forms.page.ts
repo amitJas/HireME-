@@ -92,8 +92,8 @@ export class FormsPage implements OnInit {
 
   setDate(date,num){
     num == 1 ? this.station.setFile('sendDate',date) : null
-    num == 1 ? this.station.setFile('returnDate',date) : null
-    num == 1 ? this.station.setFile('sendDate',true) : null
+    num == 2 ? this.station.setFile('returnDate',date) : null
+    num == 3 ? this.station.setFile('hrOK',true) : null
    
   }
 

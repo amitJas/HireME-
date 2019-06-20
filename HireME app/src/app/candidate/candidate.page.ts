@@ -20,12 +20,12 @@ export class CandidatePage implements OnInit {
   public progress = 34;
   public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 2, finish: false},
-                                   {name:"הצעת שכר", progress: 0,stationNum: 8, finish: false } ,
+                                   {name:"הצעת שכר", progress: 0,stationNum: 9, finish: false } ,
                                    {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
-  public currCandidat = null;
+  public currCandidat = null
   public tempDate;
   public finisStation = false
   
@@ -58,10 +58,30 @@ initCandidateDate(obs){
             countTemp++
           }
         })
-        this.firebase.setCandidateProgress(countTemp)
+        if(countTemp == 5){ // all stations finished
+          this.finishAlert()
+
+        }else
+          this.firebase.setCandidateProgress(countTemp)
       })
   
   }
+
+  async finishAlert(){
+    const alert = await this.alertController.create({
+
+      header: 'המועמד' + this.currCandidat.name,
+      message: 'סיים את תהליך הקליטה במכון ןיוסר מתהליך הקליטה'
+    });
+    await alert.present()
+    this.firebase.deletCandidate('סיום תהליך')
+    setTimeout(() => {
+      alert.dismiss()
+    }, 1000);
+    
+  }
+
+
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({

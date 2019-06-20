@@ -71,7 +71,7 @@ export class FormsPage implements OnInit {
     }
 
     this.hrOK ? (this.hrOK = true,progress++) : this.hrOK = false
-    
+    console.log(progress)
     this.station.calculateStationProgress(progress)
   }
 

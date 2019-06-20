@@ -24,8 +24,8 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-card-title *ngIf='currCandidat.standard == 1' class="candidateLisens">תקן</ion-card-title>
-            <ion-card-title *ngIf='currCandidat.standard == 2' class="candidateLisens">מ"מ</ion-card-title>
+            <ion-card-title *ngIf='currCandidat != null && currCandidat.standard == 1' class="candidateLisens">תקן</ion-card-title>
+            <ion-card-title *ngIf='currCandidat != null && currCandidat.standard == 2' class="candidateLisens">מ"מ</ion-card-title>
           </ion-col>
           <ion-col><ion-card-title class="headers">:סוג משרה</ion-card-title></ion-col>
         </ion-row>

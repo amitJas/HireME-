@@ -62,8 +62,9 @@ export class SalaryPage implements OnInit {
     corrStation.cv ? (this.setCv = true , progress++ ) : this.setCv = false
     corrStation.seniority ? (this.setSeniority = true , progress++ ) : this.setSeniority = false
     corrStation.army ? (this.setArmy = true , progress++ ): this.setArmy = false
-    corrStation.answer ? (this.answer = true , progress++ ): this.answer = false
+    corrStation.answer.data ? (this.answer = true , progress++ ): this.answer = false
 
+    console.log(progress)
     this.station.calculateStationProgress(progress)
   }
 

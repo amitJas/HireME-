@@ -26,7 +26,7 @@ export class CandidatePage implements OnInit {
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
   public rouringArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
-  public currCandidat = null
+  public currCandidat;
   public tempDate;
   public finisStation = false
 
@@ -51,7 +51,7 @@ initCandidateDate(obs){
         this.station.candidate = ref.data() // inshlize the candate in the station service
         this.candidateaStationList.forEach( (sta,i) => { //all the station object
           if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
-            sta.progress = this.firebase.calculatProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
+            sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
           if(sta.progress == 100) { // the candidate finish the station
             sta.finish = true
             countTemp++
@@ -68,7 +68,6 @@ initCandidateDate(obs){
 
   async finishAlert(){
     const alert = await this.alertController.create({
-
       header: 'המועמד' + this.currCandidat.name,
       message: 'סיים את תהליך הקליטה במכון ןיוסר מתהליך הקליטה'
     });

@@ -7,34 +7,34 @@ import { EmailComposer  } from '@ionic-native/email-composer/ngx';
 
 export class FirebaseService {
   
-  private stations = 5;
-  public user: any;
-  public userDep: any;
-  public admin: any;
-  public department: any;
-  public firebaseCID: any;
-  public firebaseCName: any;
+  public user: any;               // the current user 
+  public userDep: any;           // the current user department 
+  public admin: any;            // if the user is admin
+  public department: any;      // the current department
+  public firebaseCID: any;    // the current candidate id
+  public firebaseCName: any; // the current candidate
   
   constructor(private db: AngularFirestore,private email: EmailComposer) { }
 
-  //chkein the user
+  //chinking the user
   isAuser(input){
      return this.db.collection('Users',ref => ref.where('employeeNum','==', input.toString() )).get()
   }
 
  
-  //return array of all the candidate name in the store - Finished!!!
+  //return array of all the candidate name in the store
   getAllCandidate(){
-      let allCandidteName = [];
+    const STATION = 5
+      let allCandidateName = [];
       var namesArr =  this.db.collection(this.department).doc('Candidate').collection('Data').get().subscribe((snap) =>{
         snap.docs.forEach(doc => {
-          allCandidteName.push({
+          allCandidateName.push({
             name: doc.data().name,
-            progres: this.calculatProgress(doc.data().progress,this.stations)
+            progres: this.calculateProgress(doc.data().progress,STATION)
           })
       })
     })
-    return allCandidteName
+    return allCandidateName
   }
 
   //adding new candidate to firebase, no station yet only data
@@ -59,15 +59,10 @@ export class FirebaseService {
   }
 
   
-  calculatProgress(progress,num){
+  calculateProgress(progress,num){
     if(progress)
       return Math.round((progress / num ) * 100)
     return  progress  
-  }
-
-
-  convertDate(){
-    
   }
 
   addStation(station){
@@ -98,7 +93,6 @@ export class FirebaseService {
 
     setDeleteDate(data){
       console.log('setDeleteDate')
-      this.sendEmail()
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,
@@ -107,42 +101,6 @@ export class FirebaseService {
         cause: data
       })
     }
-
-    sendEmail(){
-      let email = {
-        to: 'katanamit7@gmail.com',
-        cc: 'amit.jascourt@gmail.com',
-       // bcc: ['john@doe.com'john@doe.com', 'jane@doe.com'jane@doe.com'],
-        // attachments: [
-        //   'file://img/logo.png',
-        //   'res://icon.png',
-        //   'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
-        //   'file://README.pdf'
-        // ],
-        subject: 'Cordova Icons',
-        body: 'How are you? Nice greetings from Leipzig',
-        isHtml: true
-      }
-      
-      // Send a text message using default options
-      this.email.open(email);
-      
-    }
-
-    createmail(){
-
-    }
-
-
-
-
-
-
-
-
-
-
-
 
     setStationPrograss(station,num){
       //console.log('setPrograss',station,num)

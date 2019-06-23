@@ -21,12 +21,14 @@ export class SalaryPage implements OnInit {
   public userCanddiateReturn: any
   public candidateName: any
   public answer = false
+  public progressCount = 0
 
   constructor(public station:StationService) { }
 
   ngOnInit() {
 
     this.candidateName = this.station.candidateName
+    this.station.candidate[this.station.currStationName] ? this.progressCount = this.station.candidate[this.station.currStationName] : this.progressCount = 0
     setTimeout( () =>{
       this.initSalary()
     },500)
@@ -35,61 +37,43 @@ export class SalaryPage implements OnInit {
 
   initSalary(){
     let corrStation = this.station.station;
-    let progress = 0
-
     if(corrStation.hrSendDate){
       this.hrSendDate = corrStation.hrSendDate.data
       this.userHrSend = corrStation.hrSendDate.how
-      progress++
     }
     if(this.station.station.hrReturnDate){
       this.hrReturnDate = corrStation.hrReturnDate.data
       this.userHrReturn = corrStation.hrReturnDate.how
-      progress++
     }
     if(this.station.station.hrReturnDate){
       this.candidateSendDate = corrStation.candidateSendDate.data
       this.userCanddiateSend = corrStation.candidateSendDate.how
-      progress++
     }
     if(this.station.station.hrReturnDate){
       this.candidateReturnDate = corrStation.candidateReturnDate.data
       this.userCanddiateReturn = corrStation.candidateReturnDate.how
-      progress++
     }
     //radio button 
-    corrStation.certificate ? (this.setCertificate = true ,progress++  ): this.setCertificate = false
-    corrStation.cv ? (this.setCv = true , progress++ ) : this.setCv = false
-    corrStation.seniority ? (this.setSeniority = true , progress++ ) : this.setSeniority = false
-    corrStation.army ? (this.setArmy = true , progress++ ): this.setArmy = false
-    corrStation.answer.data ? (this.answer = true , progress++ ): this.answer = false
-
-    console.log(progress)
-    this.station.calculateStationProgress(progress)
+    corrStation.certificate ? (this.setCertificate = true ): this.setCertificate = false
+    corrStation.cv ? (this.setCv = true  ) : this.setCv = false
+    corrStation.seniority ? (this.setSeniority = true) : this.setSeniority = false
+    corrStation.army ? (this.setArmy = true  ): this.setArmy = false
+    corrStation.answer ? (this.answer = true ): this.answer = false
   }
-
 
   saveSalary(data, num){
-    console.log('saveSalary',num)
-    if(num == 1)
-        this.station.setFile('hrSendDate',data)
-    if(num == 2 )
-      this.station.setFile('hrReturnDate',data)
-    if(num == 3 )
-      this.station.setFile('candidateSendDate',data)
-    if(num == 4 )
-      this.station.setFile('candidateReturnDate',data)
-    num == 5 ? this.station.setFile('answer',true) : null
+    num == 1 ? (this.station.setFile('hrSendDate',data),this.progressCount++) : null
+    num == 2 ? (this.station.setFile('hrReturnDate',data),this.progressCount++) : null
+    num == 3 ? (this.station.setFile('candidateSendDate',data),this.progressCount++) : null
+    num == 4 ? (this.station.setFile('candidateReturnDate',data),this.progressCount++) : null
+    num == 5 ? (this.station.setFile('answer',true),this.progressCount++) : null
+    this.station.calculateStationProgress(this.progressCount)
   }
-
 
   setRdiuoForms(rdiuoName){
-    //console.log('setRdiuoForms',rdiuoName)
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
+    this.progressCount++
+    this.station.calculateStationProgress(this.progressCount)
   }
-
-
-
-
 }

@@ -32,50 +32,38 @@ export class InterviewPage implements OnInit {
 
   ngOnInit() {
     this.candidateName = this.station.candidateName
-    console.log(this.candidateName);
+    this.station.candidate[this.station.currStationName] ? this.progressCount = this.station.candidate[this.station.currStationName] : this.progressCount = 0
+    console.log('this.progressCount',this.progressCount);
     setTimeout( () =>{
+
       this.initInterview()
     },500)
   }
 
   initInterview(){
     let progress = 0
-    
     if(this.station.station.interviewer){
       this.interviewerName = this.station.station.interviewer.data
       this.userSetInterviewer = this.station.station.interviewer.how;
-      progress++
     }
     if(this.station.station.interviewDate){
       this.date = this.station.station.interviewDate.data
-      this.userSetDate = this.station.station.interviewDate.how;
-      progress++
+      this.userSetDate = this.station.station.interviewDate.how;  
     }
     if(this.station.station.discription){
       this.discriptionSet = !this.discriptionSet
       this.saveButton = 'ערוך'
       this.discription = this.station.station.discription.data
       this.discriptionSetUser = this.station.station.discription.how;
-      progress++
     }else{
       this.saveButton = 'שמור'
     }
-    if(this.station.station.replacedName){
-      this.replacedName = this.station.station.replacedName.data
-      this.setreplacedName = this.station.station.replacedName.how
-      progress++
-    }
-    this.station.station.suitable ? (this.suitable = this.station.station.suitable.data,progress++) : false
-    
-    this.station.calculateStationProgress(progress)
+    this.station.station.suitable ? this.suitable = this.station.station.suitable.data : false
   }
 
   setData(data,num){
-    console.log('in set data' , data, num)
-    if(num == 1)
-      this.station.setFile('interviewer',data) 
-    if(num == 2)
-      this.station.setFile('interviewDate',data)
+    num == 1 ? (this.station.setFile('interviewer',data) , this.progressCount++) : null
+    num == 2 ? (this.station.setFile('interviewDate',data) , this.progressCount++) : null
     if(num == 3){
       if(this.discriptionSet){
         this.discriptionSet = !this.discriptionSet
@@ -85,23 +73,16 @@ export class InterviewPage implements OnInit {
         this.saveButton = 'ערוך'
       }
       this.station.setFile('discription',data)
+      this.progressCount++
     }
-    if(num == 4){
-      this.station.setFile('replacedName',data)
-    }
-    num == 5 ? this.station.setFile('suitable',data) : null
+    num == 5 ? (this.station.setFile('suitable',data),this.progressCount++) : null
+    this.station.calculateStationProgress(this.progressCount)
   }
-
-  // setRdiuoInterview(rdiuoName,num){
-  //   this.station.setRdiuo(rdiuoName,num)
-  // }
-
   setRdiuoForms(rdiuoName){
-    //console.log('setRdiuoForms',rdiuoName)
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
+    this.progressCount++
+    this.station.calculateStationProgress(this.progressCount)
   }
-
-
 
 }

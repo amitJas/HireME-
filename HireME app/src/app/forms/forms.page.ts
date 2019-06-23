@@ -31,12 +31,13 @@ export class FormsPage implements OnInit {
   public user :any; 
   public form:any;
   public hrOK = false
-
+  public progressCount = 0
 
 
   constructor(public station: StationService ) { }
 
   ngOnInit() {
+    this.station.candidate[this.station.currStationName] ? this.progressCount = this.station.candidate[this.station.currStationName] : this.progressCount = 0
     setTimeout( () =>{
       this.initData()
     },500)
@@ -44,35 +45,29 @@ export class FormsPage implements OnInit {
 
   initData(){
     let formNum = 0
-    let progress = 0
     const NUM_OF_FORMS = 15
 
     if(this.station.station.sendDate){ 
       this.sendDate = this.station.station.sendDate.data;
       this.userNameSend = this.station.station.sendDate.how;
-      progress++
     }
     if(this.station.station.returnDate){
       this.returnDate = this.station.station.returnDate.data;
       this.userNameReturn = this.station.station.returnDate.how;
-      progress++
     }
 
     while(formNum < NUM_OF_FORMS ){ // checks all the radio baten
 
       this.form = 'f_' + (formNum + 1).toString()
-      //this.user = 'setf_' +  formNum.toString() 
-
       if(this.station.station[this.form]){
         this.radioArr[formNum]  = true
-        progress++
       }
       formNum++
     }
 
-    this.hrOK ? (this.hrOK = true,progress++) : this.hrOK = false
-    console.log(progress)
-    this.station.calculateStationProgress(progress)
+    this.hrOK ? (this.hrOK = true) : this.hrOK = false
+    
+   
   }
 
   moreForms(){
@@ -91,15 +86,17 @@ export class FormsPage implements OnInit {
   }
 
   setDate(date,num){
-    num == 1 ? this.station.setFile('sendDate',date) : null
-    num == 2 ? this.station.setFile('returnDate',date) : null
-    num == 3 ? this.station.setFile('hrOK',true) : null
-   
+    num == 1 ? (this.station.setFile('sendDate',date),this.progressCount) : null
+    num == 2 ? (this.station.setFile('returnDate',date),this.progressCount) : null
+    num == 3 ? (this.station.setFile('hrOK',true),this.progressCount) : null
+    this.station.calculateStationProgress(this.progressCount)
   }
 
   setRdiuoForms(rdiuoName){
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
+    this.progressCount++
+    this.station.calculateStationProgress(this.progressCount)
   }
   
 }

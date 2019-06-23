@@ -5,7 +5,7 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
 import { LoadingController, AlertController,PopoverController  } from '@ionic/angular';
-import { Subject } from 'rxjs';
+
 
 
 @Component({
@@ -48,7 +48,7 @@ initCandidateDate(obs){
         this.currCandidat = ref.data() // all candidate date
         this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
-        this.station.candidate = ref.data() // inshlize the candate in the station service
+        this.station.candidate = ref.data() // inshlaized the candidate in the station service
         this.candidateaStationList.forEach( (sta,i) => { //all the station object
           if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
             sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)

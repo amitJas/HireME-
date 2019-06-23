@@ -39,7 +39,6 @@ export class FirebaseService {
 
   //adding new candidate to firebase, no station yet only data
   addNewCandidate(candidate){
-    //console.log(candidate.strtProcess)
   this.db.collection(this.department).doc('Candidate').collection('Data').doc(candidate.id.toString()).set({
       name: candidate.name,
       id: candidate.id,

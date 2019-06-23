@@ -11,15 +11,15 @@
       <ion-grid>
           <ion-row> 
             <ion-item lines='none'>
-              <ion-card-title class="headers"><h3 >{{currCandidat.name}}</h3></ion-card-title>
+              <ion-card-title class="headers" *ngIf='currCandidat != null' ><h3 >{{currCandidat.name}}</h3></ion-card-title>
             </ion-item> 
         </ion-row>
         <ion-row>
-          <ion-col><ion-card-title class="candidateLisens">{{currCandidat.phone}}</ion-card-title></ion-col>
+          <ion-col><ion-card-title class="candidateLisens" *ngIf='currCandidat != null' >{{currCandidat.phone}}</ion-card-title></ion-col>
           <ion-col> <ion-card-title class="headers">:פאלפון</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col><ion-text text-right class="candidateID">{{currCandidat.email}}</ion-text></ion-col>
+          <ion-col><ion-text text-right class="candidateID" *ngIf='currCandidat != null'>{{currCandidat.email}}</ion-text></ion-col>
           <ion-col><ion-card-title text-right class="headers">:מייל</ion-card-title></ion-col>
         </ion-row>
         <ion-row>

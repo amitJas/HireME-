@@ -17,37 +17,34 @@ export class PsifasTestPage implements OnInit {
   public userSetGrade:string;
   public pass:boolean;
   public candidate = null
-  
+  public progressCount = 0
   constructor(public station: StationService) { }
 
   ngOnInit() {
     this.candidate = this.station.candidate;
+    this.station.candidate[this.station.currStationName] ? this.progressCount = this.station.candidate[this.station.currStationName] : this.progressCount = 0
     setTimeout( () =>{
       this.initPsifas()
     },500)
   }
 
   initPsifas(){
-    let pro = 0
+    
     if(this.station.station.test){
       this.test = this.station.station.test.data
       this.userSetTest = this.station.station.test.how
-      pro++
     }
     if(this.station.station.grade){
       this.grade = this.station.station.grade.data
       this.userSetGrade = this.station.station.grade.how
-      pro++
     }
-    this.station.calculateStationProgress(pro)
+    
   }
 
   savePsifas(data, num){
     console.log(data, num)
-    if(num == 1)
-      this.station.setFile('test',data)
-    if(num == 2 )
-      this.station.setFile('grade',data)
-
+    num == 1 ? (this.station.setFile('test',data),this.progressCount++): null
+    num == 2 ? (this.station.setFile('grade',data),this.progressCount++) : null
+    this.station.calculateStationProgress(this.progressCount)
   }
 }

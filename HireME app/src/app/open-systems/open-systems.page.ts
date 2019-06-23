@@ -13,10 +13,11 @@ export class OpenSystemsPage implements OnInit {
   public radioArr = [ false,false,false,false,false,false,false,
                       false,false,false,false,false,false,false ]
 
-  // public userArr = []
+ public progressCount = 0
   constructor(public station:StationService) { }
 
   ngOnInit() {
+    this.station.candidate[this.station.currStationName] ? this.progressCount = this.station.candidate[this.station.currStationName] : this.progressCount = 0
     setTimeout(() => {
       this.initSystem()
     }, 500);
@@ -35,20 +36,20 @@ export class OpenSystemsPage implements OnInit {
       process = 'sf_' + (num + 1).toString()
       user = 'setSf_' +  (num + 1).toString()
 
-      console.log(process,user)
       if(this.station.station[process]){
         this.radioArr[num]  = true
-        //this.userArr[num] = this.station.station[process].how
-        progress++
+        this.progressCount++
       }
       num++
     }
-    this.station.calculateStationProgress(progress)
+    this.station.calculateStationProgress(this.progressCount)
   }
 
   setRdiuoForms(rdiuoName){
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
+    this.progressCount++
+    this.station.calculateStationProgress(this.progressCount)
   }
 
 }

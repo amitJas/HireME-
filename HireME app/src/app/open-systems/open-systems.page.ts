@@ -35,7 +35,6 @@ export class OpenSystemsPage implements OnInit {
     while(num < NUM_OF_FORMS ){
       process = 'sf_' + (num + 1).toString()
       user = 'setSf_' +  (num + 1).toString()
-
       if(this.station.station[process]){
         this.radioArr[num]  = true
         this.progressCount++

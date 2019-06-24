@@ -15,7 +15,7 @@ export class PsifasTestPage implements OnInit {
   public grade: any;
   public userSetTest:string;
   public userSetGrade:string;
-  public pass = false;
+  public pass = null; checked = false
   public candidate = null
   public progressCount = 0
   public skills = 0 ; reliability =0 ; integrity = 0
@@ -42,18 +42,25 @@ export class PsifasTestPage implements OnInit {
     this.station.station.skills ? this.skills = this.station.station.skills.data : this.skills = 0 
     this.station.station.reliability ? this.reliability = this.station.station.reliability.data : this.reliability = 0 
     this.station.station.integrity ? this.integrity = this.station.station.integrity.data : this.integrity = 0 
-    this.station.station.pass ? this.pass = true : this.pass = false
+    this.station.station.pass ? (this.pass = true,this.checked = true) : null
 
   }
 
   savePsifas(data, num){
     console.log(data, num)
+  
     num == 1 ? (this.station.setFile('test',data),this.progressCount++): null
     num == 2 ? (this.station.setFile('grade',data),this.progressCount++) : null
     num == 3 ? (this.station.setFile('reliability',data),this.progressCount++) : null
     num == 4 ? (this.station.setFile('integrity',data),this.progressCount++) : null
     num == 5 ? (this.station.setFile('skills',data),this.progressCount++) : null
-    num == 6 ? (this.station.setFile('pass',data),this.progressCount++) : null
+    if(num == 6) {
+      if( this.checked == false){
+        this.progressCount++
+        this.checked = true
+      } 
+      this.station.setFile('pass',data)
+    } 
     this.station.calculateStationProgress(this.progressCount)
   }
 }

@@ -92,10 +92,12 @@ export class FormsPage implements OnInit {
     this.station.calculateStationProgress(this.progressCount)
   }
 
-  setRdiuoForms(rdiuoName){
+  setRdiuoForms(rdiuoName,num){
     let d = new Date().getTime()
     this.station.setRdiuo(rdiuoName,d)
-    this.progressCount++
+    if(this.radioArr[num] == false)
+      this.progressCount++
+    // console.log('num:',num,'pro:',this.progressCount)
     this.station.calculateStationProgress(this.progressCount)
   }
   

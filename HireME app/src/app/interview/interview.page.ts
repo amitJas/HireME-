@@ -58,7 +58,7 @@ export class InterviewPage implements OnInit {
     }else{
       this.saveButton = 'שמור'
     }
-    this.station.station.suitable ? this.suitable = this.station.station.suitable.data : false
+    this.station.station.suitable ? this.suitable = this.station.station.suitable : this.suitable = 0
   }
 
   setData(data,num){
@@ -75,13 +75,12 @@ export class InterviewPage implements OnInit {
       this.station.setFile('discription',data)
       this.progressCount++
     }
-    num == 5 ? (this.station.setFile('suitable',data),this.progressCount++) : null
     this.station.calculateStationProgress(this.progressCount)
   }
-  setRdiuoForms(rdiuoName){
+  setRdiuoForms(rdiuoName,num){
     let d = new Date().getTime()
-    this.station.setRdiuo(rdiuoName,d)
-    this.progressCount++
+    this.station.setRdiuo(rdiuoName,num)
+    this.suitable == 0 ? this.progressCount++ : null
     this.station.calculateStationProgress(this.progressCount)
   }
 

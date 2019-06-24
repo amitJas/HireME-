@@ -18,7 +18,7 @@ export class CandidatePage implements OnInit {
   public candidateStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 6, finish: false},
                                    {name:"הצעת שכר", progress: 0,stationNum: 9, finish: false } ,
-                                   {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
+                                   {name:"חובקן טפסים",progress: 0,stationNum: 17, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
   public rougingArrPages = ["interview","psifas-test",'salary','forms','open-systems'];

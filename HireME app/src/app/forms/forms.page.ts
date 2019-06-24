@@ -65,7 +65,7 @@ export class FormsPage implements OnInit {
       formNum++
     }
 
-    this.hrOK ? (this.hrOK = true) : this.hrOK = false
+    this.station.station.hrOK ? this.hrOK = true : this.hrOK = false
     
    
   }
@@ -86,9 +86,9 @@ export class FormsPage implements OnInit {
   }
 
   setDate(date,num){
-    num == 1 ? (this.station.setFile('sendDate',date),this.progressCount) : null
-    num == 2 ? (this.station.setFile('returnDate',date),this.progressCount) : null
-    num == 3 ? (this.station.setFile('hrOK',true),this.progressCount) : null
+    num == 1 ? (this.station.setFile('sendDate',date),this.progressCount++) : null
+    num == 2 ? (this.station.setFile('returnDate',date),this.progressCount++) : null
+    num == 3 ? (this.station.setFile('hrOK',true),this.progressCount++) : null
     this.station.calculateStationProgress(this.progressCount)
   }
 

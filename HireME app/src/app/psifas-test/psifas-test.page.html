@@ -27,13 +27,50 @@
           <ion-label  text-right>:ציון</ion-label>
           <ion-note *ngIf='userSetGrade' text-right class="userUp" >עודכן ע"י: {{ userSetGrade }}</ion-note>
         </ion-item>
-        <ion-item text-right>
-          <ion-label>הוסף מסמך</ion-label>
-          <!-- <ion-input type="text" [(ngModel)]="discription" name="discription" required="required"></ion-input> -->
+        <div text-right class="subNote">:מדדים</div> 
+        <ion-item >
+          <ion-range 
+          pin='true' 
+          [(ngModel)]='reliability' 
+          min="0" max="100" 
+          color="secondary"
+          (ionBlur) ='savePsifas(reliability,3)'>
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">100</ion-label>
+          </ion-range>
+          <ion-label text-right>אמינות</ion-label>
         </ion-item>   
-        <ion-item>
-          <ion-toggle [(ngModel)]="pass"></ion-toggle>
-          <ion-label text-right >?האם עבר</ion-label>
+        <ion-item >
+          <ion-range  
+          [(ngModel)]='integrity' 
+          pin="true" 
+          min="0" max="100" 
+          color="secondary"
+          (ionBlur) ='savePsifas(integrity,4)'>
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">100</ion-label>
+          </ion-range>
+          <ion-label text-right>יושרה</ion-label>
+        </ion-item>
+        <ion-item >
+            <ion-range  
+              [(ngModel)]='skills' 
+              pin="true" min="0" 
+              max="100" 
+              color="secondary"
+              (ionBlur) ='savePsifas(skills,5)'>
+              <ion-label slot="start">0</ion-label>
+              <ion-label slot="end">100</ion-label>
+            </ion-range>
+            <ion-label text-right>כישורים</ion-label>
+          </ion-item> 
+          <ion-item >
+            <ion-toggle 
+            mode='ios' 
+            [(ngModel)]="pass"
+            (ionChange)='savePsifas(pass,6)'
+            [checked]='pass'></ion-toggle>
+            <ion-label text-right >?האם עבר</ion-label>
         </ion-item>
       </ion-list>
 </ion-content>

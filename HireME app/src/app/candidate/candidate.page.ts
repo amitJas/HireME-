@@ -20,7 +20,7 @@ export class CandidatePage implements OnInit {
   private standard = 0;
   public progress = 34;
   public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
-                                   {name: "מבחן פסיפס" ,progress: 0,stationNum: 2, finish: false},
+                                   {name: "מבחן פסיפס" ,progress: 0,stationNum: 6, finish: false},
                                    {name:"הצעת שכר", progress: 0,stationNum: 9, finish: false } ,
                                    {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
@@ -52,7 +52,7 @@ initCandidateDate(obs){
         this.candidateaStationList.forEach( (sta,i) => { //all the station object
           if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
             sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
-          if(sta.progress == 100) { // the candidate finish the station
+          if(sta.progress >= 100) { // the candidate finish the station
             sta.finish = true
             countTemp++
           }

@@ -11,21 +11,21 @@
       <ion-grid>
           <ion-row> 
             <ion-item  lines='none'>
-              <ion-card-title class="headers" *ngIf='currCandidat != null' ><h3 >{{currCandidat.name}}</h3></ion-card-title>
+              <ion-card-title class="headers" *ngIf='currCandidate != null' ><h3 >{{currCandidate.name}}</h3></ion-card-title>
             </ion-item> 
         </ion-row>
         <ion-row>
-          <ion-col><ion-card-title class="candidateLisens" *ngIf='currCandidat != null' >{{currCandidat.phone}}</ion-card-title></ion-col>
+          <ion-col><ion-card-title class="candidateLisens" *ngIf='currCandidate != null' >{{currCandidate.phone}}</ion-card-title></ion-col>
           <ion-col> <ion-card-title class="headers">:פאלפון</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col><ion-text text-right class="candidateID" *ngIf='currCandidat != null'>{{currCandidat.email}}</ion-text></ion-col>
+          <ion-col><ion-text text-right class="candidateID" *ngIf='currCandidate != null'>{{currCandidate.email}}</ion-text></ion-col>
           <ion-col><ion-card-title text-right class="headers">:מייל</ion-card-title></ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-card-title *ngIf='currCandidat != null && currCandidat.standard == 1' class="candidateLisens">תקן</ion-card-title>
-            <ion-card-title *ngIf='currCandidat != null && currCandidat.standard == 2' class="candidateLisens">מ"מ</ion-card-title>
+            <ion-card-title *ngIf='currCandidate != null && currCandidate.standard == 1' class="candidateLisens">תקן</ion-card-title>
+            <ion-card-title *ngIf='currCandidate != null && currCandidate.standard == 2' class="candidateLisens">מ"מ</ion-card-title>
           </ion-col>
           <ion-col><ion-card-title class="headers">:סוג משרה</ion-card-title></ion-col>
         </ion-row>
@@ -39,7 +39,7 @@
       </ion-grid>
     </ion-card-header>
   </ion-card>
-    <ion-card text-right class="station" *ngFor="let station of candidateaStationList; let i = index"  (click) ="stationRouting(i,station.name)"  >
+    <ion-card text-right class="station" *ngFor="let station of candidateStationList; let i = index"  (click) ="stationRouting(i,station.name)"  >
         <ion-card-header> 
           <ion-row>
             <ion-col>

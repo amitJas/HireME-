@@ -15,18 +15,14 @@ import { LoadingController, AlertController,PopoverController  } from '@ionic/an
 })
 export class CandidatePage implements OnInit {
 
-  public department:any ;
-  public candidateNum: string;
-  private standard = 0;
-  public progress = 34;
-  public candidateaStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
+  public candidateStationList = [ {name: "ראיון אישי", progress: 0, stationNum: 4, finish: false},
                                    {name: "מבחן פסיפס" ,progress: 0,stationNum: 6, finish: false},
                                    {name:"הצעת שכר", progress: 0,stationNum: 9, finish: false } ,
                                    {name:"חובקן טפסים",progress: 0,stationNum: 16, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
-  public rouringArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
-  public currCandidat;
+  public rougingArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
+  public currCandidate;
   public tempDate;
   public finisStation = false
 
@@ -45,13 +41,13 @@ export class CandidatePage implements OnInit {
 initCandidateDate(obs){
     let countTemp = 0
     obs.docs.forEach(ref =>{
-        this.currCandidat = ref.data() // all candidate date
+        this.currCandidate = ref.data() // all candidate date
         this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
         this.station.candidate = ref.data() // inshlaized the candidate in the station service
-        this.candidateaStationList.forEach( (sta,i) => { //all the station object
-          if(ref.data()[this.candidateaStationList[i].name]) // if we started this station calculate this progress else stay 0
-            sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateaStationList[i].name],sta.stationNum)
+        this.candidateStationList.forEach( (sta,i) => { //all the station object
+          if(ref.data()[this.candidateStationList[i].name]) // if we started this station calculate this progress else stay 0
+            sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateStationList[i].name],sta.stationNum)
           if(sta.progress >= 100) { // the candidate finish the station
             sta.finish = true
             countTemp++
@@ -68,14 +64,15 @@ initCandidateDate(obs){
 
   async finishAlert(){
     const alert = await this.alertController.create({
-      header: 'המועמד' + this.currCandidat.name,
-      message: 'סיים את תהליך הקליטה במכון ןיוסר מתהליך הקליטה'
+      header: 'המועמד' + this.currCandidate.name,
+      mode: 'ios',
+      message: 'סיים את תהליך הקבלה לעבודה <br/> כל המידע עליו ימחק לצמיתות מהאפליקציה'
     });
     await alert.present()
     this.firebase.deletCandidate('סיום תהליך')
     setTimeout(() => {
       alert.dismiss()
-    }, 1000);
+    }, 3000);
     
   }
 
@@ -85,7 +82,7 @@ initCandidateDate(obs){
     const alert = await this.alertController.create({
       header: 'האם להסיר מועמד זה?',
       message: 'בהסרת מועמד זה כל הנתונים שנשמרו עד רגע זה ימחקו לצמיתות',
-      cssClass: 'secondary',
+      mode: 'ios',
       buttons: [
         {
           text: 'לא',
@@ -107,6 +104,7 @@ initCandidateDate(obs){
   async presentAlertInput() {
     const alert = await this.alertController.create({
       header: 'אנא כתוב את סיבת סגירת המועמד',
+      mode: 'ios',
       inputs: [
         {
           name: 'cause',
@@ -120,6 +118,7 @@ initCandidateDate(obs){
           cssClass: 'secondary',
           handler: (data) => {
             this.firebase.deletCandidate(data.cause)
+            this.router.navigate(['home']);
           }
         }
       ]
@@ -131,12 +130,12 @@ initCandidateDate(obs){
 
   stationRouting(index,station){
     this.station.getSatationData(station)
-    this.router.navigate([this.rouringArrPages[index]]);
+    this.router.navigate([this.rougingArrPages[index]]);
   }
 
   closeCandidate(){
     let alert = this.presentAlertConfirm().then(() => {
-      this.router.navigate(['home']);
+      // this.router.navigate(['home']);
     })
   }
 
@@ -144,7 +143,7 @@ initCandidateDate(obs){
     const popover = await this.pop.create({
       component: PopdataPage,
       componentProps: {
-        candidate: this.currCandidat
+        candidate: this.currCandidate
       },
       event: ev,
       translucent: true,

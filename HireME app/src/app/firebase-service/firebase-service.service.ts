@@ -20,7 +20,6 @@ export class FirebaseService {
     fetch('./assets/data/stations-json.json').then( res => 
       res.json()).then(data => {
         this.JSONstation = data
-        console.log(this.JSONstation.stations[0].name_e)
       })
   }
 
@@ -84,7 +83,6 @@ export class FirebaseService {
     }
 
     getStation(station){
-      //console.log('getStation',station,this.firebaseCID.toString())
      return this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).get()
     }
 
@@ -97,7 +95,6 @@ export class FirebaseService {
     }
 
     setDeleteDate(data){
-      console.log('setDeleteDate')
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,

@@ -9,8 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PsifasTestPage implements OnInit {
 
-  //public candidateName:string;
-  //public interviewer:string;
   public test:any
   public grade: any;
   public userSetTest:string;
@@ -47,8 +45,6 @@ export class PsifasTestPage implements OnInit {
   }
 
   savePsifas(data, num){
-    console.log(data, num)
-  
     num == 1 ? (this.station.setFile('test',data),this.progressCount++): null
     num == 2 ? (this.station.setFile('grade',data),this.progressCount++) : null
     num == 3 ? (this.station.setFile('reliability',data),this.progressCount++) : null

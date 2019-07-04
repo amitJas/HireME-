@@ -33,7 +33,6 @@ export class CandidatePage implements OnInit {
 
   ngOnInit() {
     this.stationList = this.firebase.JSONstation.stations
-    console.log(this.stationList)
     this.firebase.getCandidateData().subscribe((doc) => {
       this.initCandidateDate(doc)
     })

@@ -21,11 +21,10 @@ export class CandidatePage implements OnInit {
                                    {name:"חובקן טפסים",progress: 0,stationNum: 17, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
-  public rougingArrPages = ["interview","psifas-test",'salary','forms','open-systems'];
-  public currCandidate;
+  public currCandidate: any;
   public tempDate;
   public finisStation = false
-
+  public stationList = []
   constructor(private firebase: FirebaseService,public home: HomePage, 
               public router:Router,public station:StationService,public loadingCtrl: LoadingController, 
               public alertController: AlertController,private pop:PopoverController ) { 
@@ -33,6 +32,8 @@ export class CandidatePage implements OnInit {
   }
 
   ngOnInit() {
+    this.stationList = this.firebase.JSONstation.stations
+    console.log(this.stationList)
     this.firebase.getCandidateData().subscribe((doc) => {
       this.initCandidateDate(doc)
     })
@@ -130,7 +131,7 @@ initCandidateDate(obs){
 
   stationRouting(index,station){
     this.station.getSatationData(station)
-    this.router.navigate([this.rougingArrPages[index]]);
+    this.router.navigate([this.stationList[index].name_e]);
   }
 
   closeCandidate(){

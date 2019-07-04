@@ -14,9 +14,6 @@ const routes: Routes = [
   { path: 'forms', loadChildren: './forms/forms.module#FormsPageModule' },
   { path: 'open-systems', loadChildren: './open-systems/open-systems.module#OpenSystemsPageModule' },
   { path: 'popdata', loadChildren: './popover/popdata/popdata.module#PopdataPageModule' },
-
-
-
 ];
 
 

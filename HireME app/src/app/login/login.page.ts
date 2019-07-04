@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, AlertController,ModalController  } from '@ionic/angular';
+import { LoadingController, AlertController} from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 
@@ -11,18 +11,14 @@ import { FirebaseService } from '../firebase-service/firebase-service.service';
 })
 export class LoginPage implements OnInit {
 
-  
   public loading: any;
   public input = null
 
-  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService
-    ,public modalController: ModalController){}
+  constructor(private router: Router,public loadingCtrl: LoadingController, public alertController: AlertController,public firebase: FirebaseService){}
   
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
   
-  //loding icon
+  //loading icon
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({
       duration: 2000
@@ -30,17 +26,17 @@ export class LoginPage implements OnInit {
     return await this.loading.present();
   }
 
-  // //alert icon
+  //wrong password alert
   async presentAlert() {
     const alert = await this.alertController.create({
       header: ' סיסמה שגויה, אנא נסה שנית    ',
       mode: 'ios',
       buttons: ['הבנתי']
     });
-
-     alert.present();
+    alert.present();
   }
   
+  //empty input alert
   async presentEmptyFiledAlert() {
     const alert = await this.alertController.create({
       header: 'אנא מלא את השדות הנדרשים',
@@ -51,6 +47,7 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  //user authentication function
   submitLogin(){
     const numOfChars = 10;
     let loader = this.presentLoading().then(() => {

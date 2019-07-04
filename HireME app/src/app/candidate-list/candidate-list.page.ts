@@ -12,9 +12,7 @@ export class CandidateListPage implements OnInit {
 
   public department:any
   public allCandidates: any
-  //public testProcess = ["54","80","66","10"];
-  //public candidateProgress: any;
-
+ 
   constructor(private firebase: FirebaseService, public router: Router) { 
     
   }

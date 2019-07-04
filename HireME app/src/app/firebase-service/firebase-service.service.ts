@@ -1,7 +1,8 @@
 
+
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { EmailComposer  } from '@ionic-native/email-composer/ngx';
+
 
 @Injectable({ providedIn: 'root' })
 
@@ -13,15 +14,22 @@ export class FirebaseService {
   public department: any;      // the current department
   public firebaseCID: any;    // the current candidate id
   public firebaseCName: any; // the current candidate
+  public JSONstation : any;
   
-  constructor(private db: AngularFirestore,private email: EmailComposer) { }
-
-  //chinking the user
-  isUser(input){
-     return this.db.collection('Users',ref => ref.where('employeeNum','==', input.toString() )).get()
+  constructor(private db: AngularFirestore) { 
+    fetch('./assets/data/stations-json.json').then( res => 
+      res.json()).then(data => {
+        this.JSONstation = data
+        console.log(this.JSONstation.stations[0].name_e)
+      })
   }
 
- 
+  //user authentication
+  isUser(input){
+   
+    return this.db.collection('Users',ref => ref.where('num','==', input.toString() )).get()
+  }
+
   //return array of all the candidate name in the store
   getAllCandidate(){
     const STATION = 5
@@ -30,7 +38,7 @@ export class FirebaseService {
         snap.docs.forEach(doc => {
           allCandidateName.push({
             name: doc.data().name,
-            progres: this.calculateProgress(doc.data().progress,STATION)
+            progress: this.calculateProgress(doc.data().progress,STATION)
           })
       })
     })
@@ -57,7 +65,6 @@ export class FirebaseService {
     return this.db.collection(this.department).doc('Candidate').collection('Data',ref => ref.where("name","==",this.firebaseCName)).get()
   }
 
-  
   calculateProgress(progress,num){
     if(progress)
       return Math.round((progress / num ) * 100)
@@ -69,11 +76,10 @@ export class FirebaseService {
       },{ merge: true })
     }
   
-    setStationFile(station,filde,val){
-      //console.log('setStationFile',station ,filde,val)
+    setStationFile(station,field,val){
       let temp = this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString())
       temp.set({
-        [filde] : val,
+        [field] : val,
       }, { merge: true })
     }
 
@@ -84,6 +90,7 @@ export class FirebaseService {
 
     deletCandidate(alertData){
       let sationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
+     
       this.setDeleteDate(alertData) //save the resun for deleting this canadidt
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delet all candidate date
       for( let station of sationList)
@@ -102,14 +109,12 @@ export class FirebaseService {
     }
 
     setStationPrograss(station,num){
-      //console.log('setPrograss',station,num)
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).set({
         [station] : num
       }, { merge: true })
     }
 
     setCandidateProgress(num){
-      console.log('setCandidateProgress',num)
       let temp = this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString())
       temp.set({
         progress : num,

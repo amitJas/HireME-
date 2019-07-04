@@ -5,21 +5,20 @@
 </ion-header>
 
 <ion-content >
-    <ion-card text-right class="allCandidates" *ngFor="let candidate of allCandidates;"  (click) ="goToCandidate(candidate)"  >
-        <ion-card-header> 
-          <ion-row>
-            <ion-col>
-              <ion-card-title class="stationName">{{candidate.name}}
-                <ion-card-title float-left >{{candidate.progres}}%</ion-card-title>
-              </ion-card-title>
-            </ion-col>
-          </ion-row>
-        </ion-card-header>
-    </ion-card>
-
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click) ="goToNewCandidate()">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+  <ion-card text-right class="allCandidates" *ngFor="let candidate of allCandidates;"  (click) ="goToCandidate(candidate)"  >
+      <ion-card-header> 
+        <ion-row>
+          <ion-col>
+            <ion-card-title class="stationName">{{candidate.name}}
+              <ion-card-title float-left >{{candidate.progress}}%</ion-card-title>
+            </ion-card-title>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click) ="goToNewCandidate()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

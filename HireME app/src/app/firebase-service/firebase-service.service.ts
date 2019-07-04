@@ -89,8 +89,7 @@ export class FirebaseService {
     }
 
     deletCandidate(alertData){
-      let sationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","אישור משאבי אנוש","פתיחת מועמד במערכת"];
-     
+      let sationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","פתיחת מועמד במערכת"];
       this.setDeleteDate(alertData) //save the resun for deleting this canadidt
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delet all candidate date
       for( let station of sationList)

@@ -30,9 +30,4 @@ export class CandidateListPage implements OnInit {
   goToNewCandidate(){
     this.router.navigate(['new-candidate']);
   }
-
- 
- 
- 
-
 }

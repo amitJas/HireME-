@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  public departmentIndex: any;
+  //public departmentIndex: any;
   public departmentArr = ["אדמינסטרציה","קלינאות תקשורת","ריפוי בעיסוק","פיזוטרפיה","רפואה","פסיכולוגיה","עבודה סוציאלית"]
   public user_dep = null
   public admin = false
@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
     this.admin = this.firebase.admin 
     
   }
-
+  
  
   //
   moveToDepartmentCandidate(department){

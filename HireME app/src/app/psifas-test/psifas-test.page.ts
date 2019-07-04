@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PsifasTestPage implements OnInit {
 
-  public candidateName:string;
-  public interviewer:string;
+  //public candidateName:string;
+  //public interviewer:string;
   public test:any
   public grade: any;
   public userSetTest:string;

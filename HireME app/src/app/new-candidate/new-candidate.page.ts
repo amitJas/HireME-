@@ -11,7 +11,7 @@ import { AlertController, LoadingController  } from '@ionic/angular';
 export class NewCandidatePage implements OnInit {
 
   
-    public newC: object;
+    //public newC: object;
     public name: string
     public saturation: string
     public strtProcess: String;

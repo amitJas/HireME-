@@ -17,7 +17,7 @@ export class FirebaseService {
   constructor(private db: AngularFirestore,private email: EmailComposer) { }
 
   //chinking the user
-  isAuser(input){
+  isUser(input){
      return this.db.collection('Users',ref => ref.where('employeeNum','==', input.toString() )).get()
   }
 

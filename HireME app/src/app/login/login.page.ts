@@ -22,9 +22,6 @@ export class LoginPage implements OnInit {
     
   }
   
-  isANmber(number)
-  {return !/\D/.test(number);}
-
   //loding icon
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({
@@ -44,7 +41,7 @@ export class LoginPage implements OnInit {
      alert.present();
   }
   
-  async presentEmptyFildAlert() {
+  async presentEmptyFiledAlert() {
     const alert = await this.alertController.create({
       header: 'אנא מלא את השדות הנדרשים',
       mode: 'ios',
@@ -55,16 +52,17 @@ export class LoginPage implements OnInit {
   }
 
   submitLogin(){
+    const numOfChars = 10;
     let loader = this.presentLoading().then(() => {
-      if(!this.input ){
+      if(!this.input || this.input.length > numOfChars){
         this.loading.dismiss()
-        this.presentEmptyFildAlert()
+        this.presentEmptyFiledAlert()
       }else{
-        this.firebase.isAuser(this.input).subscribe((snap) =>{
+        this.firebase.isUser(this.input).subscribe((snap) =>{
           if(!snap.empty){
             snap.docs.forEach((doc) => {
               this.firebase.user = doc.data().name;
-              doc.data().admin ? this.firebase.admin = true : this.firebase.userDep = doc.data().department
+              doc.data().admin ? this.firebase.admin = doc.data().admin : this.firebase.userDep = doc.data().department
             })
             this.loading.dismiss()
             this.router.navigate(['home'])

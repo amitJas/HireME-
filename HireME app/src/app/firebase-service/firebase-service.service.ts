@@ -87,9 +87,9 @@ export class FirebaseService {
 
     deleteCandidate(alertData){
       this.setDeleteDate(alertData) //save the reason for deleting this candidate
-      this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delet all candidate date
+      this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delete all candidate date
       for( let station of this.JSONstation.stations)
-        this.db.collection(this.department).doc('Station').collection(station.name_h).doc(this.firebaseCID.toString()).delete() // delet all candidate stations date
+        this.db.collection(this.department).doc('Station').collection(station.name_h).doc(this.firebaseCID.toString()).delete() // delete all candidate stations date
     }
 
     setDeleteDate(data){
@@ -102,7 +102,7 @@ export class FirebaseService {
       })
     }
 
-    setStationPrograss(station,num){
+    setStationProgress(station,num){
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).set({
         [station] : num
       }, { merge: true })

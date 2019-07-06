@@ -42,9 +42,9 @@ initCandidateDate(obs){
     let countTemp = 0
     obs.docs.forEach(ref =>{
         this.currCandidate = ref.data() // all candidate date
-        this.firebase.firebaseCID = ref.data().id // set the candate id in firebaseServar 
+        this.firebase.firebaseCID = ref.data().id // set the candidate id in firebaseService
         this.tempDate = new Date(ref.data().startdate).toLocaleDateString('he-IL') //convert the start date from long to date string
-        this.station.candidate = ref.data() // inshlaized the candidate in the station service
+        this.station.candidate = ref.data() //to initialize the candidate in the station service
         this.candidateStationList.forEach( (sta,i) => { //all the station object
           if(ref.data()[this.candidateStationList[i].name]) // if we started this station calculate this progress else stay 0
             sta.progress = this.firebase.calculateProgress(ref.data()[this.candidateStationList[i].name],sta.stationNum)

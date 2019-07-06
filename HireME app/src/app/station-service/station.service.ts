@@ -1,4 +1,4 @@
-import { async } from '@angular/core/testing';
+
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
 import { NavController } from '@ionic/angular';
@@ -18,11 +18,9 @@ export class StationService {
     this.candidateName = this.firebase.firebaseCName
    }
 
-   getSatationData(stationName){
-  // console.log(stationName)
+   getStationData(stationName){
    this.currStationName = stationName
     let temp = this.firebase.getStation(stationName).subscribe((data) => {
-      //console.log(data.data())
       if(data)
         this.firebase.addStation(stationName)
         this.station = data.data()
@@ -30,10 +28,9 @@ export class StationService {
     return this.station
    }
 
-   setFile(fildeName,date){
+   setFile(fieldName,date){
      let obj = {data: date , how: this.firebase.user}
-     //console.log('obj' , obj)
-     this.firebase.setStationFile(this.currStationName,fildeName,obj)
+     this.firebase.setStationFile(this.currStationName,fieldName,obj)
    }
 
    navFunction(num){
@@ -66,8 +63,7 @@ export class StationService {
   }
 
   calculateStationProgress(num){
-    //console.log('calculateStationProgresst',this.currStationName,num)
-    this.firebase.setStationPrograss(this.currStationName,num)
+    this.firebase.setStationProgress(this.currStationName,num)
   }
   
 }

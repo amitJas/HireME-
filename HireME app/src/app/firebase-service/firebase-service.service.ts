@@ -25,7 +25,6 @@ export class FirebaseService {
 
   //user authentication
   isUser(input){
-   
     return this.db.collection('Users',ref => ref.where('num','==', input.toString() )).get()
   }
 
@@ -86,19 +85,18 @@ export class FirebaseService {
      return this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).get()
     }
 
-    deletCandidate(alertData){
-      let sationList = ["ראיון אישי","מבחן פסיפס","הצעת שכר","חובקן טפסים","פתיחת מועמד במערכת"];
-      this.setDeleteDate(alertData) //save the resun for deleting this canadidt
+    deleteCandidate(alertData){
+      this.setDeleteDate(alertData) //save the reason for deleting this candidate
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delet all candidate date
-      for( let station of sationList)
-        this.db.collection(this.department).doc('Station').collection(station).doc(this.firebaseCID.toString()).delete() // delet all candidate stations date
+      for( let station of this.JSONstation.stations)
+        this.db.collection(this.department).doc('Station').collection(station.name_h).doc(this.firebaseCID.toString()).delete() // delet all candidate stations date
     }
 
     setDeleteDate(data){
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,
-        hoWdelete: this.user,
+        howDelete: this.user,
         when:  new Date().getTime(),
         cause: data
       })

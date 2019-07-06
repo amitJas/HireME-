@@ -69,7 +69,7 @@ initCandidateDate(obs){
       message: 'סיים את תהליך הקבלה לעבודה <br/> כל המידע עליו ימחק לצמיתות מהאפליקציה'
     });
     await alert.present()
-    this.firebase.deletCandidate('סיום תהליך')
+    this.firebase.deleteCandidate('סיום תהליך')
     setTimeout(() => {
       alert.dismiss()
     }, 3000);
@@ -117,7 +117,7 @@ initCandidateDate(obs){
           role: 'save',
           cssClass: 'secondary',
           handler: (data) => {
-            this.firebase.deletCandidate(data.cause)
+            this.firebase.deleteCandidate(data.cause)
             this.router.navigate(['home']);
           }
         }
@@ -129,14 +129,8 @@ initCandidateDate(obs){
 
 
   stationRouting(index,station){
-    this.station.getSatationData(station)
+    this.station.getStationData(station)
     this.router.navigate([this.stationList[index].name_e]);
-  }
-
-  closeCandidate(){
-    let alert = this.presentAlertConfirm().then(() => {
-      // this.router.navigate(['home']);
-    })
   }
 
   async presentPopover(ev: Event) {

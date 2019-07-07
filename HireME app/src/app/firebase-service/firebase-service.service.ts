@@ -86,22 +86,32 @@ export class FirebaseService {
     }
 
     deleteCandidate(alertData){
-      this.setDeleteDate(alertData) //save the reason for deleting this candidate
+      //save the reason for deleting this candidate
+      alertData == 'סיום תהליך' ? this.setDeleteDate(alertData,true) : this.setDeleteDate(alertData,false)
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).delete() // delete all candidate date
       for( let station of this.JSONstation.stations)
         this.db.collection(this.department).doc('Station').collection(station.name_h).doc(this.firebaseCID.toString()).delete() // delete all candidate stations date
     }
 
-    setDeleteDate(data){
+    setDeleteDate(data,good){
       this.db.collection('סגורים').doc(this.firebaseCID.toString()).set({
         id: this.firebaseCID.toString(),
         name: this.firebaseCName,
+        department: this.department,
         howDelete: this.user,
         when:  new Date().getTime(),
-        cause: data
+        cause: data,
+        good: good
       })
     }
+    
+    getClosed(){
+      return this.db.collection('סגורים').get()
+    }
 
+    deleteClosed(id){
+      this.db.collection('סגורים').doc(id).delete()
+    }
     setStationProgress(station,num){
       this.db.collection(this.department).doc('Candidate').collection('Data').doc(this.firebaseCID.toString()).set({
         [station] : num

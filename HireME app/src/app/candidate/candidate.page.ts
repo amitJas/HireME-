@@ -25,11 +25,14 @@ export class CandidatePage implements OnInit {
   public tempDate;
   public finisStation = false
   public stationList = []
+  
+
   constructor(private firebase: FirebaseService,public home: HomePage, 
               public router:Router,public station:StationService,public loadingCtrl: LoadingController, 
               public alertController: AlertController,private pop:PopoverController ) { 
               
   }
+  
 
   ngOnInit() {
     this.stationList = this.firebase.JSONstation.stations
@@ -62,9 +65,10 @@ initCandidateDate(obs){
   
   }
 
+ 
   async finishAlert(){
     const alert = await this.alertController.create({
-      header: 'המועמד' + this.currCandidate.name,
+      header: ' המועמד' + this.currCandidate.name,
       mode: 'ios',
       message: 'סיים את תהליך הקבלה לעבודה <br/> כל המידע עליו ימחק לצמיתות מהאפליקציה'
     });

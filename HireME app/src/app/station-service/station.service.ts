@@ -16,6 +16,7 @@ export class StationService {
 
   constructor(public nav: NavController,private firebase: FirebaseService) {
     this.candidateName = this.firebase.firebaseCName
+    console.log(this.candidateName)
    }
 
    getStationData(stationName){

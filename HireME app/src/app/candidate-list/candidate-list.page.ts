@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../firebase-service/firebase-service.service';
-
+import { StationService } from './../station-service/station.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -13,7 +13,7 @@ export class CandidateListPage implements OnInit {
   public department:any
   public allCandidates: any
  
-  constructor(private firebase: FirebaseService, public router: Router) { 
+  constructor(private firebase: FirebaseService, public router: Router, public station: StationService) { 
     
   }
 
@@ -23,7 +23,7 @@ export class CandidateListPage implements OnInit {
   }
 
   goToCandidate(candidate){
-    this.firebase.firebaseCName = candidate.name;
+    this.firebase.firebaseCName = this.station.candidateName = candidate.name
     this.router.navigate(['candidate']);
   }
 

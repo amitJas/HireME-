@@ -42,7 +42,7 @@ export class NewCandidatePage implements OnInit {
     this.standard = num
   }
   
-  submitchange(){
+  addCandidate(){
     let candidate ={
       name: this.name,
       id: this.id,
@@ -53,7 +53,6 @@ export class NewCandidatePage implements OnInit {
       email: this.email,
       standard: this.standard,
       standardName: this.standardName,
-      saturation: this.saturation //job present
     }
     console.log(candidate)
     let loader = this.presentLoading().then(() => {

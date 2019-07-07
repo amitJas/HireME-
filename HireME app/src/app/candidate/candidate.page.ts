@@ -21,7 +21,7 @@ export class CandidatePage implements OnInit {
                                    {name:"חובקן טפסים",progress: 0,stationNum: 17, finish: false},
                                    {name:"פתיחת מועמד במערכת",progress: 0,stationNum: 14,finish: false}
                                   ];
-  public currCandidate: any;
+  public currCandidate = null;
   public tempDate;
   public finisStation = false
   public stationList = []
@@ -126,7 +126,6 @@ initCandidateDate(obs){
 
     await alert.present();
   }
-
 
   stationRouting(index,station){
     this.station.getStationData(station)
